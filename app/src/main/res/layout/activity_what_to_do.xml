@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.unlpam.vet.ponzonosos.WhatToDoActivity"
+    android:orientation="vertical">
+
+    <include layout="@layout/app_bar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingStart="15dp"
+            android:paddingRight="15dp"
+            android:paddingEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="¿Qué hacer frente a un accidente?"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_marginTop="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Medidas generales"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/medidas_generales_texto_1"
+                    android:drawableLeft="@drawable/ic_check_item_list_green"
+                    android:drawableStart="@drawable/ic_check_item_list_green" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/medidas_generales_texto_2"
+                    android:drawableLeft="@drawable/ic_check_item_list_green"
+                    android:drawableStart="@drawable/ic_check_item_list_green"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/medidas_generales_texto_3"
+                    android:drawableLeft="@drawable/ic_check_item_list_green"
+                    android:drawableStart="@drawable/ic_check_item_list_green"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/medidas_generales_texto_4"
+                    android:drawableLeft="@drawable/ic_check_item_list_green"
+                    android:drawableStart="@drawable/ic_check_item_list_green"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/medidas_generales_texto_5"
+                    android:drawableLeft="@drawable/ic_check_item_list_green"
+                    android:drawableStart="@drawable/ic_check_item_list_green"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/medidas_generales_texto_6"
+                    android:drawableLeft="@drawable/ic_check_item_list_green"
+                    android:drawableStart="@drawable/ic_check_item_list_green"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/medidas_generales_texto_7"
+                    android:drawableLeft="@drawable/ic_check_item_list_green"
+                    android:drawableStart="@drawable/ic_check_item_list_green"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/medidas_generales_texto_8"
+                    android:drawableLeft="@drawable/ic_check_item_list_green"
+                    android:drawableStart="@drawable/ic_check_item_list_green"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/medidas_generales_texto_9"
+                    android:drawableLeft="@drawable/ic_check_item_list_green"
+                    android:drawableStart="@drawable/ic_check_item_list_green"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/medidas_generales_texto_10"
+                    android:drawableLeft="@drawable/ic_check_item_list_green"
+                    android:drawableStart="@drawable/ic_check_item_list_green"/>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_marginTop="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="¿Qué NO debemos hacer?"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/que_no_debemos_hacer_texto_1"
+                    android:drawableLeft="@drawable/ic_not_check_item_list_green"
+                    android:drawableStart="@drawable/ic_not_check_item_list_green"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/que_no_debemos_hacer_texto_2"
+                    android:drawableLeft="@drawable/ic_not_check_item_list_green"
+                    android:drawableStart="@drawable/ic_not_check_item_list_green"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/que_no_debemos_hacer_texto_3"
+                    android:drawableLeft="@drawable/ic_not_check_item_list_green"
+                    android:drawableStart="@drawable/ic_not_check_item_list_green"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/que_no_debemos_hacer_texto_4"
+                    android:drawableLeft="@drawable/ic_not_check_item_list_green"
+                    android:drawableStart="@drawable/ic_not_check_item_list_green"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/que_no_debemos_hacer_texto_5"
+                    android:drawableLeft="@drawable/ic_not_check_item_list_green"
+                    android:drawableStart="@drawable/ic_not_check_item_list_green"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginTop="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="¿Dónde se encuentran los sueros antiponzoñosos en La Pampa?"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sueros_texto_1"
+                    android:drawableLeft="@drawable/ic_check_item_list_green"
+                    android:drawableStart="@drawable/ic_check_item_list_green"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sueros_texto_2"
+                    android:drawableLeft="@drawable/ic_check_item_list_green"
+                    android:drawableStart="@drawable/ic_check_item_list_green"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sueros_texto_3"
+                    android:drawableLeft="@drawable/ic_check_item_list_green"
+                    android:drawableStart="@drawable/ic_check_item_list_green" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sueros_texto_4"
+                    android:drawableLeft="@drawable/ic_check_item_list_green"
+                    android:drawableStart="@drawable/ic_check_item_list_green"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sueros_texto_5"
+                    android:drawableLeft="@drawable/ic_check_item_list_green"
+                    android:drawableStart="@drawable/ic_check_item_list_green"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sueros_texto_6"
+                    android:drawableLeft="@drawable/ic_check_item_list_green"
+                    android:drawableStart="@drawable/ic_check_item_list_green"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sueros_texto_7"
+                    android:drawableLeft="@drawable/ic_check_item_list_green"
+                    android:drawableStart="@drawable/ic_check_item_list_green"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sueros_texto_8"
+                    android:drawableLeft="@drawable/ic_check_item_list_green"
+                    android:drawableStart="@drawable/ic_check_item_list_green"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sueros_texto_9"
+                    android:drawableLeft="@drawable/ic_check_item_list_green"
+                    android:drawableStart="@drawable/ic_check_item_list_green"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sueros_texto_10"
+                    android:drawableLeft="@drawable/ic_check_item_list_green"
+                    android:drawableStart="@drawable/ic_check_item_list_green"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sueros_texto_11"
+                    android:drawableLeft="@drawable/ic_check_item_list_green"
+                    android:drawableStart="@drawable/ic_check_item_list_green"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</LinearLayout>

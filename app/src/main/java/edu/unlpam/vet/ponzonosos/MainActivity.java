@@ -1,0 +1,220 @@
+package edu.unlpam.vet.ponzonosos;
+
+import android.annotation.SuppressLint;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.rodrimartin.ponzonosos.R;
+
+import edu.unlpam.vet.ponzonosos.model.Animal;
+import edu.unlpam.vet.ponzonosos.model.DaoMaster;
+import edu.unlpam.vet.ponzonosos.model.DaoSession;
+import edu.unlpam.vet.ponzonosos.model.Imagen;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "RMD-MainActivity";
+    private static final String IP = "170.210.45.164:8080";
+    public static final String DIR_IMAGES = "http://"+MainActivity.IP+"/images/";
+    private static MainActivity instance;
+    private DaoSession mDaoSession;
+    private List<String> toImport;
+    private SharedPreferences mPrefs;
+    private Dialog dialog;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Log.d("rmdebug", "MainActivity - onCreate");
+        setContentView(R.layout.activity_main);
+        showActionDialog("Iniciando");
+        toImport = new ArrayList<>();
+        instance = this;
+        mDaoSession = new DaoMaster(
+                new DaoMaster.DevOpenHelper(this, "ponzonosos.db")
+                        .getWritableDb()).newSession();
+        //if(shouldUpdate()){
+        if(shouldUpdate()){
+            Log.d(TAG, "onCreate: I should update data base");
+            updateDataBase();
+        }else {
+            startAplication();
+        }
+    }
+
+    private void showActionDialog(String action) {
+        @SuppressLint("InflateParams")
+        View view = getLayoutInflater().inflate(R.layout.dialog_action, null);
+        dialog = new Dialog(this,
+                android.R.style.Theme_NoTitleBar_Fullscreen);
+        TextView actionName = view.findViewById(R.id.action_name);
+        actionName.setText(action);
+        dialog.setContentView(view);
+        dialog.show();
+    }
+
+    private void removeActionDialog(){
+        if (dialog != null){
+            dialog.dismiss();
+        }
+    }
+
+    private void startAplication() {
+        Intent mIntent = new Intent(this, MostrarCatalogo.class);
+        startActivity(mIntent);
+        finish();
+        removeActionDialog();
+    }
+
+    private boolean shouldUpdate() {
+        boolean shouldUpdate = false;
+        mPrefs = getSharedPreferences("mPreferences", Context.MODE_PRIVATE);
+        long lastUpdate = mPrefs.getLong("lastUpdate",0);
+        if (lastUpdate == 0){
+            shouldUpdate = true;
+        }else {
+            Calendar rightNow = Calendar.getInstance();
+            Long daysInMilli = 1000L * 60L * 60L * 24L;
+            Long difference = rightNow.getTimeInMillis() - lastUpdate;
+            long elapsedDays = difference / daysInMilli;
+            if (elapsedDays >= 1){
+                shouldUpdate = true;
+            }
+        }
+        return shouldUpdate;
+    }
+
+    private void updateDataBase() {
+        Log.d(TAG, "updateDataBase: Updating data ...");
+        updatePreference();
+        importData();
+    }
+
+    private void updatePreference() {
+        Log.d("rmdebug", "MainActivity - updatePreference");
+        Calendar rightNow = Calendar.getInstance();
+        SharedPreferences.Editor editor = mPrefs.edit();
+        editor.putLong("lastUpdate", rightNow.getTimeInMillis());
+        editor.apply();
+    }
+
+    private void importData() {
+        toImport = new ArrayList<>();
+        toImport.add("animal");
+        toImport.add("imagen");
+        importEntities();
+    }
+
+    private void importEntities() {
+        if (!toImport.isEmpty()){
+            String imp = toImport.get(0);
+            toImport.remove(0);
+            switch (imp){
+                case "animal":
+                    importAnimal();
+                    break;
+                case "imagen":
+                    importImagen();
+                    break;
+                    default:
+                        importEntities();
+                        break;
+            }
+        }else {
+            startAplication();
+        }
+    }
+
+    private void importAnimal() {
+        Log.d(TAG, "importAnimal: Importing animals...");
+        String url = "http://"+MainActivity.IP+"/app/obtener_animales.php";
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
+                url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            if (response.getString("state").equals("1")) {
+                                JSONArray responseJSONArray = response.getJSONArray("animals");
+                                Animal animal = new Animal();
+                                animal.abmAnimales(responseJSONArray);
+                            }else {
+                                Log.e(TAG, "onResponse: Error on response, state: " +
+                                        response.getString("state"));
+                            }
+                        } catch (JSONException e) {
+                            Log.e(TAG, "onResponse: Something went wrong!", e);
+                        }
+                        importEntities();
+                    }
+                },
+                new Response.ErrorListener(){
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d(TAG, "onErrorResponse: Error on response: " + error.toString());
+                        importEntities();
+                    }
+                });
+        MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
+    }
+
+    private void importImagen() {
+        Log.d(TAG, "importImagen: Importing images ...");
+        String url = "http://"+MainActivity.IP+"/app/obtener_imagenes.php";
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
+                url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            if (response.getString("state").equals("1")) {
+                                JSONArray responseJSONArray = response.getJSONArray("images");
+                                Imagen img = new Imagen();
+                                img.abmImagenes(responseJSONArray, getApplicationContext());
+                            }else{
+                                Log.e(TAG, "onResponse: Error on response, state: " +
+                                        response.getString("state"));
+                            }
+                        } catch (JSONException e) {
+                            Log.e(TAG, "onResponse: Something went wrong!", e);
+                        }
+                        importEntities();
+                    }
+                },
+                new Response.ErrorListener(){
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d(TAG, "onErrorResponse: Error on response: " + error.toString());
+                        importEntities();
+                    }
+                });
+        MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
+    }
+
+    public static MainActivity getInstance(){
+        return instance;
+    }
+
+    public DaoSession getDaoSession() {
+        return mDaoSession;
+    }
+}

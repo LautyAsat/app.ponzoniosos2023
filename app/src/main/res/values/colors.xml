@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#41701B</color>
+    <color name="colorPrimaryDark">#41701B</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="cardViewRojo">#a40e0b</color>
+    <color name="cardViewVerde">#FF348E1B</color>
+    <color name="cardViewAmarillo">#d1d121</color>
+    <color name="white">#FFFFFF</color>
+    <color name="web_link">#1F3EF1</color>
+    <color name="green_light">#99B87A</color>
+</resources>
