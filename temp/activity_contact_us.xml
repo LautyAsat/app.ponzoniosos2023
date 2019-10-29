@@ -27,146 +27,101 @@
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="¿Qué hacer frente a un accidente?"
+                android:text="Contacto para identificación de ejemplares"
                 android:textStyle="bold"
+                android:textSize="20sp"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_marginTop="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Facultad de Ciencias Veterinarias"
+                android:textStyle="bold"
+                android:gravity="center"
                 android:textSize="16sp"/>
 
             <TextView
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Medidas generales"
-                android:textStyle="bold"/>
-
-            <LinearLayout
-                android:layout_marginTop="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/medidas_generales_texto_1"
-                    android:drawableLeft="@drawable/ic_check_item_list_green"
-                    android:drawableStart="@drawable/ic_check_item_list_green" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/medidas_generales_texto_2"
-                    android:drawableLeft="@drawable/ic_check_item_list_green"
-                    android:drawableStart="@drawable/ic_check_item_list_green"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/medidas_generales_texto_3"
-                    android:drawableLeft="@drawable/ic_check_item_list_green"
-                    android:drawableStart="@drawable/ic_check_item_list_green"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/medidas_generales_texto_4"
-                    android:drawableLeft="@drawable/ic_check_item_list_green"
-                    android:drawableStart="@drawable/ic_check_item_list_green"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/medidas_generales_texto_5"
-                    android:drawableLeft="@drawable/ic_check_item_list_green"
-                    android:drawableStart="@drawable/ic_check_item_list_green"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/medidas_generales_texto_6"
-                    android:drawableLeft="@drawable/ic_check_item_list_green"
-                    android:drawableStart="@drawable/ic_check_item_list_green"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/medidas_generales_texto_7"
-                    android:drawableLeft="@drawable/ic_check_item_list_green"
-                    android:drawableStart="@drawable/ic_check_item_list_green"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/medidas_generales_texto_8"
-                    android:drawableLeft="@drawable/ic_check_item_list_green"
-                    android:drawableStart="@drawable/ic_check_item_list_green"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/medidas_generales_texto_9"
-                    android:drawableLeft="@drawable/ic_check_item_list_green"
-                    android:drawableStart="@drawable/ic_check_item_list_green"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/medidas_generales_texto_10"
-                    android:drawableLeft="@drawable/ic_check_item_list_green"
-                    android:drawableStart="@drawable/ic_check_item_list_green"/>
-
-            </LinearLayout>
-
+                android:text="Universidad Nacional de La Pampa"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="16sp"/>
 
             <TextView
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="¿Qué NO debemos hacer?"
-                android:textStyle="bold"/>
+                android:text="Calle 5 esq. 116, General Pico, La Pampa"
+                android:gravity="center"
+                android:textSize="14sp"/>
 
             <LinearLayout
                 android:layout_marginTop="15dp"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_gravity="center">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/que_no_debemos_hacer_texto_1"
-                    android:drawableLeft="@drawable/ic_not_check_item_list_green"
-                    android:drawableStart="@drawable/ic_not_check_item_list_green"/>
+                    android:text="(02302) 42 1607 int 6201"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/icons8_phone_16"
+                    android:drawableLeft="@drawable/icons8_phone_16" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/que_no_debemos_hacer_texto_2"
-                    android:drawableLeft="@drawable/ic_not_check_item_list_green"
-                    android:drawableStart="@drawable/ic_not_check_item_list_green"/>
+                    android:text="mariabruni@live.com.ar"
+                    android:drawablePadding="10dp"
+                    android:drawableLeft="@drawable/icons8_envelope_16"
+                    android:drawableStart="@drawable/icons8_envelope_16"/>
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/que_no_debemos_hacer_texto_3"
-                    android:drawableLeft="@drawable/ic_not_check_item_list_green"
-                    android:drawableStart="@drawable/ic_not_check_item_list_green"/>
+                    android:text="WHATSAPP 2302 467189"
+                    android:drawablePadding="10dp"
+                    android:drawableLeft="@drawable/icons8_whatsapp_16"
+                    android:drawableStart="@drawable/icons8_whatsapp_16"/>
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/que_no_debemos_hacer_texto_4"
-                    android:drawableLeft="@drawable/ic_not_check_item_list_green"
-                    android:drawableStart="@drawable/ic_not_check_item_list_green"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/que_no_debemos_hacer_texto_5"
-                    android:drawableLeft="@drawable/ic_not_check_item_list_green"
-                    android:drawableStart="@drawable/ic_not_check_item_list_green"
-                    android:layout_marginBottom="15dp"/>
+                    android:text="ponzonosos.lp"
+                    android:drawablePadding="10dp"
+                    android:drawableLeft="@drawable/icons8_instagram_16"
+                    android:drawableStart="@drawable/icons8_instagram_16"/>
 
             </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:baselineAligned="false">
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/datos_asistencia"
+                    android:textSize="13sp"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
             <TextView
                 android:layout_marginTop="25dp"
                 android:layout_width="match_parent"

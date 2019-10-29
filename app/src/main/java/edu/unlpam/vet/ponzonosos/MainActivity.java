@@ -15,7 +15,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.example.rodrimartin.ponzonosos.R;
+import edu.unlpam.vet.ponzonosos.R;
 
 import edu.unlpam.vet.ponzonosos.model.Animal;
 import edu.unlpam.vet.ponzonosos.model.DaoMaster;
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             Long daysInMilli = 1000L * 60L * 60L * 24L;
             Long difference = rightNow.getTimeInMillis() - lastUpdate;
             long elapsedDays = difference / daysInMilli;
-            if (elapsedDays >= 1){
+            if (elapsedDays >= 0){
                 shouldUpdate = true;
             }
         }

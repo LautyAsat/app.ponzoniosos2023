@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.rodrimartin.ponzonosos.R;
+import edu.unlpam.vet.ponzonosos.R;
 
 public class AboutActivity extends AppCompatActivity {
 

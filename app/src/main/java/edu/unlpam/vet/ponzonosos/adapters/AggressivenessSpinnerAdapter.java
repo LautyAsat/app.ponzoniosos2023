@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.rodrimartin.ponzonosos.R;
+import edu.unlpam.vet.ponzonosos.R;
 import edu.unlpam.vet.ponzonosos.model.Agresividad;
 
 import java.util.List;

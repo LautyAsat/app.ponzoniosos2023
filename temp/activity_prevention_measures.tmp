@@ -119,6 +119,22 @@
                 android:layout_marginTop="20dp"
                 android:baselineAligned="false">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/datos_facultad"
+                    android:textSize="13sp"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/datos_asistencia"
+                    android:textSize="13sp"
+                    android:gravity="center"/>
+
             </LinearLayout>
 
         </LinearLayout>

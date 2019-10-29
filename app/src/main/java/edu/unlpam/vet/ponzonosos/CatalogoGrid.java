@@ -16,7 +16,7 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.Spinner;
 
-import com.example.rodrimartin.ponzonosos.R;
+import edu.unlpam.vet.ponzonosos.R;
 
 import edu.unlpam.vet.ponzonosos.adapters.AdaptadorGrid;
 import edu.unlpam.vet.ponzonosos.adapters.AggressivenessSpinnerAdapter;

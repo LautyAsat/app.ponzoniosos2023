@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.rodrimartin.ponzonosos.R;
+import edu.unlpam.vet.ponzonosos.R;
 
 import edu.unlpam.vet.ponzonosos.model.Imagen;
 import edu.unlpam.vet.ponzonosos.model.Animal;

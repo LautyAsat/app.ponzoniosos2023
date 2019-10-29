@@ -15,7 +15,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.rodrimartin.ponzonosos.R;
+import edu.unlpam.vet.ponzonosos.R;
 
 import edu.unlpam.vet.ponzonosos.model.Imagen;
 import edu.unlpam.vet.ponzonosos.model.ImagenDao;
@@ -158,6 +158,10 @@ public class MostrarCatalogo extends AppCompatActivity implements View.OnClickLi
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.about){
             goAboutActivity();
+        }
+        if (item.getItemId() == R.id.contact){
+            Intent intent = new Intent(this, ContactUsActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import edu.unlpam.vet.ponzonosos.model.Animal;
 import edu.unlpam.vet.ponzonosos.InfoAnimal;
-import com.example.rodrimartin.ponzonosos.R;
+import edu.unlpam.vet.ponzonosos.R;
 import edu.unlpam.vet.ponzonosos.model.Imagen;
 import java.util.List;
 

@@ -2,17 +2,14 @@ package edu.unlpam.vet.ponzonosos;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 
 import edu.unlpam.vet.ponzonosos.R;
 
-public class WhatToDoActivity extends AppCompatActivity {
+public class ContactUsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_what_to_do);
-        Toolbar myToolbar = findViewById(R.id.app_bar);
-        setSupportActionBar(myToolbar);
+        setContentView(R.layout.activity_contact_us);
     }
 }

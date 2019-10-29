@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.unlpam.vet.ponzonosos.WhatToDoActivity"
+    android:orientation="vertical">
+
+    <include layout="@layout/app_bar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingStart="15dp"
+            android:paddingRight="15dp"
+            android:paddingEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contacto para identificación de ejemplares"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_marginTop="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Facultad de Ciencias Veterinarias"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Universidad Nacional de La Pampa"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Calle 5 esq. 116, General Pico, La Pampa"
+                android:gravity="center"
+                android:textSize="14sp"/>
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(02302) 42 1607 int 6201"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/icons8_phone_16"
+                    android:drawableLeft="@drawable/icons8_phone_16" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="mariabruni@live.com.ar"
+                    android:drawablePadding="10dp"
+                    android:drawableLeft="@drawable/icons8_envelope_16"
+                    android:drawableStart="@drawable/icons8_envelope_16"/>
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WHATSAPP 2302 467189"
+                    android:drawablePadding="10dp"
+                    android:drawableLeft="@drawable/icons8_whatsapp_16"
+                    android:drawableStart="@drawable/icons8_whatsapp_16"/>
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ponzonosos.lp"
+                    android:drawablePadding="10dp"
+                    android:drawableLeft="@drawable/icons8_instagram_16"
+                    android:drawableStart="@drawable/icons8_instagram_16"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="321dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginRight="30dp"
+                android:baselineAligned="false"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:text="@string/datos_asistencia"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</LinearLayout>

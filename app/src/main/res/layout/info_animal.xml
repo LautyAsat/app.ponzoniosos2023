@@ -45,7 +45,7 @@
         android:layout_height="33dp"
         android:gravity="center_vertical"
         android:paddingLeft="15dp"
-        android:text="Nombre"
+        android:text="Nombre Común"
         android:textStyle="bold" />
 
     <TextView

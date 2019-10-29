@@ -5,4 +5,9 @@
         android:id="@+id/about"
         app:showAsAction="never"
         android:title="Sobre la app"/>
+
+    <item
+        android:id="@+id/contact"
+        app:showAsAction="never"
+        android:title="Contacto"/>
 </menu>
