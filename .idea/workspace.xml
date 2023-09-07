@@ -1,0 +1,1257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
+  <component name="AvailableLibraryUpdateStorage">
+    <library-updates>
+      <library-update>
+        <group-id>com.android.support</group-id>
+        <name>recyclerview-v7</name>
+        <version>28.0.0</version>
+        <repository>Google</repository>
+      </library-update>
+      <library-update>
+        <group-id>com.github.bumptech.glide</group-id>
+        <name>volley-integration</name>
+        <version>4.9.0</version>
+        <repository>JCenter</repository>
+      </library-update>
+      <library-update>
+        <group-id>com.android.support</group-id>
+        <name>appcompat-v7</name>
+        <version>28.0.0</version>
+        <repository>Google</repository>
+      </library-update>
+      <library-update>
+        <group-id>com.android.support</group-id>
+        <name>cardview-v7</name>
+        <version>28.0.0</version>
+        <repository>Google</repository>
+      </library-update>
+      <library-update>
+        <group-id>com.squareup.picasso</group-id>
+        <name>picasso</name>
+        <version>2.71828</version>
+        <repository>JCenter</repository>
+      </library-update>
+      <library-update>
+        <group-id>com.github.bumptech.glide</group-id>
+        <name>glide</name>
+        <version>4.9.0</version>
+        <repository>JCenter</repository>
+      </library-update>
+      <library-update>
+        <group-id>com.android.support.constraint</group-id>
+        <name>constraint-layout</name>
+        <version>2.0.0-beta2</version>
+        <repository>Google</repository>
+      </library-update>
+      <library-update>
+        <group-id>junit</group-id>
+        <name>junit</name>
+        <version>4.13-beta-3</version>
+        <repository>JCenter</repository>
+      </library-update>
+      <library-update>
+        <group-id>com.android.support.test</group-id>
+        <name>runner</name>
+        <version>1.0.2</version>
+        <repository>Google</repository>
+      </library-update>
+      <library-update>
+        <group-id>com.android.support.test.espresso</group-id>
+        <name>espresso-core</name>
+        <version>3.0.2</version>
+        <repository>Google</repository>
+      </library-update>
+    </library-updates>
+    <last-search-timestamp>1565301737242</last-search-timestamp>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b914aac6-2a50-4daa-b042-543c7bd60fc3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileChanges/last-build.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileContent/fileContent.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/5.1.1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Aplicacion.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Ponzonosos.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app.ponzoniosos.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keyponzo/key0.jks" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ponzoniosos.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/release/release/app.aab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+    </list>
+    <ignored path=".gradle/5.1.1/executionHistory/executionHistory.bin" />
+    <ignored path=".gradle/5.1.1/executionHistory/executionHistory.lock" />
+    <ignored path=".gradle/5.1.1/fileChanges/last-build.bin" />
+    <ignored path=".gradle/5.1.1/fileContent/fileContent.lock" />
+    <ignored path=".gradle/5.1.1/fileHashes/fileHashes.bin" />
+    <ignored path=".gradle/5.1.1/fileHashes/fileHashes.lock" />
+    <ignored path=".gradle/5.1.1/fileHashes/resourceHashesCache.bin" />
+    <ignored path=".gradle/5.1.1/javaCompile/classAnalysis.bin" />
+    <ignored path=".gradle/5.1.1/javaCompile/javaCompile.lock" />
+    <ignored path=".gradle/5.1.1/javaCompile/taskHistory.bin" />
+    <ignored path=".gradle/5.1.1/gc.properties" />
+    <ignored path=".gradle/buildOutputCleanup/buildOutputCleanup.lock" />
+    <ignored path=".gradle/buildOutputCleanup/cache.properties" />
+    <ignored path=".gradle/buildOutputCleanup/outputFiles.bin" />
+    <ignored path=".gradle/vcs-1/gc.properties" />
+    <ignored path=".idea/caches/build_file_checksums.ser" />
+    <ignored path=".idea/caches/gradle_models.ser" />
+    <ignored path=".idea/codeStyles/Project.xml" />
+    <ignored path=".idea/libraries/Gradle__android_arch_core_common_1_1_1_jar.xml" />
+    <ignored path=".idea/libraries/Gradle__android_arch_core_runtime_1_1_1_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__android_arch_lifecycle_common_1_1_1_jar.xml" />
+    <ignored path=".idea/libraries/Gradle__android_arch_lifecycle_livedata_1_1_1_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__android_arch_lifecycle_livedata_core_1_1_1_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__android_arch_lifecycle_runtime_1_1_1_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__android_arch_lifecycle_viewmodel_1_1_1_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_animated_vector_drawable_28_0_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_appcompat_v7_28_0_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_asynclayoutinflater_28_0_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_cardview_v7_28_0_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_collections_28_0_0_jar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_constraint_constraint_layout_1_1_3_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_constraint_constraint_layout_solver_1_1_3_jar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_coordinatorlayout_28_0_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_cursoradapter_28_0_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_customview_28_0_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_documentfile_28_0_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_drawerlayout_28_0_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_exifinterface_27_1_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_interpolator_28_0_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_loader_28_0_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_localbroadcastmanager_28_0_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_print_28_0_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_recyclerview_v7_28_0_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_slidingpanelayout_28_0_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_support_annotations_28_0_0_jar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_support_compat_28_0_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_support_core_ui_28_0_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_support_core_utils_28_0_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_support_fragment_28_0_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_support_vector_drawable_28_0_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_swiperefreshlayout_28_0_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_test_espresso_espresso_core_3_0_2_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_test_espresso_espresso_idling_resource_3_0_2_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_test_monitor_1_0_2_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_test_runner_1_0_2_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_versionedparcelable_28_0_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_support_viewpager_28_0_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_android_volley_volley_1_1_1_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_github_bumptech_glide_annotations_4_8_0_jar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_github_bumptech_glide_disklrucache_4_8_0_jar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_github_bumptech_glide_gifdecoder_4_8_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_github_bumptech_glide_glide_4_8_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_github_bumptech_glide_volley_integration_4_8_0_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_google_code_findbugs_jsr305_2_0_1_jar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_squareup_javawriter_2_1_1_jar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_squareup_okhttp3_okhttp_3_10_0_jar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_squareup_okio_okio_1_14_0_jar.xml" />
+    <ignored path=".idea/libraries/Gradle__com_squareup_picasso_picasso_2_71828_aar.xml" />
+    <ignored path=".idea/libraries/Gradle__javax_inject_javax_inject_1_jar.xml" />
+    <ignored path=".idea/libraries/Gradle__junit_junit_4_12_jar.xml" />
+    <ignored path=".idea/libraries/Gradle__net_sf_kxml_kxml2_2_3_0_jar.xml" />
+    <ignored path=".idea/libraries/Gradle__org_greenrobot_greendao_3_2_2_jar.xml" />
+    <ignored path=".idea/libraries/Gradle__org_greenrobot_greendao_api_3_2_2_jar.xml" />
+    <ignored path=".idea/libraries/Gradle__org_hamcrest_hamcrest_core_1_3_jar.xml" />
+    <ignored path=".idea/libraries/Gradle__org_hamcrest_hamcrest_integration_1_3_jar.xml" />
+    <ignored path=".idea/libraries/Gradle__org_hamcrest_hamcrest_library_1_3_jar.xml" />
+    <ignored path=".idea/assetWizardSettings.xml" />
+    <ignored path=".idea/encodings.xml" />
+    <ignored path=".idea/gradle.xml" />
+    <ignored path=".idea/misc.xml" />
+    <ignored path=".idea/modules.xml" />
+    <ignored path=".idea/runConfigurations.xml" />
+    <ignored path=".idea/vcs.xml" />
+    <ignored path="build/intermediates/lint-cache/maven.google/com/android/support/constraint/group-index.xml" />
+    <ignored path="build/intermediates/lint-cache/maven.google/com/android/support/test/espresso/group-index.xml" />
+    <ignored path="build/intermediates/lint-cache/maven.google/com/android/support/test/group-index.xml" />
+    <ignored path="build/intermediates/lint-cache/maven.google/com/android/support/group-index.xml" />
+    <ignored path="build/intermediates/lint-cache/maven.google/master-index.xml" />
+    <ignored path="build/intermediates/lint-cache/sdk-registry.xml/sdk-registry.xml" />
+    <ignored path="gradle/wrapper/gradle-wrapper.jar" />
+    <ignored path="gradle/wrapper/gradle-wrapper.properties" />
+    <ignored path="keyponzo/key0.jks" />
+    <ignored path="release/release/app.aab" />
+    <ignored path="Aplicacion.iml" />
+    <ignored path="app.ponzoniosos.iml" />
+    <ignored path="build.gradle" />
+    <ignored path="gradle.properties" />
+    <ignored path="gradlew" />
+    <ignored path="gradlew.bat" />
+    <ignored path="local.properties" />
+    <ignored path="ponzo.iml" />
+    <ignored path="ponzoniosos.iml" />
+    <ignored path="Ponzonosos.iml" />
+    <ignored path="settings.gradle" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_2_API_Android_9" />
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ponzonoso" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="resourceFile" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>checkImagesToDownload</find>
+      <find>tag</find>
+      <find>ic_</find>
+    </findStrings>
+  </component>
+  <component name="GenerateSignedApkSettings">
+    <option name="EXPORT_PRIVATE_KEY" value="false" />
+    <option name="KEY_STORE_PATH" value="C:\Users\Juancho\AndroidStudioProjects\ponzonoso\keyponzo\key1.jks" />
+    <option name="KEY_ALIAS" value="key1" />
+    <option name="REMEMBER_PASSWORDS" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="CREATE_PULL_REQUEST_DEFAULT_BRANCH" value="master" />
+    <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_USER" value="hjuanca" />
+    <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_NAME" value="ponzonioso2023" />
+  </component>
+  <component name="GroovyConsoleState">
+    <option name="list">
+      <list>
+        <Entry>
+          <option name="url" value="file://$APPLICATION_CONFIG_DIR$/consoles/groovy/groovy_console.groovy" />
+          <option name="moduleName" value="" />
+          <option name="title" value="AppFiles (Bundled Groovy 2.4.15)" />
+        </Entry>
+      </list>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/rodrimartin/ponzonosos/model/AnimalDao.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/rodrimartin/ponzonosos/model/Animal.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/rodrimartin/ponzonosos/CatalogoGrid.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/rodrimartin/ponzonosos/util/LoadImage.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/rodrimartin/ponzonosos/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/catalogogridactivity.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/rodrimartin/ponzonosos/Galeria.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/rodrimartin/ponzonosos/AboutActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout-v21/app_bar.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/app_bar.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/rodrimartin/ponzonosos/WhatToDoActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/rodrimartin/ponzonosos/PreventionMeasuresActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_background.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/menu_catalogo.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/rodrimartin/ponzonosos/MostrarCatalogo.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/rodrimartin/ponzonosos/model/Agresividad.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/rodrimartin/ponzonosos/adapters/AggressivenessSpinnerAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_contact_us.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_show_catalog.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_prevention_measures.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_what_to_do.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/xml/network_security_config.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/AboutActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/adapters/AdaptadorGrid.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/adapters/AggressivenessSpinnerAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/CatalogoGrid.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/Galeria.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/MostrarCatalogo.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/PreventionMeasuresActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/SpacePhotoActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/WhatToDoActivity.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/ContactUsActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_about.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/info_animal_confusion.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/info_animal.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/model/Animal.java" />
+        <option value="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/edu/unlpam/vet/ponzonosos/BuildConfig.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/info_animal_descripcion.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/InfoAnimal.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="240" />
+    <option name="y" value="130" />
+    <option name="width" value="1440" />
+    <option name="height" value="780" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ponzonoso" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="ponzonoso" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
+              <item name="edu" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="ponzonoso" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
+              <item name="edu" type="1f31426a:PackageElementNode" />
+              <item name="unlpam" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="ponzonoso" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
+              <item name="edu" type="1f31426a:PackageElementNode" />
+              <item name="unlpam" type="1f31426a:PackageElementNode" />
+              <item name="vet" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="ponzonoso" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
+              <item name="edu" type="1f31426a:PackageElementNode" />
+              <item name="unlpam" type="1f31426a:PackageElementNode" />
+              <item name="vet" type="1f31426a:PackageElementNode" />
+              <item name="ponzonosos" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="ponzonoso" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
+              <item name="layout" type="1f31426a:PackageElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="ponzonoso" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\Juancho\AndroidStudioProjects\ponzonoso" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Scope 'Project Source Files'; set:Project Source Files; class com.jetbrains.cidr.lang.search.scopes.ProjectSourcesScopeProvider$SourceFilesScope">
+          <expand>
+            <path>
+              <item name="ponzonoso" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\Juancho\AndroidStudioProjects\ponzonoso" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="ponzonoso" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\Juancho\AndroidStudioProjects\ponzonoso" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="ponzonoso" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\Juancho\AndroidStudioProjects\ponzonoso" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="ponzonoso" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\Juancho\AndroidStudioProjects\ponzonoso" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="ponzonoso" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\Juancho\AndroidStudioProjects\ponzonoso" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="ponzonoso" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\Juancho\AndroidStudioProjects\ponzonoso" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="edu" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="ponzonoso" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\Juancho\AndroidStudioProjects\ponzonoso" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="edu" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="unlpam" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="ponzonoso" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\Juancho\AndroidStudioProjects\ponzonoso" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="edu" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="unlpam" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="vet" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="ponzonoso" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\Juancho\AndroidStudioProjects\ponzonoso" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="edu" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="unlpam" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="vet" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="ponzonosos" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="ponzonoso" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\Juancho\AndroidStudioProjects\ponzonoso" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="res" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="ponzonoso" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\Juancho\AndroidStudioProjects\ponzonoso" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="res" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="layout" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="ponzonoso" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\Juancho\AndroidStudioProjects\ponzonoso" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="res" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="values" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="ponzonoso" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\Juancho\AndroidStudioProjects\ponzonoso" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="res" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="xml" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ponzonoso" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ponzonoso" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_2_API_Android_9" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-03-06T21:44:02.580Z" />
+    <property name="ExportApk.ApkPath" value="C:\Users\Juancho\AndroidStudioProjects\ponzonoso\release" />
+    <property name="ExportApk.BuildVariants" value="release" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="android.sdk.path" value="E:/ProgramFiles/AndroidSDK" />
+    <property name="device.picker.selection" value="Nexus_S_API_22" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="SDK Location" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="PsdUISettings">
+    <option name="LAST_EDITED_BUILD_TYPE" value="release" />
+  </component>
+  <component name="RecentsManager">
+    <key name="android.template.packageName">
+      <recent name="edu.unlpam.vet.ponzonosos" />
+      <recent name="com.example.rodrimartin.ponzonosos" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Juancho\AndroidStudioProjects\ponzonoso\app\src\main\res\layout" />
+      <recent name="E:\Escritorio\ponzo\app\src\main\res\drawable" />
+      <recent name="E:\Documentos\App Ponzoniosos\app\app\src\main\res\drawable" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Android App.app">
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app-app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="app-app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b914aac6-2a50-4daa-b042-543c7bd60fc3" name="Default Changelist" comment="" />
+      <created>1565301077088</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1565301077088</updated>
+    </task>
+    <task id="LOCAL-00001" summary="- Cambio palabra &quot;resultado&quot; por &quot;es parte de&quot; en &quot;Sobre app&quot;&#10;- Cambio nombre packages&#10;- Cambio nombre Agresividad por Peligrosidad (Filtros)">
+      <created>1569615305162</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1569615305162</updated>
+    </task>
+    <task id="LOCAL-00002" summary="- Cambio palabra &quot;resultado&quot; por &quot;es parte de&quot; en &quot;Sobre app&quot;&#10;- Cambio nombre packages&#10;- Cambio nombre Agresividad por Peligrosidad (Filtros)&#10;- otros que no me acuerdo">
+      <created>1572388078629</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1572388078629</updated>
+    </task>
+    <task id="LOCAL-00003" summary="- todo">
+      <created>1694119730976</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1694119730976</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <layout>
+      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.24962178" />
+      <window_info id="Structure" order="2" side_tool="true" />
+      <window_info id="Build Variants" order="3" side_tool="true" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="Designer" order="5" />
+      <window_info id="Resources Explorer" order="6" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info id="Favorites" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="0" weight="0.32936078" />
+      <window_info anchor="bottom" id="TODO" order="1" sideWeight="0.4989339" weight="0.32936078" />
+      <window_info anchor="bottom" id="Debug" order="2" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="3" visible="true" weight="0.22427036" />
+      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.50226927" side_tool="true" weight="0.32872504" />
+      <window_info anchor="bottom" id="Version Control" order="5" sideWeight="0.4977307" weight="0.42089093" />
+      <window_info anchor="bottom" id="Build" order="6" sideWeight="0.49394855" weight="0.30875576" />
+      <window_info anchor="bottom" id="Logcat" order="7" weight="0.5633803" />
+      <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Find" order="9" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="SVN Repositories" order="10" sideWeight="0.4989339" weight="0.32917964" />
+      <window_info anchor="right" id="Capture Analysis" order="0" />
+      <window_info anchor="right" id="Gradle" order="1" weight="0.32995737" />
+      <window_info anchor="right" id="Theme Preview" order="2" />
+      <window_info active="true" anchor="right" id="Assistant" order="3" visible="true" weight="0.32980332" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" weight="0.32995737" />
+      <window_info anchor="right" id="Preview" order="6" weight="0.18230277" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.14658849" />
+      <window_info id="Structure" order="2" side_tool="true" />
+      <window_info id="Build Variants" order="3" side_tool="true" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="Designer" order="5" />
+      <window_info id="Resources Explorer" order="6" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info id="Favorites" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="0" weight="0.32936078" />
+      <window_info anchor="bottom" id="TODO" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Debug" order="2" />
+      <window_info anchor="bottom" id="Terminal" order="3" weight="0.32936078" />
+      <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Version Control" order="5" />
+      <window_info anchor="bottom" id="Build" order="6" weight="0.30985916" />
+      <window_info active="true" anchor="bottom" id="Logcat" order="7" visible="true" weight="0.3802817" />
+      <window_info anchor="bottom" id="Android Profiler" order="8" />
+      <window_info anchor="bottom" id="Find" order="9" />
+      <window_info anchor="right" id="Capture Analysis" order="0" />
+      <window_info anchor="right" id="Gradle" order="1" weight="0.32995737" />
+      <window_info anchor="right" id="Theme Preview" order="2" />
+      <window_info anchor="right" id="Assistant" order="3" weight="0.32985073" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" weight="0.32995737" />
+    </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="- Cambio palabra &quot;resultado&quot; por &quot;es parte de&quot; en &quot;Sobre app&quot;&#10;- Cambio nombre packages&#10;- Cambio nombre Agresividad por Peligrosidad (Filtros)" />
+    <MESSAGE value="- Cambio palabra &quot;resultado&quot; por &quot;es parte de&quot; en &quot;Sobre app&quot;&#10;- Cambio nombre packages&#10;- Cambio nombre Agresividad por Peligrosidad (Filtros)&#10;- otros que no me acuerdo" />
+    <MESSAGE value="- todo" />
+    <option name="LAST_COMMIT_MESSAGE" value="- todo" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/ponzonoso.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.ponzoniosos.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2081" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/proguard-rules.pro">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/release/processReleaseResources/r/com/android/volley/R.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/edu/unlpam/vet/ponzonosos/ExampleInstrumentedTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/catalogogridactivity.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_show_catalog.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/util/LoadImage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/edu/unlpam/vet/ponzonosos/ExampleUnitTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/network_security_config.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/CatalogoGrid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/menu_catalogo.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_contact_us.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="581">
+          <caret line="119" column="33" lean-forward="true" selection-start-line="119" selection-start-column="33" selection-end-line="119" selection-end-column="33" />
+          <folding>
+            <element signature="e#5011#5037#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/ContactUsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_animal.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/info_animal_accion_picadura.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/info_animal_tamanio.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1">
+          <caret line="6" column="48" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/MySingleton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/adapters/AdaptadorGrid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-346">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/MostrarCatalogo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-975">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/AboutActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="37" column="12" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradle.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_filteranimals.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-474" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/edu/unlpam/vet/ponzonosos/BuildConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="48" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/model/Agresividad.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/model/Animal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2822">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/info_animal_confusion.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/info_animal_antidoto.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/info_animal_descripcion.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_grid.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/info_animal.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2037">
+          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/model/DaoMaster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="24" column="47" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/model/DaoSession.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-295">
+          <caret column="22" lean-forward="true" selection-start-column="22" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_about.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1420">
+          <caret line="98" column="42" selection-start-line="98" selection-start-column="42" selection-end-line="98" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_prevention_measures.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="757">
+          <caret line="122" selection-start-line="122" selection-end-line="122" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/model/AnimalDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3950">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_what_to_do.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/unlpam/vet/ponzonosos/InfoAnimal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Android-Gradle</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>app</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
