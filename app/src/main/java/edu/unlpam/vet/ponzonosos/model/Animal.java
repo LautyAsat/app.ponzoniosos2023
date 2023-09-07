@@ -255,6 +255,7 @@ public class Animal{
             setLugar_encuentro(jsonObject.getString("lugar_encuentro"));
             setAccion_picadura(jsonObject.getString("accion_picadura"));
             setConfusion(jsonObject.getString("confusion"));
+            setDescripcion(jsonObject.getString("descripcion"));
             guardar();
         }catch (Exception e){
             e.printStackTrace();

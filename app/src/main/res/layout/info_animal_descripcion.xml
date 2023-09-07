@@ -10,11 +10,11 @@
         android:layout_height="33dp"
         android:gravity="center_vertical"
         android:paddingLeft="15dp"
-        android:text="¿Se puede confundir con otra?"
+        android:text="Observaciones"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tv_confusion"
+        android:id="@+id/tv_descripcion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
@@ -23,6 +23,6 @@
         android:background="@android:color/background_light"
         android:gravity="center_vertical"
         android:padding="4dp"
-        android:text="Confusion con otra" />
+        android:text="Observaciones" />
 
 </LinearLayout>

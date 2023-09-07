@@ -16,6 +16,8 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import edu.unlpam.vet.ponzonosos.R;
 
+
+
 import edu.unlpam.vet.ponzonosos.model.Imagen;
 import edu.unlpam.vet.ponzonosos.model.Animal;
 
@@ -34,6 +36,7 @@ public class InfoAnimal extends AppCompatActivity{
     private TextView lugar_encuentro;
     private TextView accion_picadura;
     private TextView confusion;
+    private TextView descripcion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +61,8 @@ public class InfoAnimal extends AppCompatActivity{
             View viewAntidoto = getLayoutInflater().inflate(R.layout.info_animal_antidoto, null);
             LinearLayout ll_accion_picadura = findViewById(R.id.ll_acciones_picadura);
             View viewAccionPicadura = getLayoutInflater().inflate(R.layout.info_animal_accion_picadura,null);
+            LinearLayout ll_descripcion = findViewById(R.id.ll_descripcion);
+            View viewDescripcion = getLayoutInflater().inflate(R.layout.info_animal_descripcion,null);
 
             principalImg = findViewById(R.id.iv_img_principal);
             Imagen img = animal.getPrincipalImage();
@@ -75,6 +80,7 @@ public class InfoAnimal extends AppCompatActivity{
             accion_picadura = viewAccionPicadura.findViewById(R.id.tv_accionesPicadura);
             confusion = viewConfusion.findViewById(R.id.tv_confusion);
             lugar_encuentro = viewLugarEncuentro.findViewById(R.id.tv_lugarEncuentro);
+            descripcion = viewDescripcion.findViewById(R.id.tv_descripcion);
             verFotos = findViewById(R.id.btn_ver_fotos);
             verFotos.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -84,7 +90,7 @@ public class InfoAnimal extends AppCompatActivity{
                         intent.putExtra("img", animal.getId());
                         startActivity(intent);
                     }else {
-                        Toast.makeText(context, "No hay imagenes cargadas",
+                        Toast.makeText(context, "No hay imágenes cargadas",
                                 Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -130,7 +136,10 @@ public class InfoAnimal extends AppCompatActivity{
             if (!animal.getConfusion().equals("")) {
                 ll_confusion.addView(viewConfusion);
             }
-
+            descripcion.setText(animal.getDescripcion());
+            if (!animal.getDescripcion().equals("")) {
+                ll_descripcion.addView(viewDescripcion);
+            }
         }else {
             Toast.makeText(getApplicationContext(),
                     "No existe un animal con el id " + idAnimal,
