@@ -2,10 +2,10 @@ package edu.unlpam.vet.ponzonosos;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.Toolbar;
+import androidx.cardview.widget.CardView;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -113,39 +113,30 @@ public class MostrarCatalogo extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View view) {
         Intent intent;
-        switch (view.getId()){
-            case R.id.cv_what_to_do:
-                intent = new Intent(this, WhatToDoActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.cv_prevention_measures:
-                intent = new Intent(this, PreventionMeasuresActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.cv_arana:
-                intent = new Intent(this,CatalogoGrid.class);
-                intent.putExtra("tipo",1);
-                this.startActivity(intent);
-                break;
-            case R.id.cv_escorpion:
-                intent = new Intent(this,CatalogoGrid.class);
-                intent.putExtra("tipo",2);
-                this.startActivity(intent);
-                break;
-            case R.id.cv_serpiente:
-                intent = new Intent(this,CatalogoGrid.class);
-                intent.putExtra("tipo",3);
-                this.startActivity(intent);
-                break;
-            case R.id.cv_todos:
-                intent = new Intent(this,CatalogoGrid.class);
-                intent.putExtra("tipo",0);
-                this.startActivity(intent);
-                break;
-                default:
-                    break;
+
+        if (view.getId() == R.id.cv_what_to_do) {
+            intent = new Intent(this, WhatToDoActivity.class);
+        } else if (view.getId() == R.id.cv_prevention_measures) {
+            intent = new Intent(this, PreventionMeasuresActivity.class);
+        } else if (view.getId() == R.id.cv_arana) {
+            intent = new Intent(this, CatalogoGrid.class);
+            intent.putExtra("tipo", 1);
+        } else if (view.getId() == R.id.cv_escorpion) {
+            intent = new Intent(this, CatalogoGrid.class);
+            intent.putExtra("tipo", 2);
+        } else if (view.getId() == R.id.cv_serpiente) {
+            intent = new Intent(this, CatalogoGrid.class);
+            intent.putExtra("tipo", 3);
+        } else if (view.getId() == R.id.cv_todos) {
+            intent = new Intent(this, CatalogoGrid.class);
+            intent.putExtra("tipo", 0);
+        } else {
+            return; // Manejar cualquier otro caso o vista aquí si es necesario
         }
+
+        startActivity(intent);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
