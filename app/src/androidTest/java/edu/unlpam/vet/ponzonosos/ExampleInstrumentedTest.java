@@ -3,8 +3,11 @@ package edu.unlpam.vet.ponzonosos;
 import android.content.Context;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
+//import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner;
+
 
 import org.junit.Test;
+import org.junit.runner.Runner;
 import org.junit.runner.RunWith;
 
 import static org.junit.Assert.*;
@@ -19,8 +22,9 @@ public class ExampleInstrumentedTest {
     @Test
     public void useAppContext() {
         // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getTargetContext();
+        //Context appContext = InstrumentationRegistry.getTargetContext();
+        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.example.rodrimartin.ponzonosos", appContext.getPackageName());
+        assertEquals("edu.unlpam.vet.ponzonosos", appContext.getPackageName());
     }
 }
