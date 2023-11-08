@@ -25,7 +25,7 @@
         <activity android:name="edu.unlpam.vet.ponzonosos.Galeria" />
         <activity android:name="edu.unlpam.vet.ponzonosos.SpacePhotoActivity" />
         <activity android:name="edu.unlpam.vet.ponzonosos.CatalogoGrid" />
-        <activity android:name=".MainActivity"
+        <activity android:name="edu.unlpam.vet.ponzonosos.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
