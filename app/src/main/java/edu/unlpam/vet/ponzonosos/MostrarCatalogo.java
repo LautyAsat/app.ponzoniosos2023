@@ -50,8 +50,6 @@ public class MostrarCatalogo extends AppCompatActivity implements View.OnClickLi
     }
 
     private void bindImageViews() {
-        ImageView whatToDo = findViewById(R.id.img_what_to_do);
-        ImageView preventionMeasures = findViewById(R.id.img_prevention_measures);
         ImageView spider = findViewById(R.id.img_spider);
         ImageView snake = findViewById(R.id.img_snake);
         ImageView scorpion = findViewById(R.id.img_scorpion);
@@ -60,12 +58,10 @@ public class MostrarCatalogo extends AppCompatActivity implements View.OnClickLi
                 .placeholder(R.drawable.default_image);
         Glide.with(getApplicationContext())
                 .load(R.drawable.ambulance_v3)
-                .apply(options)
-                .into(whatToDo);
+                .apply(options);
         Glide.with(getApplicationContext())
                 .load(R.drawable.prevention)
-                .apply(options)
-                .into(preventionMeasures);
+                .apply(options);
         Glide.with(getApplicationContext())
                 .load(R.drawable.arana)
                 .apply(options)
