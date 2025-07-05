@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences mPrefs;
     private Dialog dialog;
 
-    @Override
+    @Override //metodo main
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d("rmdebug", "MainActivity - onCreate");

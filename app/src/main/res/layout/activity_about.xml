@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="edu.unlpam.vet.ponzonosos.AboutActivity">
-
 
     <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -15,126 +11,132 @@
             android:id="@+id/app_bar"
             layout="@layout/app_bar" />
 
-        <TextView
-            android:layout_marginTop="40dp"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="Sobre la app"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ponzoñosos de La Pampa"
-            android:gravity="center_horizontal"
-            android:textSize="20sp"/>
-
-        <ImageView
-            android:id="@+id/app_logo"
-            android:layout_marginTop="20dp"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:src="@drawable/ic_launcher_background"
-            android:layout_gravity="center_horizontal"/>
-
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:text="Esta aplicación es parte del proyecto 'Reconocimiento y prevención de accidentes por animales ponzoñosos en la región norte de la provincia de La Pampa'"
-            android:gravity="center_horizontal"/>
-
-        <TextView
-            android:id="@+id/web_link"
-            android:layout_marginTop="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autoLink="web"
-            android:text="Resolución Nº 316/2017 del Consejo Directivo"
-            android:gravity="center_horizontal"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:textSize="12sp"
-            android:layout_marginBottom="10dp"
-            android:textColor="@color/web_link"/>
-
-        <TextView
-            android:layout_marginTop="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Las fotografías incluidas en la aplicación forman parte de registros propios de los integrantes del proyecto y de consultas enviadas por la comunidad."
-            android:gravity="center_horizontal"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:textSize="12sp"
-            android:layout_marginBottom="10dp" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorPrimary"
-            android:layout_marginLeft="40dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Año de inicio y finalización del proyecto"
-            android:gravity="center_horizontal"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:textSize="12sp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Octubre 2017 a Octubre 2019"
-            android:gravity="center_horizontal"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:textSize="12sp"
-            android:layout_marginBottom="10dp"/>
-
-        <LinearLayout
-            android:layout_marginTop="30dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Facultad de Ciencias Veterinarias UNLPam"
-                android:gravity="center_horizontal"
-                android:textSize="16sp"
-                android:textColor="@color/white"/>
-
-            <ImageView
-                android:id="@+id/vet_logo"
-                android:layout_marginTop="20dp"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:src="@drawable/ic_launcher_background"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="10dp"/>
-
-        </LinearLayout>
+            android:layout_height="0dp"
+            android:layout_weight="1">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/fondo_tarjeta"
+                    android:padding="0dp"
+                    android:elevation="6dp"
+                    android:layout_margin="16dp">
 
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginBottom="0dp"
+                        android:background="@drawable/banner"
+                        android:elevation="4dp"
+                        android:gravity="center"
+                        android:text="Ponzoñosos de La Pampa"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
+                    <TextView
+                        android:layout_marginTop="40dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="Sobre la app"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Ponzoñosos de La Pampa"
+                        android:gravity="center_horizontal"
+                        android:textSize="20sp"/>
+
+                    <ImageView
+                        android:id="@+id/app_logo"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/ic_launcher_background"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <TextView
+                        android:layout_marginTop="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="Esta aplicación es parte del proyecto 'Reconocimiento y prevención de accidentes por animales ponzoñosos en la región norte de la provincia de La Pampa'"
+                        android:gravity="center_horizontal"/>
+
+                    <TextView
+                        android:id="@+id/web_link"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autoLink="web"
+                        android:text="Resolución Nº 316/2017 del Consejo Directivo"
+                        android:gravity="center_horizontal"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="40dp"
+                        android:textSize="12sp"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/web_link"/>
+
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Las fotografías incluidas en la aplicación forman parte de registros propios de los integrantes del proyecto y de consultas enviadas por la comunidad."
+                        android:gravity="center_horizontal"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="40dp"
+                        android:textSize="12sp"
+                        android:layout_marginBottom="10dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorPrimary"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginRight="40dp"
+                        android:layout_marginEnd="40dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Año de inicio y finalización del proyecto"
+                        android:gravity="center_horizontal"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="40dp"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Octubre 2017 a Octubre 2019"
+                        android:gravity="center_horizontal"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="40dp"
+                        android:textSize="12sp"
+                        android:layout_marginBottom="10dp"/>
+
+
+                    <ImageView
+                        android:id="@+id/vet_logo"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/ic_launcher_background"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="10dp"/>
+
+                </LinearLayout>
+        </ScrollView>
     </LinearLayout>
-
-
-
-</ScrollView>

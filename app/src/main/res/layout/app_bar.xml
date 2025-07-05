@@ -1,11 +1,33 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.Toolbar
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/colorPrimary"
-    app:title="@string/app_name"
-    app:titleTextColor="@android:color/white"
-    android:theme="@style/CustomToolbarStyle"
-    app:titleTextAppearance="@style/Toolbar.TitleText"/>
+    android:layout_height="60dp"
+    android:background="@drawable/backbar">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_gravity="start"
+        android:paddingStart="5dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/logoapp"
+            android:contentDescription="Logo app"/>
+
+        <TextView
+            android:layout_marginStart="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@android:color/white"
+
+            android:textSize="18sp"
+            android:gravity="center_vertical"/>
+    </LinearLayout>
+
+</androidx.appcompat.widget.Toolbar>

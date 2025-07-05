@@ -26,8 +26,8 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         Toolbar myToolbar = findViewById(R.id.app_bar);
-        myToolbar.setNavigationIcon(R.drawable.ic_back_white);
-        setSupportActionBar(myToolbar);
+        //myToolbar.setNavigationIcon(R.drawable.ic_back_white); // si queremos que sea un layout posta entonces descomentenlo
+        //setSupportActionBar(myToolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null){
             actionBar.setDisplayHomeAsUpEnabled(true);
