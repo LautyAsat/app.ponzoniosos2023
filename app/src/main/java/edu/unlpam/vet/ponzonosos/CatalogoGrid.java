@@ -42,6 +42,9 @@ public class CatalogoGrid extends AppCompatActivity {
         setContentView(R.layout.activity_catalogo_grid);
         Toolbar myToolbar = findViewById(R.id.app_bar);
         setSupportActionBar(myToolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
         gridView = findViewById(R.id.gv_catalogo);
         List<Animal> animales;
         AnimalDao animalDao = MainActivity.getInstance().getDaoSession().getAnimalDao();

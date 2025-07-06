@@ -33,6 +33,9 @@ public class MostrarCatalogo extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.menu_catalogo);
         Toolbar myToolbar = findViewById(R.id.app_bar);
         setSupportActionBar(myToolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
         CardView cvWhatToDo = findViewById(R.id.cv_what_to_do);
         CardView cvPreventionMeasures = findViewById(R.id.cv_prevention_measures);
         CardView cv_arana = findViewById(R.id.cv_arana);

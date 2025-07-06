@@ -15,7 +15,6 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import edu.unlpam.vet.ponzonosos.R;
 
 import edu.unlpam.vet.ponzonosos.model.Animal;
 import edu.unlpam.vet.ponzonosos.model.DaoMaster;
@@ -44,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
     @Override //metodo main
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("rmdebug", "MainActivity - onCreate");
         setContentView(R.layout.activity_main);
+        Log.d("rmdebug", "MainActivity - onCreate");
         showActionDialog("Iniciando");
         toImport = new ArrayList<>();
         instance = this;
