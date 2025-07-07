@@ -57,4 +57,10 @@
     <string name="las_fotograf_as_incluidas_en_la_aplicaci_n_forman_parte_de_registros_propios_de_los_integrantes_del_proyecto_y_de_consultas_enviadas_por_la_comunidad">Las fotografías incluidas en la aplicación forman parte de registros propios de los integrantes del proyecto y de consultas enviadas por la comunidad.</string>
     <string name="a_o_de_inicio_y_finalizaci_n_del_proyecto">Año de inicio y finalización del proyecto</string>
     <string name="octubre_2017_a_octubre_2019">Octubre 2017 a Octubre 2019</string>
+    <string name="animal">Animal</string>
+    <string name="ver_fotos">Ver fotos</string>
+    <string name="nombre_com_n">Nombre Común</string>
+    <string name="ara_a">Araña</string>
+    <string name="nombre_cient_fico">Nombre Científico</string>
+    <string name="nivel_de_riesgo">Nivel de riesgo</string>
 </resources>
