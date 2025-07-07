@@ -34,5 +34,21 @@
     <string name="medida_prevencion_texto_6">Tener presente dirección y teléfono del centro con antivenenos más cercano</string>
     <string name="medida_prevencion_texto_7">Tener presente dirección y teléfono del centro de información, asesoramiento y asistencia toxicológica.</string>
     <string name="datos_facultad">Facultad de Ciencias Veterinarias \nUNLPam calle 5 esq. 116, General Pico, La Pampa \n@ mariabruni@live.com.ar </string>
-    <string name="datos_asistencia">Asistencia Toxicológica \nCentro Nacional de Intoxicaciones  \nHospital Nacional “Prof. Alejandro Posadas \n0-800-333-0160”</string>
+    <string name="datos_asistencia">Asistencia Toxicológica \nCentro Nacional de Intoxicaciones  \nHospital Nacional “Prof. Alejandro Posadas \n0–800–333–0160”</string>
+    <string name="peligrosidad">Peligrosidad</string>
+    <string name="tamaño">Tamaño</string>
+    <string name="medidas_generales">Medidas generales</string>
+    <string name="qu_no_hacer">¿Qué NO hacer?</string>
+    <string name="d_nde_encontrar_ant_dotos">Dónde encontrar antídotos</string>
+    <string name="no_colocar_ninguna_sustancia_alcohol_vinagre_etc">No colocar ninguna sustancia (alcohol, vinagre, etc.)</string>
+    <string name="no_consumir_bebidas_alcoh_licas_o_sedantes">No consumir bebidas alcohólicas o sedantes</string>
+    <string name="no_aplicar_hielo_directamente">No aplicar hielo directamente</string>
+    <string name="no_incidir_o_succionar_la_herida">No incidir o succionar la herida</string>
+    <string name="no_usar_torniquetes">No usar torniquetes</string>
+    <string name="background">background</string>
+    <string name="retirar_anillos_pulseras_calzado_y_todo_aquel_elemento_que_est_comprimiendo_la_circulaci_n">Retirar anillos, pulseras, calzado y todo aquel elemento que esté comprimiendo la circulación</string>
+    <string name="evitar_el_roce_de_la_zona_lo_que_podr_a_favorecer_la_expansi_n_del_veneno">Evitar el roce de la zona, lo que podría favorecer la expansión del veneno</string>
+    <string name="colocar_compresas_fr_as_en_la_zona_afectada_nunca_hielo_directo">Colocar compresas frías en la zona afectada (nunca hielo directo)</string>
+    <string name="mantener_la_zona_en_reposo_y_elevarla_si_es_posible">Mantener la zona en reposo y elevarla si es posible</string>
+    <string name="trasladarse_r_pidamente_al_centro_de_salud_m_s_cercano">Trasladarse rápidamente al centro de salud más cercano</string>
 </resources>

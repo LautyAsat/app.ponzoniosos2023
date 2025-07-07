@@ -5,7 +5,7 @@ import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import androidx.recyclerview.widget.GridLayoutManager;;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -19,6 +19,8 @@ import edu.unlpam.vet.ponzonosos.model.Animal;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
+import java.util.Objects;
+
 public class Galeria extends AppCompatActivity {
 
     @Override
@@ -27,7 +29,10 @@ public class Galeria extends AppCompatActivity {
         setContentView(R.layout.galeria);
         Toolbar myToolbar = findViewById(R.id.app_bar);
         setSupportActionBar(myToolbar);
-        Long idAnimal = (Long) getIntent().getExtras().get("img");
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
+        Long idAnimal = (Long) Objects.requireNonNull(getIntent().getExtras()).get("img");
         Animal animal = Animal.getAnimal(idAnimal);
         if (animal != null) {
             RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
@@ -82,14 +87,14 @@ public class Galeria extends AppCompatActivity {
             public MyViewHolder(View itemView) {
 
                 super(itemView);
-                mPhotoImageView = (ImageView) itemView.findViewById(R.id.iv_photo);
+                mPhotoImageView = itemView.findViewById(R.id.iv_photo);
                 itemView.setOnClickListener(this);
             }
 
             @Override
             public void onClick(View view) {
 
-                int position = getAdapterPosition();
+                int position = getBindingAdapterPosition();
                 if(position != RecyclerView.NO_POSITION) {
                     SpacePhoto spacePhoto = mSpacePhotos[position];
                     Intent intent = new Intent(mContext, SpacePhotoActivity.class);
@@ -99,8 +104,8 @@ public class Galeria extends AppCompatActivity {
             }
         }
 
-        private SpacePhoto[] mSpacePhotos;
-        private Context mContext;
+        private final SpacePhoto[] mSpacePhotos;
+        private final Context mContext;
 
         public ImageGalleryAdapter(Context context, SpacePhoto[] spacePhotos) {
             mContext = context;

@@ -86,32 +86,32 @@ public class CatalogoGrid extends AppCompatActivity {
         getLayoutInflater();
         @SuppressLint("InflateParams")
         View view = getLayoutInflater().inflate(R.layout.dialog_filteranimals,null);
-        final EditText etName = view.findViewById(R.id.filter_name);
-        final Spinner sAggressiveness = view.findViewById(R.id.filter_aggressiveness);
+//        final EditText etName = view.findViewById(R.id.filter_name);
+//        final Spinner sAggressiveness = view.findViewById(R.id.filter_aggressiveness);
         Button bApplyFilter = view.findViewById(R.id.apply_filter);
         Button bCancelFilter = view.findViewById(R.id.cancel_filter);
         AggressivenessSpinnerAdapter adapter = new AggressivenessSpinnerAdapter(this,
                 R.layout.aggressiveness_spinner_item, aggressiveness);
-        sAggressiveness.setAdapter(adapter);
-        sAggressiveness.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-        bApplyFilter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String name = etName.getText().toString();
-                Long aggressiveness = ((Agresividad)sAggressiveness.getSelectedItem()).getId();
-                applyFilter(name, aggressiveness);
-            }
-        });
+//        sAggressiveness.setAdapter(adapter);
+//        sAggressiveness.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//            }
+//        });
+//        bApplyFilter.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                String name = etName.getText().toString();
+//                Long aggressiveness = ((Agresividad)sAggressiveness.getSelectedItem()).getId();
+//                applyFilter(name, aggressiveness);
+//            }
+//        });
         bCancelFilter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -124,7 +124,7 @@ public class CatalogoGrid extends AppCompatActivity {
         });
         builder.setView(view)
                 .setCancelable(true)
-                .setTitle("Filtrar elementos");
+                .setTitle("Filtrar por");
         dialog = builder.create();
         dialog.show();
     }

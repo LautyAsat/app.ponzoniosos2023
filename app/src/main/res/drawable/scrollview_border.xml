@@ -10,6 +10,6 @@
         android:width="2dp"
         android:color="#BDBDBD" />
 
-    <!-- Esquinas redondeadas (opcional) -->
+    <!-- Esquinas redondeadas  -->
     <corners android:radius="8dp"/>
 </shape>
