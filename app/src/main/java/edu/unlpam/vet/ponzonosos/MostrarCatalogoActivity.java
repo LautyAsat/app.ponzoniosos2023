@@ -4,12 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.GridLayout;
 import android.widget.GridView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 
 import java.util.List;
 
@@ -24,6 +23,9 @@ public class MostrarCatalogoActivity extends AppCompatActivity implements View.O
     AdaptadorGrid adaptadorGrid;
 
     int tipo = 0;
+
+    private Button cardArania, cardEscorpion, cardSerpiente;
+    private  boolean spiderOn=true,scorpionOn=false,snakeOn=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +55,9 @@ public class MostrarCatalogoActivity extends AppCompatActivity implements View.O
 
         Button cardQueHacer = findViewById(R.id.cv_what_to_doo);
         Button cardPrevencion = findViewById(R.id.cv_prevention_measuress);
-        Button cardArania = findViewById(R.id.cv_arania);
-        Button cardEscorpion = findViewById(R.id.cv_escorpionn);
-        Button cardSerpiente = findViewById(R.id.cv_serpientee);
+        cardArania = findViewById(R.id.cv_arania);
+        cardEscorpion = findViewById(R.id.cv_escorpionn);
+        cardSerpiente = findViewById(R.id.cv_serpientee);
         //CardView cardTodos = findViewById(R.id.cv_todos);
 
         cardQueHacer.setOnClickListener(this);
@@ -71,6 +73,7 @@ public class MostrarCatalogoActivity extends AppCompatActivity implements View.O
     public void onClick(View view) {
         int id = view.getId();
 
+
         if (id == R.id.cv_what_to_doo) {
             startActivity(new Intent(this, WhatToDoActivity.class));
             return;
@@ -83,17 +86,57 @@ public class MostrarCatalogoActivity extends AppCompatActivity implements View.O
 
         if (id == R.id.cv_arania) {
             tipo = 1;
+            spiderOn=!spiderOn;
+            actualizarFondo(1);
         } else if (id == R.id.cv_escorpionn) {
             tipo = 2;
+            scorpionOn=!scorpionOn;
+            actualizarFondo(2);
+
         } else if (id == R.id.cv_serpientee) {
             tipo = 3;
-        } else {
+            snakeOn=!snakeOn;
+            actualizarFondo(3);
+
+        } else if (spiderOn && scorpionOn && snakeOn) {
             tipo = 0;
         }
 
         actualizarGrid();
     }
 
+    private void actualizarFondo(int option){
+        switch (option){
+            case 2:
+                if(scorpionOn){
+                    cardEscorpion.setBackground(ContextCompat.getDrawable(this, R.drawable.colour_scorpion));
+                }
+                else{
+                    cardEscorpion.setBackground(ContextCompat.getDrawable(this, R.drawable.whiteblack_scorpion));
+                }
+                break;
+            case 3:
+                if(snakeOn){
+                    cardSerpiente.setBackground(ContextCompat.getDrawable(this, R.drawable.colour_snake));
+
+                }
+                else{
+                    cardSerpiente.setBackground(ContextCompat.getDrawable(this, R.drawable.whiteblack_scorpion));
+                }
+                break;
+
+            default:
+                if(spiderOn){
+                    cardArania.setBackground(ContextCompat.getDrawable(this, R.drawable.colour_spider));
+
+                }
+                else{
+                    cardArania.setBackground(ContextCompat.getDrawable(this, R.drawable.whiteblack_spider));
+                }
+
+                break;
+        }
+    }
     private void actualizarGrid() {
         if (tipo == 0) {
             animals = animalDao.queryBuilder().list(); // Todos
@@ -102,8 +145,8 @@ public class MostrarCatalogoActivity extends AppCompatActivity implements View.O
                     .where(AnimalDao.Properties.Tipo.eq(tipo))
                     .list();
         }
-
-        adaptadorGrid.setAnimals(animals); // Necesitás este método en tu adaptador
+//        Necesitás este metodo en tu adaptador
+        adaptadorGrid.setAnimals(animals);
         adaptadorGrid.notifyDataSetChanged();
     }
 
