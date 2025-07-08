@@ -1,72 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <include
-            android:layout="@layout/app_bar"/>
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <LinearLayout
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+            <!-- Header -->
+            <include
+                android:id="@+id/iHeader"
+                android:layout="@layout/app_bar" />
+
+            <!-- Content -->
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="16dp">
-                <Button
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                >
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btnAccident"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:text=" ⚠️ Que hacer frente a un accidente?"
-                    android:textAllCaps="false"
-                    android:background="@drawable/red_texture"
-                    android:textColor="@android:color/white"/>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:background="@drawable/yellow_texture"
-                    android:text=" ⚠️ Medidas de prevención"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:layout_marginTop="8dp"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-                    <EditText
+                    app:cardCornerRadius="6dp"
+                    app:cardElevation="4dp">
+                    
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="16dp"
-                        android:background="@drawable/busqueda_background"
-                        android:hint="🔍 Buscar ponzoñoso..."
-                        android:padding="12dp"
-                        android:textColor="@android:color/black"
-                        android:textColorHint="#888"
-                        android:inputType="text"/>
-                </LinearLayout>
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:background="@drawable/red_texture" >
 
-                <LinearLayout
+                        <ImageView
+                            android:id="@+id/ivDanger"
+                            android:src="@drawable/danger"
+                            style="@style/img_caution"
+                            app:layout_constraintEnd_toStartOf="@+id/tvDanger"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            />
+
+                        <TextView
+                            android:id="@id/tvDanger"
+                            android:text="¿Qué hacer frente a un accidente?"
+                            style="@style/tv_caution"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/ivDanger"
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btnPrecaution"
+                    app:layout_constraintTop_toBottomOf="@+id/btnAccident"
+                    android:layout_marginTop="8dp"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:paddingLeft="120dp"
-                    android:layout_marginTop="16dp">
-                    <Button
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"/>
-                    <Button
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"/>
-                    <Button
+                    android:layout_height="50dp"
+                    app:cardCornerRadius="6dp"
+                    app:cardElevation="4dp">
 
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"/>
-                </LinearLayout>
-            </LinearLayout>
-        </ScrollView>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:background="@drawable/yellow_texture" >
+
+                        <ImageView
+                            android:id="@+id/ivPrecaution"
+                            android:src="@drawable/ic_precaution"
+                            style="@style/img_caution"
+                            app:layout_constraintEnd_toStartOf="@+id/tvPrecaution"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            />
+
+                        <TextView
+                            android:id="@id/tvPrecaution"
+                            android:text="Medidas de prevención"
+                            style="@style/tv_caution"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/ivPrecaution"
+                            />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
