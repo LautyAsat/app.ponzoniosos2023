@@ -63,4 +63,23 @@
     <string name="ara_a">Araña</string>
     <string name="nombre_cient_fico">Nombre Científico</string>
     <string name="nivel_de_riesgo">Nivel de riesgo</string>
+    <string name="viuda_negra">Viuda Negra</string>
+    <string name="fam_lycosidae">Fam. Lycosidae</string>
+    <string name="s_ntomas_picadura">Síntomas Picadura</string>
+    <string name="fuerte_dolor_local_inflamaci_n_y_enrojecimiento">Fuerte dolor local, inflamación y enrojecimiento</string>
+    <string name="no">No</string>
+    <string name="ant_doto">Antídoto</string>
+    <string name="h_bitat">Hábitat</string>
+    <string name="hogar_jardines_parques_y_zonas_rurales">Hogar, Jardines, Parques y Zonas Rurales</string>
+    <string name="medidas_frente_a_una_picadura">Medidas frente a una Picadura</string>
+    <string name="lavar_con_agua_y_jab_n_y_colocar_compresas_fr_as">Lavar con agua y jabón y colocar compresas frías</string>
+    <string name="de_0_5_a_7_cm">De 0,5 a 7 cm</string>
+    <string name="tama_o">Tamaño</string>
+    <string name="se_puede_confundir">Se puede confundir</string>
+    <string name="polybetes_sp_ara_n_de_monte">Polybetes sp. (Arañón de Monte)</string>
+    <string name="grande">Grande</string>
+    <string name="mediano">Mediano</string>
+    <string name="peque_o">Pequeño</string>
+    <string name="aplicar">Aplicar</string>
+    <string name="cancelar">Cancelar</string>
 </resources>

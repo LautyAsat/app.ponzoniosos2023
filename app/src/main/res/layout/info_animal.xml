@@ -47,7 +47,7 @@
                         android:id="@+id/tv_nombre_comun"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Viuda Negra"
+                        android:text="@string/viuda_negra"
                         android:textStyle="bold"
                         android:textColor="#FFFFFF"
                         android:textSize="18sp" />
@@ -73,7 +73,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Fam. Lycosidae"
+                            android:text="@string/fam_lycosidae"
                             android:textStyle="italic"
                             android:textColor="#333" />
 
@@ -86,7 +86,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Nivel de Riesgo"
+                                android:text="@string/nivel_de_riesgo"
                                 android:textColor="#000000"
                                 android:textStyle="bold"
                                 android:textSize="14sp" />
@@ -112,79 +112,79 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Síntomas Picadura"
+                        android:text="@string/s_ntomas_picadura"
                         android:textStyle="bold"
                         android:textColor="#000"/>
                     <TextView
                         android:id="@+id/tv_sintomas_picadura"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Fuerte dolor local, inflamación y enrojecimiento"
+                        android:text="@string/fuerte_dolor_local_inflamaci_n_y_enrojecimiento"
                         android:paddingBottom="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Antídoto"
+                        android:text="@string/ant_doto"
                         android:textStyle="bold"
                         android:textColor="#000"/>
                     <TextView
                         android:id="@+id/tv_antidoto"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="No"
+                        android:text="@string/no"
                         android:paddingBottom="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Hábitat"
+                        android:text="@string/h_bitat"
                         android:textStyle="bold"
                         android:textColor="#000"/>
                     <TextView
                         android:id="@+id/tv_habitat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Hogar, Jardines, Parques y Zonas Rurales"
+                        android:text="@string/hogar_jardines_parques_y_zonas_rurales"
                         android:paddingBottom="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Medidas frente a una Picadura"
+                        android:text="@string/medidas_frente_a_una_picadura"
                         android:textStyle="bold"
                         android:textColor="#000"/>
                     <TextView
                         android:id="@+id/tv_acciones_picadura"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Lavar con agua y jabón y colocar compresas frías"
+                        android:text="@string/lavar_con_agua_y_jab_n_y_colocar_compresas_fr_as"
                         android:paddingBottom="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Tamaño"
+                        android:text="@string/tama_o"
                         android:textStyle="bold"
                         android:textColor="#000"/>
                     <TextView
-                        android:id="@+id/tv_tamaño"
+                        android:id="@+id/tv_tamano"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="De 0,5 a 7 cm"
+                        android:text="@string/de_0_5_a_7_cm"
                         android:paddingBottom="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Se puede confundir"
+                        android:text="@string/se_puede_confundir"
                         android:textStyle="bold"
                         android:textColor="#000"/>
                     <TextView
                         android:id="@+id/tv_confusion"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Polybetes sp. (Arañón de Monte)"
+                        android:text="@string/polybetes_sp_ara_n_de_monte"
                         android:paddingBottom="8dp" />
                 </LinearLayout>
             </LinearLayout>
