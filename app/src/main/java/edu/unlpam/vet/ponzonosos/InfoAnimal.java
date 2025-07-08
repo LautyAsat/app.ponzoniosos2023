@@ -3,8 +3,11 @@ package edu.unlpam.vet.ponzonosos;
 import android.content.Context;
 import android.content.Intent;
 
+import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,130 +23,99 @@ import com.bumptech.glide.Glide;
 import edu.unlpam.vet.ponzonosos.model.Imagen;
 import edu.unlpam.vet.ponzonosos.model.Animal;
 
-public class InfoAnimal extends AppCompatActivity{
+public class InfoAnimal extends AppCompatActivity {
 
-    private ViewPager galeria;
-    private TextView nombre;
-    private TextView nombreC;
-    private TextView agresividad;
+    private TextView tvNombreComun, tvNombreCientifico;
+    private TextView tvTamaño, tvSintomas, tvAntidoto, tvLugarEncuentro;
+    private TextView tvAcciones, tvConfusion, tvDescripcion;
+    private ImageView ivPrincipal;
+
+    private  Drawable fondo;
+    private View tvAgresividad;
+    private Button btnVerFotos;
     private Context context;
-    private TextView tamaño;
-    private Button verFotos;
-    private ImageView principalImg;
-    private TextView efectoPicadura;
-    private TextView antidoto;
-    private TextView lugar_encuentro;
-    private TextView accion_picadura;
-    private TextView confusion;
-    private TextView descripcion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.info_animal);
+
         context = this;
-        //final Animal animal = (Animal) getIntent().getSerializableExtra("obj");
+
         Long idAnimal = (Long) getIntent().getExtras().get("obj");
-        Log.d("rmdebug", "id animal: " + idAnimal);
         final Animal animal = Animal.getAnimal(idAnimal);
-        if (animal != null) {
-            Log.d("rmdebug", animal.getNombre());
-            LinearLayout ll_confusion = findViewById(R.id.ll_confusion);
-            View viewConfusion = getLayoutInflater().inflate(R.layout.info_animal_confusion, null);
-            LinearLayout ll_lugarEncuentro = findViewById(R.id.ll_lugar_encuentro);
-            View viewLugarEncuentro = getLayoutInflater().inflate(R.layout.info_animal_lugar_encuentro, null);
-            LinearLayout ll_tamaño = findViewById(R.id.ll_tamaño);
-            View viewTamaño = getLayoutInflater().inflate(R.layout.info_animal_tamanio, null);
-            LinearLayout ll_picadura = findViewById(R.id.ll_picadura);
-            View viewPicadura = getLayoutInflater().inflate(R.layout.info_animal_picadura, null);
-            LinearLayout ll_antidoto = findViewById(R.id.ll_antidoto);
-            View viewAntidoto = getLayoutInflater().inflate(R.layout.info_animal_antidoto, null);
-            LinearLayout ll_accion_picadura = findViewById(R.id.ll_acciones_picadura);
-            View viewAccionPicadura = getLayoutInflater().inflate(R.layout.info_animal_accion_picadura,null);
-            LinearLayout ll_descripcion = findViewById(R.id.ll_descripcion);
-            View viewDescripcion = getLayoutInflater().inflate(R.layout.info_animal_descripcion,null);
 
-            principalImg = findViewById(R.id.iv_img_principal);
-            Imagen img = animal.getPrincipalImage();
-            if (img != null){
-                Glide.with(getApplicationContext())
-                        .load(getFilesDir()+"/"+img.getImg())
-                        .into(principalImg);
-            }
-            nombre = findViewById(R.id.tv_nombre);
-            nombreC = findViewById(R.id.tv_nombreC);
-            agresividad = findViewById(R.id.tv_nivelRiesgo);
-            tamaño = viewTamaño.findViewById(R.id.tv_tamaño);
-            efectoPicadura = viewPicadura.findViewById(R.id.tv_picadura);
-            antidoto = viewAntidoto.findViewById(R.id.tv_antidoto);
-            accion_picadura = viewAccionPicadura.findViewById(R.id.tv_accionesPicadura);
-            confusion = viewConfusion.findViewById(R.id.tv_confusion);
-            lugar_encuentro = viewLugarEncuentro.findViewById(R.id.tv_lugarEncuentro);
-            descripcion = viewDescripcion.findViewById(R.id.tv_descripcion);
-            verFotos = findViewById(R.id.btn_ver_fotos);
-            verFotos.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (!animal.getImages().isEmpty()) {
-                        Intent intent = new Intent(getApplicationContext(), Galeria.class);
-                        intent.putExtra("img", animal.getId());
-                        startActivity(intent);
-                    }else {
-                        Toast.makeText(context, "No hay imágenes cargadas",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-
-            nombre.setText(animal.getNombre());
-            nombreC.setText(animal.getNombreC());
-            switch (animal.getAgresividad()) {
-                case 1:
-                    agresividad.setText("Alto");
-                    break;
-                case 2:
-                    agresividad.setText("Medio");
-                    break;
-                case 3:
-                    agresividad.setText("Bajo");
-                    break;
-                default:
-                    agresividad.setText("No especificado");
-                    break;
-            }
-            tamaño.setText(animal.getTamaño());
-            if (!animal.getTamaño().equals("")) {
-                ll_tamaño.addView(viewTamaño);
-            }
-            efectoPicadura.setText(animal.getEfectoPicadura());
-            if (!animal.getEfectoPicadura().equals("")){
-                ll_picadura.addView(viewPicadura);
-            }
-            antidoto.setText(animal.getAntidoto());
-            if (!animal.getAntidoto().equals("")){
-                ll_antidoto.addView(viewAntidoto);
-            }
-            lugar_encuentro.setText(animal.getLugar_encuentro());
-            if (!animal.getLugar_encuentro().equals("")) {
-                ll_lugarEncuentro.addView(viewLugarEncuentro);
-            }
-            accion_picadura.setText(animal.getAccion_picadura());
-            if (!animal.getAccion_picadura().equals("")){
-                ll_accion_picadura.addView(viewAccionPicadura);
-            }
-            confusion.setText(animal.getConfusion());
-            if (!animal.getConfusion().equals("")) {
-                ll_confusion.addView(viewConfusion);
-            }
-            descripcion.setText(animal.getDescripcion());
-            if (!animal.getDescripcion().equals("")) {
-                ll_descripcion.addView(viewDescripcion);
-            }
-        }else {
-            Toast.makeText(getApplicationContext(),
-                    "No existe un animal con el id " + idAnimal,
-                    Toast.LENGTH_SHORT).show();
+        if (animal == null) {
+            Toast.makeText(getApplicationContext(), "No existe un animal con el id " + idAnimal, Toast.LENGTH_SHORT).show();
+            return;
         }
 
+        // Vincular vistas
+        ivPrincipal = findViewById(R.id.iv_img_principal);
+        tvNombreComun = findViewById(R.id.tv_nombre_comun);
+        tvNombreCientifico = findViewById(R.id.tv_nombre_cientifico);
+        tvAgresividad = findViewById(R.id.tv_nivel_riesgo);
+        tvTamaño = findViewById(R.id.tv_tamaño);
+        tvSintomas = findViewById(R.id.tv_sintomas_picadura);
+        tvAntidoto = findViewById(R.id.tv_antidoto);
+        tvLugarEncuentro = findViewById(R.id.tv_habitat);
+        tvAcciones = findViewById(R.id.tv_acciones_picadura);
+        tvConfusion = findViewById(R.id.tv_confusion);
+//        tvDescripcion = findViewById(R.id.tv_descripcion); // Solo si lo agregás
+//
+//        btnVerFotos = findViewById(R.id.btn_ver_fotos); // Solo si lo incluís en el XML
+
+        // Imagen principal
+        Imagen img = animal.getPrincipalImage();
+        if (img != null) {
+            Glide.with(getApplicationContext())
+                    .load(getFilesDir() + "/" + img.getImg())
+                    .into(ivPrincipal);
+        }
+
+        // Setear textos
+        tvNombreComun.setText(animal.getNombre());
+        tvNombreCientifico.setText(animal.getNombreC());
+        tvTamaño.setText(animal.getTamaño());
+        tvSintomas.setText(animal.getEfectoPicadura());
+        tvAntidoto.setText(animal.getAntidoto());
+        tvLugarEncuentro.setText(animal.getLugar_encuentro());
+        tvAcciones.setText(animal.getAccion_picadura());
+        tvConfusion.setText(animal.getConfusion());
+        if (tvDescripcion != null)
+            tvDescripcion.setText(animal.getDescripcion());
+
+        // Nivel de riesgo
+        switch (animal.getAgresividad()) {
+            case 1:
+                fondo = ContextCompat.getDrawable(this, R.drawable.red_texture);
+                tvAgresividad.setBackground(fondo);
+                break;
+            case 2:
+                fondo = ContextCompat.getDrawable(this, R.drawable.yellow_texture);
+                tvAgresividad.setBackground(fondo);
+                break;
+            case 3:
+                fondo = ContextCompat.getDrawable(this, R.drawable.green_texture);
+                tvAgresividad.setBackground(fondo);
+                break;
+            default:
+                fondo = ContextCompat.getDrawable(this, R.drawable.red_texture);
+                tvAgresividad.setBackground(fondo);
+                break;
+        }
+
+        // Botón de ver fotos
+        if (btnVerFotos != null) {
+            btnVerFotos.setOnClickListener(view -> {
+                if (!animal.getImages().isEmpty()) {
+                    Intent intent = new Intent(getApplicationContext(), Galeria.class);
+                    intent.putExtra("img", animal.getId());
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(context, "No hay imágenes cargadas", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 }

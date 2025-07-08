@@ -51,4 +51,16 @@
     <string name="colocar_compresas_fr_as_en_la_zona_afectada_nunca_hielo_directo">Colocar compresas frías en la zona afectada (nunca hielo directo)</string>
     <string name="mantener_la_zona_en_reposo_y_elevarla_si_es_posible">Mantener la zona en reposo y elevarla si es posible</string>
     <string name="trasladarse_r_pidamente_al_centro_de_salud_m_s_cercano">Trasladarse rápidamente al centro de salud más cercano</string>
+    <string name="ponzo_osos_de_la_pampa">Ponzoñosos de La Pampa</string>
+    <string name="esta_aplicaci_n_es_parte_del_proyecto_reconocimiento_y_prevenci_n_de_accidentes_por_animales_ponzo_osos_en_la_regi_n_norte_de_la_provincia_de_la_pampa">Esta aplicación es parte del proyecto \'Reconocimiento y prevención de accidentes por animales ponzoñosos en la región norte de la provincia de La Pampa\'</string>
+    <string name="resoluci_n_n_316_2017_del_consejo_directivo">Resolución Nº 316/2017 del Consejo Directivo</string>
+    <string name="las_fotograf_as_incluidas_en_la_aplicaci_n_forman_parte_de_registros_propios_de_los_integrantes_del_proyecto_y_de_consultas_enviadas_por_la_comunidad">Las fotografías incluidas en la aplicación forman parte de registros propios de los integrantes del proyecto y de consultas enviadas por la comunidad.</string>
+    <string name="a_o_de_inicio_y_finalizaci_n_del_proyecto">Año de inicio y finalización del proyecto</string>
+    <string name="octubre_2017_a_octubre_2019">Octubre 2017 a Octubre 2019</string>
+    <string name="animal">Animal</string>
+    <string name="ver_fotos">Ver fotos</string>
+    <string name="nombre_com_n">Nombre Común</string>
+    <string name="ara_a">Araña</string>
+    <string name="nombre_cient_fico">Nombre Científico</string>
+    <string name="nivel_de_riesgo">Nivel de riesgo</string>
 </resources>

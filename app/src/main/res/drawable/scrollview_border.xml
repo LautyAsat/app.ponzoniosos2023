@@ -11,5 +11,5 @@
         android:color="#BDBDBD" />
 
     <!-- Esquinas redondeadas  -->
-    <corners android:radius="8dp"/>
+    <corners android:radius="16dp"/>
 </shape>
