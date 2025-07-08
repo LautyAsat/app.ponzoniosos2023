@@ -9,17 +9,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center"
-        android:padding="8dp">
+        android:gravity="center">
 
-        <!-- Imagen superior -->
-        <ImageView
-            android:id="@+id/iv_img_principal"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:scaleType="centerCrop"
-            android:contentDescription="@string/animal"
-            android:src="@drawable/default_image" />
+            android:layout_marginBottom="8dp">
+
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager_info"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:clipChildren="false" />
+
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="12dp"
+                android:background="@android:color/transparent"
+                app:tabIndicatorColor="@android:color/transparent"
+                app:tabIndicatorHeight="0dp"
+                app:tabSelectedTextColor="@android:color/transparent"
+                app:tabTextColor="@android:color/transparent"/>
+        </FrameLayout>
+
 
         <!-- Card principal -->
         <androidx.cardview.widget.CardView
