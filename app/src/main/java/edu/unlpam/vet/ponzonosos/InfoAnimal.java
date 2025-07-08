@@ -92,7 +92,7 @@ public class InfoAnimal extends AppCompatActivity {
                 break;
         }
 
-        // Botón de ver fotos
+        // Botón de entrar al carousel
         if (ivPrincipal != null) {
             ivPrincipal.setOnClickListener(view -> {
                 if (!animal.getImages().isEmpty()) {
