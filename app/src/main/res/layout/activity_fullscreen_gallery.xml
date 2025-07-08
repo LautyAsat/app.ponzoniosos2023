@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@android:color/black"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager_main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_thumbnails"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:overScrollMode="never" />
+</LinearLayout>

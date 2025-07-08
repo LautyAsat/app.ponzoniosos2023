@@ -82,4 +82,8 @@
     <string name="peque_o">Pequeño</string>
     <string name="aplicar">Aplicar</string>
     <string name="cancelar">Cancelar</string>
+    <string name="imagen">Imagen</string>
+    <string name="qu_hacer_frente_a_un_accidente">⚠️ Qué hacer frente a un accidente?</string>
+    <string name="medidas_de_prevenci_n">⚠️ Medidas de prevención</string>
+    <string name="buscar_ponzo_oso">🔍 Buscar ponzoñoso…</string>
 </resources>

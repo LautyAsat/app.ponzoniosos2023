@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar" />
+
+    <!-- Parte de arriba con scroll -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/cv_what_to_doo"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="@string/qu_hacer_frente_a_un_accidente"
+                android:textAllCaps="false"
+                android:background="@drawable/red_texture"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/cv_prevention_measuress"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/yellow_texture"
+                android:text="@string/medidas_de_prevenci_n"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:autofillHints=""
+                android:background="@drawable/busqueda_background"
+                android:hint="@string/buscar_ponzo_oso"
+                android:padding="12dp"
+                android:textColor="@android:color/black"
+                android:textColorHint="#888"
+                android:inputType="text" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 🔘 Botones de acción o filtro -->
+    <LinearLayout
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="8dp">
+
+        <Button
+            android:id="@+id/cv_arania"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/colour_spider" />
+
+        <Button
+            android:id="@+id/cv_escorpionn"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/whiteblack_scorpion" />
+
+        <Button
+            android:id="@+id/cv_serpientee"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/whiteblack_snake" />
+    </LinearLayout>
+
+    <!-- 📦 Catálogo abajo -->
+    <GridView
+        android:id="@+id/gv_catalogo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:numColumns="2"
+        android:verticalSpacing="8dp"
+        android:horizontalSpacing="8dp"
+        android:layout_margin="8dp"
+        android:stretchMode="columnWidth"
+        android:isScrollContainer="false"
+        android:nestedScrollingEnabled="true"
+        android:clipToPadding="false" />
+
+</LinearLayout>

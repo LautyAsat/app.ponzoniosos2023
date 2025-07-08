@@ -8,14 +8,15 @@
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
-        android:icon="@drawable/logoapp"
-        android:label="@string/app_name"
-        android:roundIcon="@drawable/logoapp"
-        android:supportsRtl="true"
-        android:theme="@style/CustomToolbarStyle"
+        android:icon = "@drawable/logoapp"
+        android:label = "@string/app_name"
+        android:roundIcon = "@drawable/logoapp"
+        android:supportsRtl = "true"
+        android:theme = "@style/CustomToolbarStyle"
         android:networkSecurityConfig="@xml/network_security_config"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
+        <activity android:name="edu.unlpam.vet.ponzonosos.MostrarCatalogoActivity"/>
         <activity android:name="edu.unlpam.vet.ponzonosos.ContactUsActivity"/>
         <activity android:name="edu.unlpam.vet.ponzonosos.PreventionMeasuresActivity" />
         <activity android:name="edu.unlpam.vet.ponzonosos.WhatToDoActivity" />
@@ -25,6 +26,9 @@
         <activity android:name="edu.unlpam.vet.ponzonosos.Galeria" />
         <activity android:name="edu.unlpam.vet.ponzonosos.SpacePhotoActivity" />
         <activity android:name="edu.unlpam.vet.ponzonosos.CatalogoGrid" />
+        <activity android:name=".FullscreenGalleryActivity"
+            android:exported="false"/>
+
         <activity android:name="edu.unlpam.vet.ponzonosos.MainActivity"
             android:exported="true">
             <intent-filter>
