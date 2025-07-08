@@ -4,16 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 
 import androidx.core.content.ContextCompat;
-import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -118,4 +115,6 @@ public class InfoAnimal extends AppCompatActivity {
             });
         }
     }
+
+
 }

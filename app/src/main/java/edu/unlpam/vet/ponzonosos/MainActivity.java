@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startAplication() {
-        Intent mIntent = new Intent(this, MostrarCatalogo.class);
+        Intent mIntent = new Intent(this, MostrarCatalogoActivity.class);
         startActivity(mIntent);
         finish();
         removeActionDialog();
