@@ -18,15 +18,13 @@ import java.util.List;
 public class AggressivenessSpinnerAdapter extends ArrayAdapter<String>{
 
     private final LayoutInflater mInflater;
-    private final Context mContext;
-    private final List<Agresividad> items;
+    private final List items;
     private final int mResource;
 
     public AggressivenessSpinnerAdapter(@NonNull Context context, @LayoutRes int resource,
                               @NonNull List objects) {
         super(context, resource, 0, objects);
 
-        mContext = context;
         mInflater = LayoutInflater.from(context);
         mResource = resource;
         items = objects;
@@ -49,7 +47,7 @@ public class AggressivenessSpinnerAdapter extends ArrayAdapter<String>{
     private View createItemView(int position, View convertView, ViewGroup parent){
         final View view = mInflater.inflate(mResource, parent, false);
         TextView tvName =  view.findViewById(R.id.item_name);
-        tvName.setText(items.get(position).getName());
+        tvName.setText(items.get(position).getClass().getModifiers());
                 return view;
     }
 }
