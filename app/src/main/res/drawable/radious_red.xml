@@ -1,0 +1,19 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Textura como fondo -->
+    <item>
+        <bitmap
+            android:src="@drawable/red_texture"
+            android:tileMode="repeat"
+            android:gravity="fill"/>
+    </item>
+
+    <!-- Capa superior con bordes redondeados y color transparente para recortar -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent"/>
+            <corners android:radius="12dp"/>
+        </shape>
+    </item>
+
+</layer-list>

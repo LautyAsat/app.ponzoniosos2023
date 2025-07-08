@@ -73,4 +73,9 @@ public class AdaptadorGrid extends BaseAdapter{
         });
         return fila;
     }
+
+    public void setAnimals(List<Animal> nuevosAnimales) {
+        this.animales = nuevosAnimales;
+    }
+
 }
