@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.unlpam.vet.ponzonosos.adapters.AdaptadorGrid;
@@ -88,23 +89,17 @@ public class MostrarCatalogoActivity extends AppCompatActivity implements View.O
         }
 
         if (id == R.id.cv_arania) {
-            tipo = 1;
-            spiderOn=!spiderOn;
+            spiderOn = !spiderOn;
             actualizarFondo(1);
         } else if (id == R.id.cv_escorpionn) {
-            tipo = 2;
-            scorpionOn=!scorpionOn;
+            scorpionOn = !scorpionOn;
             actualizarFondo(2);
-
         } else if (id == R.id.cv_serpientee) {
-            tipo = 3;
-            snakeOn=!snakeOn;
+            snakeOn = !snakeOn;
             actualizarFondo(3);
-
-        } else if (spiderOn && scorpionOn && snakeOn) {
-            tipo = 0;
         }
 
+        tipo = calcularTipo(spiderOn, scorpionOn, snakeOn);
         actualizarGrid();
     }
 
@@ -140,18 +135,73 @@ public class MostrarCatalogoActivity extends AppCompatActivity implements View.O
                 break;
         }
     }
+
+    private int calcularTipo(boolean spider, boolean scorpion, boolean snake) {
+        if (!spider && !scorpion && !snake) return -1;
+        if (spider && !scorpion && !snake) return 1;
+        if (!spider && scorpion && !snake) return 2;
+        if (!spider && !scorpion) return 3;
+        if (spider && scorpion && !snake) return 4;
+        if (spider && !scorpion) return 5;
+        if (!spider) return 6;
+        return 0;
+    }
+
+
     private void actualizarGrid() {
-        if (tipo == 0) {
-            animals = animalDao.queryBuilder().list(); // Todos
-        } else {
-            animals = animalDao.queryBuilder()
-                    .where(AnimalDao.Properties.Tipo.eq(tipo))
-                    .list();
+        List<Animal> animalsaux;
+
+        switch (tipo) {
+            case 0: // Todos
+                animals = animalDao.queryBuilder().list();
+                break;
+
+            case 4: // Araña + Escorpión
+                animals = animalDao.queryBuilder()
+                        .where(AnimalDao.Properties.Tipo.eq(1))
+                        .list();
+                animalsaux = animalDao.queryBuilder()
+                        .where(AnimalDao.Properties.Tipo.eq(2))
+                        .list();
+                animals.addAll(animalsaux);
+                break;
+
+            case 5: // Araña + Serpiente
+                animals = animalDao.queryBuilder()
+                        .where(AnimalDao.Properties.Tipo.eq(1))
+                        .list();
+                animalsaux = animalDao.queryBuilder()
+                        .where(AnimalDao.Properties.Tipo.eq(3))
+                        .list();
+                animals.addAll(animalsaux);
+                break;
+
+            case 6: // Escorpión + Serpiente
+                animals = animalDao.queryBuilder()
+                        .where(AnimalDao.Properties.Tipo.eq(2))
+                        .list();
+                animalsaux = animalDao.queryBuilder()
+                        .where(AnimalDao.Properties.Tipo.eq(3))
+                        .list();
+                animals.addAll(animalsaux);
+                break;
+
+            case 1:
+            case 2:
+            case 3:
+                animals = animalDao.queryBuilder()
+                        .where(AnimalDao.Properties.Tipo.eq(tipo))
+                        .list();
+                break;
+
+            default:
+                animals = new ArrayList<>();
         }
-//        Necesitás este metodo en tu adaptador
+
         adaptadorGrid.setAnimals(animals);
         adaptadorGrid.notifyDataSetChanged();
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
