@@ -28,7 +28,8 @@
                 android:text="@string/qu_hacer_frente_a_un_accidente"
                 android:textAllCaps="false"
                 android:background="@drawable/red_texture"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                />
 
             <Button
                 android:id="@+id/cv_prevention_measuress"
@@ -41,6 +42,7 @@
                 android:textColor="@android:color/white" />
 
             <EditText
+                android:id="@+id/filter_name"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="8dp"
@@ -69,7 +71,8 @@
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:background="@drawable/colour_spider" />
+            android:background="@drawable/colour_spider"
+            android:contentDescription="@string/bot_n_para_abrir_ara_a"/>
 
         <Button
             android:id="@+id/cv_escorpionn"
@@ -77,7 +80,8 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginStart="8dp"
-            android:background="@drawable/whiteblack_scorpion" />
+            android:background="@drawable/whiteblack_scorpion"
+            android:contentDescription="@string/bot_n_para_abrir_escorpion"/>
 
         <Button
             android:id="@+id/cv_serpientee"
@@ -85,7 +89,8 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginStart="8dp"
-            android:background="@drawable/whiteblack_snake" />
+            android:background="@drawable/whiteblack_snake"
+            android:contentDescription="@string/bot_n_para_abrir_serpiente"/>
     </LinearLayout>
 
     <!-- 📦 Catálogo abajo -->
