@@ -121,7 +121,7 @@ public class MostrarCatalogoActivity extends AppCompatActivity implements View.O
 
                 }
                 else{
-                    cardSerpiente.setBackground(ContextCompat.getDrawable(this, R.drawable.whiteblack_scorpion));
+                    cardSerpiente.setBackground(ContextCompat.getDrawable(this, R.drawable.whiteblack_snake));
                 }
                 break;
 

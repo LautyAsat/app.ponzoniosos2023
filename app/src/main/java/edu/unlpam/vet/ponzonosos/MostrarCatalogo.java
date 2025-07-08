@@ -20,6 +20,7 @@ import edu.unlpam.vet.ponzonosos.model.Imagen;
 import edu.unlpam.vet.ponzonosos.model.ImagenDao;
 import edu.unlpam.vet.ponzonosos.util.LoadImage;
 
+import java.io.File;
 import java.util.List;
 
 public class MostrarCatalogo extends AppCompatActivity implements View.OnClickListener {
@@ -59,12 +60,6 @@ public class MostrarCatalogo extends AppCompatActivity implements View.OnClickLi
         RequestOptions options = new RequestOptions()
                 .placeholder(R.drawable.default_image);
         Glide.with(getApplicationContext())
-                .load(R.drawable.ambulance_v3)
-                .apply(options);
-        Glide.with(getApplicationContext())
-                .load(R.drawable.prevention)
-                .apply(options);
-        Glide.with(getApplicationContext())
                 .load(R.drawable.arana)
                 .apply(options)
                 .into(spider);
@@ -87,25 +82,40 @@ public class MostrarCatalogo extends AppCompatActivity implements View.OnClickLi
         List<Imagen> imagesToDownload = MainActivity.getInstance().getDaoSession()
                 .getImagenDao().queryBuilder()
                 .where(ImagenDao.Properties.Descargada.eq(false)).list();
-        for (final Imagen image : imagesToDownload){
-            LoadImage loadImage = new LoadImage(new LoadImage.Listener() {
-                @Override
-                public void onImageLoaded(Bitmap bitmap) {
-                    if (bitmap == null){
-                        Log.e(TAG, "onImageLoaded: Image bitmap is null");
-                        return;
-                    }
-                    image.saveImageToInternalStorage(getApplicationContext(),
-                            image.getImg(),
-                            bitmap);
-                }
-                @Override
-                public void onError() {
-                    Log.e(TAG, "onError: Error loading image bitmap");
-                }
-            });
-            loadImage.execute(MainActivity.DIR_IMAGES + image.getImg());
+        for (final Imagen image : imagesToDownload) {
+            String path = MainActivity.DIR_IMAGES + image.getImg();
+
+            Glide.with(this)
+                    .asBitmap()
+                    .load(new File(path))  // o una URL si estás descargando desde Internet
+                    .into(new com.bumptech.glide.request.target.CustomTarget<Bitmap>() {
+                        @Override
+                        public void onResourceReady(Bitmap resource, com.bumptech.glide.request.transition.Transition<? super Bitmap> transition) {
+                            if (resource != null) {
+                                image.saveImageToInternalStorage(
+                                        getApplicationContext(),
+                                        image.getImg(),
+                                        resource
+                                );
+                                Log.d(TAG, "Imagen guardada: " + image.getImg());
+                            } else {
+                                Log.e(TAG, "Bitmap descargado es null");
+                            }
+                        }
+
+                        @Override
+                        public void onLoadCleared(android.graphics.drawable.Drawable placeholder) {
+                            // No hace falta hacer nada acá
+                        }
+
+                        @Override
+                        public void onLoadFailed(android.graphics.drawable.Drawable errorDrawable) {
+                            super.onLoadFailed(errorDrawable);
+                            Log.e(TAG, "Fallo al cargar la imagen con Glide: " + image.getImg());
+                        }
+                    });
         }
+
     }
 
     @Override

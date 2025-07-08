@@ -12,8 +12,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 
 import edu.unlpam.vet.ponzonosos.model.Animal;
@@ -23,7 +21,7 @@ import edu.unlpam.vet.ponzonosos.model.Imagen;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
+
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -45,13 +43,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d("rmdebug", "MainActivity - onCreate");
-        showActionDialog("Iniciando");
+        showActionDialog();
         toImport = new ArrayList<>();
         instance = this;
         mDaoSession = new DaoMaster(
                 new DaoMaster.DevOpenHelper(this, "ponzonosos.db")
                         .getWritableDb()).newSession();
-        //if(shouldUpdate()){
         if(shouldUpdate()){
             Log.d(TAG, "onCreate: I should update data base");
             updateDataBase();
@@ -60,13 +57,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void showActionDialog(String action) {
+    private void showActionDialog() {
         @SuppressLint("InflateParams")
         View view = getLayoutInflater().inflate(R.layout.dialog_action, null);
         dialog = new Dialog(this,
                 android.R.style.Theme_NoTitleBar_Fullscreen);
         TextView actionName = view.findViewById(R.id.action_name);
-        actionName.setText(action);
+        actionName.setText(R.string.iniciando);
         dialog.setContentView(view);
         dialog.show();
     }
@@ -148,30 +145,24 @@ public class MainActivity extends AppCompatActivity {
         String url = "http://"+MainActivity.IP+"/app/obtener_animales.php";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
                 url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            if (response.getString("state").equals("1")) {
-                                JSONArray responseJSONArray = response.getJSONArray("animals");
-                                Animal animal = new Animal();
-                                animal.abmAnimales(responseJSONArray);
-                            }else {
-                                Log.e(TAG, "onResponse: Error on response, state: " +
-                                        response.getString("state"));
-                            }
-                        } catch (JSONException e) {
-                            Log.e(TAG, "onResponse: Something went wrong!", e);
+                response -> {
+                    try {
+                        if (response.getString("state").equals("1")) {
+                            JSONArray responseJSONArray = response.getJSONArray("animals");
+                            Animal animal = new Animal();
+                            animal.abmAnimales(responseJSONArray);
+                        }else {
+                            Log.e(TAG, "onResponse: Error on response, state: " +
+                                    response.getString("state"));
                         }
-                        importEntities();
+                    } catch (JSONException e) {
+                        Log.e(TAG, "onResponse: Something went wrong!", e);
                     }
+                    importEntities();
                 },
-                new Response.ErrorListener(){
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.d(TAG, "onErrorResponse: Error on response: " + error.toString());
-                        importEntities();
-                    }
+                error -> {
+                    Log.d(TAG, "onErrorResponse: Error on response: " + error.toString());
+                    importEntities();
                 });
         MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
     }
@@ -181,30 +172,24 @@ public class MainActivity extends AppCompatActivity {
         String url = "http://"+MainActivity.IP+"/app/obtener_imagenes.php";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
                 url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            if (response.getString("state").equals("1")) {
-                                JSONArray responseJSONArray = response.getJSONArray("images");
-                                Imagen img = new Imagen();
-                                img.abmImagenes(responseJSONArray, getApplicationContext());
-                            }else{
-                                Log.e(TAG, "onResponse: Error on response, state: " +
-                                        response.getString("state"));
-                            }
-                        } catch (JSONException e) {
-                            Log.e(TAG, "onResponse: Something went wrong!", e);
+                response -> {
+                    try {
+                        if (response.getString("state").equals("1")) {
+                            JSONArray responseJSONArray = response.getJSONArray("images");
+                            Imagen img = new Imagen();
+                            img.abmImagenes(responseJSONArray, getApplicationContext());
+                        }else{
+                            Log.e(TAG, "onResponse: Error on response, state: " +
+                                    response.getString("state"));
                         }
-                        importEntities();
+                    } catch (JSONException e) {
+                        Log.e(TAG, "onResponse: Something went wrong!", e);
                     }
+                    importEntities();
                 },
-                new Response.ErrorListener(){
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.d(TAG, "onErrorResponse: Error on response: " + error.toString());
-                        importEntities();
-                    }
+                error -> {
+                    Log.d(TAG, "onErrorResponse: Error on response: " + error.toString());
+                    importEntities();
                 });
         MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
     }

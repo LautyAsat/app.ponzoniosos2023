@@ -3,7 +3,6 @@ package edu.unlpam.vet.ponzonosos;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-import edu.unlpam.vet.ponzonosos.R;
 
 public class ContactUsActivity extends AppCompatActivity {
 
