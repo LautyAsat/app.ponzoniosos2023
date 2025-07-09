@@ -86,4 +86,7 @@
     <string name="qu_hacer_frente_a_un_accidente">⚠️ Qué hacer frente a un accidente?</string>
     <string name="medidas_de_prevenci_n">⚠️ Medidas de prevención</string>
     <string name="buscar_ponzo_oso">🔍 Buscar ponzoñoso…</string>
+    <string name="bot_n_para_abrir_ara_a">Botón para abrir araña</string>
+    <string name="bot_n_para_abrir_escorpion">Botón para abrir escorpion</string>
+    <string name="bot_n_para_abrir_serpiente">Botón para abrir serpiente</string>
 </resources>

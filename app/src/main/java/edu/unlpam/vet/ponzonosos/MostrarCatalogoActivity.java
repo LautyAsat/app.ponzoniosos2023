@@ -2,6 +2,9 @@ package edu.unlpam.vet.ponzonosos;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
@@ -32,7 +35,7 @@ public class MostrarCatalogoActivity extends AppCompatActivity implements View.O
 
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.menucatalogo);
+        setContentView(R.layout.menu_catalogo);
 
         Toolbar myToolbar = findViewById(R.id.app_bar);
 
@@ -121,7 +124,7 @@ public class MostrarCatalogoActivity extends AppCompatActivity implements View.O
 
                 }
                 else{
-                    cardSerpiente.setBackground(ContextCompat.getDrawable(this, R.drawable.whiteblack_scorpion));
+                    cardSerpiente.setBackground(ContextCompat.getDrawable(this, R.drawable.whiteblack_snake));
                 }
                 break;
 
@@ -148,6 +151,30 @@ public class MostrarCatalogoActivity extends AppCompatActivity implements View.O
 //        Necesitás este metodo en tu adaptador
         adaptadorGrid.setAnimals(animals);
         adaptadorGrid.notifyDataSetChanged();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_show_catalog, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.about){
+            goAboutActivity();
+        }
+        if (item.getItemId() == R.id.contact){
+            Intent intent = new Intent(this, ContactUsActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void goAboutActivity() {
+        Intent aboutActivity = new Intent(this, AboutActivity.class);
+        startActivity(aboutActivity);
     }
 
 }
