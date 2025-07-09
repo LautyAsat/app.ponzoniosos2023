@@ -2,18 +2,21 @@ package edu.unlpam.vet.ponzonosos
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.util.TypedValue
 import android.view.View
 import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
 import edu.unlpam.vet.ponzonosos.adapters.MostrarCatalogoAdapter
 import edu.unlpam.vet.ponzonosos.databinding.ActivityMostrarCatalogoPruebaBinding
 import edu.unlpam.vet.ponzonosos.model.Animal
 import edu.unlpam.vet.ponzonosos.model.AnimalDao
+import androidx.core.view.WindowInsetsCompat
 
 class MostrarCatalogoPruebaActivity : AppCompatActivity() {
 
@@ -37,7 +40,9 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(binding.root)
 
-        /* ---- */
+        setDinamicEdgeAppBar()
+
+            /* ---- */
         dinamicPadding() // Se centra dinamicamente según el tamaño de pantalla el padding del recyclingView
         /* ---- */
 
@@ -63,6 +68,24 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         toggleTypeStateHandler(spiderState, binding.ivArania, R.drawable.colour_spider, R.drawable.whiteblack_spider)
         toggleTypeStateHandler(scorpionState, binding.ivEscorpion, R.drawable.colour_scorpion, R.drawable.whiteblack_scorpion)
         toggleTypeStateHandler(snakeState, binding.ivSerpiente, R.drawable.colour_snake, R.drawable.whiteblack_snake)
+    }
+
+    private fun setDinamicEdgeAppBar() {
+        ViewCompat.setOnApplyWindowInsetsListener(window.decorView) { view, insets ->
+            val statusBarHeight = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
+
+            val layoutParams = binding.iHeader.root.layoutParams
+            layoutParams.height = (dpToPx(60f) + statusBarHeight).toInt() //Seteamos los nuevos pxs
+            binding.iHeader.root.layoutParams = layoutParams
+
+            binding.iHeader.llHeader.setPadding(
+                binding.iHeader.llHeader.paddingLeft,
+                statusBarHeight,  // nuevo padding top (en px)
+                binding.iHeader.llHeader.paddingRight,
+                binding.iHeader.llHeader.paddingBottom
+            )
+            insets
+        }
     }
 
     private fun initUI(){
