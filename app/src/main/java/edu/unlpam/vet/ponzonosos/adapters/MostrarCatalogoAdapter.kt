@@ -9,7 +9,7 @@ import edu.unlpam.vet.ponzonosos.R
 
 class MostrarCatalogoAdapter(
     val animals: List<Animal>,
-    val onSelectItem: () -> Unit
+    val onSelectItem: (Long) -> Unit
 ) : RecyclerView.Adapter<MostrarCatalogoViewHolder>() {
 
     override fun onCreateViewHolder(

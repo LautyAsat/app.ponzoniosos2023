@@ -1,5 +1,6 @@
 package edu.unlpam.vet.ponzonosos
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.View
@@ -59,20 +60,24 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         initUI()
 
         // Listener de estado para los botones ponzoñosos
-        toggleImage(spiderState, binding.ivArania, R.drawable.colour_spider, R.drawable.whiteblack_spider)
-        toggleImage(scorpionState, binding.ivEscorpion, R.drawable.colour_scorpion, R.drawable.whiteblack_scorpion)
-        toggleImage(snakeState, binding.ivSerpiente, R.drawable.colour_snake, R.drawable.whiteblack_snake)
+        toggleTypeStateHandler(spiderState, binding.ivArania, R.drawable.colour_spider, R.drawable.whiteblack_spider)
+        toggleTypeStateHandler(scorpionState, binding.ivEscorpion, R.drawable.colour_scorpion, R.drawable.whiteblack_scorpion)
+        toggleTypeStateHandler(snakeState, binding.ivSerpiente, R.drawable.colour_snake, R.drawable.whiteblack_snake)
     }
 
     private fun initUI(){
-        adapter = MostrarCatalogoAdapter(animals){ navigateToDetail() }
+        adapter = MostrarCatalogoAdapter(animals){ navigateToDetail(it) }
 
         binding.rvCatalogo.layoutManager = GridLayoutManager(this, 2)
         binding.rvCatalogo.adapter = adapter
     }
 
-    private fun navigateToDetail(){
+    private fun navigateToDetail(animalId: Long ){
+        val intent = Intent(this, InfoAnimal::class.java)
 
+        intent.putExtra("obj", animalId)
+
+        startActivity(intent)
     }
 
     private fun dinamicPadding(){
@@ -111,7 +116,7 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         return dp * resources.displayMetrics.density
     }
 
-    private fun toggleImage(
+    private fun toggleTypeStateHandler(
         state : ToggleState,
         imageView: ImageButton,
         image1: Int,

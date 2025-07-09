@@ -12,7 +12,7 @@ class MostrarCatalogoViewHolder (view: View) : RecyclerView.ViewHolder(view) {
 
     private val binding = ItemAnimalViewBinding.bind(view)
 
-    fun render(animalData : Animal, onSelectedItem: () -> Unit){
+    fun render(animalData : Animal, onSelectedItem: (Long) -> Unit){
         binding.tvAnimalName.text = animalData.nombre
 
         val principalImage: Imagen? = animalData.getPrincipalImage()
@@ -23,9 +23,6 @@ class MostrarCatalogoViewHolder (view: View) : RecyclerView.ViewHolder(view) {
         }
 
 
-        Log.i("ponzolau", pathImage)
-
-
-        binding.root.setOnClickListener { onSelectedItem() }
+        binding.root.setOnClickListener { onSelectedItem(animalData.id) }
     }
 }
