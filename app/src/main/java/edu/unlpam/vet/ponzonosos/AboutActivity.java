@@ -60,9 +60,7 @@ public class AboutActivity extends AppCompatActivity {
                     "pdf/8_4_2017_316.pdf";
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(browserIntent);
-        }catch (UnsupportedOperationException e){
-            e.printStackTrace();
-        }catch (Exception e){
+        } catch (Exception e){
             e.printStackTrace();
         }
     }

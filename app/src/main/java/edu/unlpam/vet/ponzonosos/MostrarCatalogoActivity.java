@@ -13,9 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import edu.unlpam.vet.ponzonosos.adapters.AdaptadorGrid;
 import edu.unlpam.vet.ponzonosos.model.Animal;
@@ -31,8 +30,6 @@ public class MostrarCatalogoActivity extends AppCompatActivity implements View.O
 
     private Button cardArania, cardEscorpion, cardSerpiente;
     private  boolean spiderOn=true,scorpionOn=false,snakeOn=false;
-
-    Set<Integer> tiposSeleccionados = new HashSet<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,15 +70,6 @@ public class MostrarCatalogoActivity extends AppCompatActivity implements View.O
         cardEscorpion.setOnClickListener(this);
         cardSerpiente.setOnClickListener(this);
         //cardTodos.setOnClickListener(this);
-
-        tiposSeleccionados.add(1);
-        tiposSeleccionados.add(2);
-        tiposSeleccionados.add(3);
-
-        spiderOn = true;
-        scorpionOn = true;
-        snakeOn = true;
-
     }
 
     @Override
@@ -101,45 +89,22 @@ public class MostrarCatalogoActivity extends AppCompatActivity implements View.O
         }
 
         if (id == R.id.cv_arania) {
-            toggleTipo(1);
-            spiderOn=!spiderOn;
+            spiderOn = !spiderOn;
             actualizarFondo(1);
         } else if (id == R.id.cv_escorpionn) {
-            toggleTipo(2);
-            scorpionOn=!scorpionOn;
+            scorpionOn = !scorpionOn;
             actualizarFondo(2);
-
         } else if (id == R.id.cv_serpientee) {
-            toggleTipo(3);
-            snakeOn=!snakeOn;
+            snakeOn = !snakeOn;
             actualizarFondo(3);
-
-        } else if (spiderOn && scorpionOn && snakeOn) {
-            toggleTipo(0);
         }
 
+        tipo = calcularTipo(spiderOn, scorpionOn, snakeOn);
         actualizarGrid();
-    }
-
-    private void toggleTipo(int tipo) {
-        if (tiposSeleccionados.contains(tipo)) {
-            tiposSeleccionados.remove(tipo);
-        } else {
-            tiposSeleccionados.add(tipo);
-        }
     }
 
     private void actualizarFondo(int option){
         switch (option){
-            case 1:
-                if(spiderOn){
-                    cardArania.setBackground(ContextCompat.getDrawable(this, R.drawable.colour_spider));
-
-                }
-                else{
-                    cardArania.setBackground(ContextCompat.getDrawable(this, R.drawable.whiteblack_spider));
-                }
-                break;
             case 2:
                 if(scorpionOn){
                     cardEscorpion.setBackground(ContextCompat.getDrawable(this, R.drawable.colour_scorpion));
@@ -159,27 +124,84 @@ public class MostrarCatalogoActivity extends AppCompatActivity implements View.O
                 break;
 
             default:
-                actualizarFondo(1);
-                actualizarFondo(2);
-                actualizarFondo(3);
+                if(spiderOn){
+                    cardArania.setBackground(ContextCompat.getDrawable(this, R.drawable.colour_spider));
 
+                }
+                else{
+                    cardArania.setBackground(ContextCompat.getDrawable(this, R.drawable.whiteblack_spider));
+                }
 
                 break;
         }
     }
+
+    private int calcularTipo(boolean spider, boolean scorpion, boolean snake) {
+        if (!spider && !scorpion && !snake) return -1;
+        if (spider && !scorpion && !snake) return 1;
+        if (!spider && scorpion && !snake) return 2;
+        if (!spider && !scorpion) return 3;
+        if (spider && scorpion && !snake) return 4;
+        if (spider && !scorpion) return 5;
+        if (!spider) return 6;
+        return 0;
+    }
+
+
     private void actualizarGrid() {
-        if (tiposSeleccionados.isEmpty()) {
-            animals = animalDao.queryBuilder().list(); // mostrar todos
-        } else {
-            // construir el IN (...)
-            animals = animalDao.queryBuilder()
-                    .where(AnimalDao.Properties.Tipo.in(tiposSeleccionados.toArray()))
-                    .list();
+        List<Animal> animalsaux;
+
+        switch (tipo) {
+            case 0: // Todos
+                animals = animalDao.queryBuilder().list();
+                break;
+
+            case 4: // Araña + Escorpión
+                animals = animalDao.queryBuilder()
+                        .where(AnimalDao.Properties.Tipo.eq(1))
+                        .list();
+                animalsaux = animalDao.queryBuilder()
+                        .where(AnimalDao.Properties.Tipo.eq(2))
+                        .list();
+                animals.addAll(animalsaux);
+                break;
+
+            case 5: // Araña + Serpiente
+                animals = animalDao.queryBuilder()
+                        .where(AnimalDao.Properties.Tipo.eq(1))
+                        .list();
+                animalsaux = animalDao.queryBuilder()
+                        .where(AnimalDao.Properties.Tipo.eq(3))
+                        .list();
+                animals.addAll(animalsaux);
+                break;
+
+            case 6: // Escorpión + Serpiente
+                animals = animalDao.queryBuilder()
+                        .where(AnimalDao.Properties.Tipo.eq(2))
+                        .list();
+                animalsaux = animalDao.queryBuilder()
+                        .where(AnimalDao.Properties.Tipo.eq(3))
+                        .list();
+                animals.addAll(animalsaux);
+                break;
+
+            case 1:
+            case 2:
+            case 3:
+                animals = animalDao.queryBuilder()
+                        .where(AnimalDao.Properties.Tipo.eq(tipo))
+                        .list();
+                break;
+
+            default:
+                animals = new ArrayList<>();
         }
-//        Necesitás este metodo en tu adaptador
+
         adaptadorGrid.setAnimals(animals);
         adaptadorGrid.notifyDataSetChanged();
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

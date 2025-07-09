@@ -38,7 +38,7 @@
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
                         android:src="@drawable/blue_texture"
-                        android:contentDescription="Encabezado azul" />
+                        android:contentDescription="@string/background" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -52,7 +52,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
-                            android:text="Contacto - Identificación Ejemplares"
+                            android:text="@string/contacto_identificaci_n_ejemplares"
                             android:textColor="@android:color/white"
                             android:textStyle="bold"
                             android:textSize="16sp" />
@@ -70,7 +70,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Facultad de Ciencias Veterinarias UNLPam"
+                        android:text="@string/facultad_de_ciencias_veterinarias_unlpam"
                         android:textStyle="bold"
                         android:textSize="16sp"
                         android:gravity="center"
@@ -80,7 +80,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Calle 5 esq 116, General Pico, La Pampa"
+                        android:text="@string/calle_5_esq_116_general_pico_la_pampa"
                         android:textSize="14sp"
                         android:gravity="center" />
 
@@ -91,37 +91,97 @@
                         android:layout_marginTop="16dp"
                         android:orientation="vertical">
 
-                        <TextView
+                        <!-- Teléfono -->
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="(02302) 42 1607 int 6201"
-                            android:drawableStart="@drawable/icons8_phone_16"
-                            android:drawablePadding="10dp" />
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center_vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@Ponzonosos.lp"
-                            android:drawableStart="@drawable/icons8_instagram_16"
-                            android:drawablePadding="10dp"
-                            android:layout_marginTop="5dp" />
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:src="@drawable/icons8_phone_16"
+                                android:contentDescription="@string/telefono" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="2302 467189"
-                            android:drawableStart="@drawable/icons8_whatsapp_16"
-                            android:drawablePadding="10dp"
-                            android:layout_marginTop="5dp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="@string/_02302_42_1607_int_6201"
+                                android:textColor="#000000" />
+                        </LinearLayout>
 
-                        <TextView
+                        <!-- Instagram -->
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="mariabruni@live.com.ar"
-                            android:drawableStart="@drawable/icons8_envelope_16"
-                            android:drawablePadding="10dp"
-                            android:layout_marginTop="5dp" />
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/icons8_instagram_16"
+                                android:contentDescription="@string/instagram" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="@string/ponzonosos_lp"
+                                android:textColor="#000000" />
+                        </LinearLayout>
+
+                        <!-- WhatsApp -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/icons8_whatsapp_16"
+                                android:contentDescription="@string/whatsapp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="@string/_2302_467189"
+                                android:textColor="#000000" />
+                        </LinearLayout>
+
+                        <!-- Email -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/icons8_envelope_16"
+                                android:contentDescription="@string/correo" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="@string/mariabruni_live_com_ar"
+                                android:textColor="#000000" />
+                        </LinearLayout>
+
                     </LinearLayout>
+
+
 
                     <!-- Línea adicional -->
                     <TextView

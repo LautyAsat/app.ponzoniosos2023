@@ -89,4 +89,21 @@
     <string name="bot_n_para_abrir_ara_a">Botón para abrir araña</string>
     <string name="bot_n_para_abrir_escorpion">Botón para abrir escorpion</string>
     <string name="bot_n_para_abrir_serpiente">Botón para abrir serpiente</string>
+    <string name="iniciando">Iniciando</string>
+    <string name="alta">Alta</string>
+    <string name="media">Media</string>
+    <string name="baja">Baja</string>
+    <string name="contacto_identificaci_n_ejemplares">Contacto - Identificación Ejemplares</string>
+    <string name="facultad_de_ciencias_veterinarias_unlpam">Facultad de Ciencias Veterinarias UNLPam</string>
+    <string name="calle_5_esq_116_general_pico_la_pampa">Calle 5 esq 116, General Pico, La Pampa</string>
+    <string name="_02302_42_1607_int_6201">(02302) 42 1607 int 6201</string>
+    <string name="_2302_467189">2302 467189</string>
+    <string name="mariabruni_live_com_ar">mariabruni@live.com.ar</string>
+    <string name="ponzonosos_lp">\@Ponzonosos.lp</string>
+    <string name="correo">Icono correo</string>
+    <string name="whatsapp">Icono whatsapp</string>
+    <string name="instagram">Icono instagram</string>
+    <string name="telefono">Icono telefono</string>
+    <string name="carrusel_de_fotos">Carrusel de Fotos</string>
+    <string name="logo_app">Logo app</string>
 </resources>

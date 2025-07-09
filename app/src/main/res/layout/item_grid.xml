@@ -8,11 +8,11 @@
     android:paddingLeft="1dp"
     android:paddingBottom="1dp"
     android:paddingTop="1dp"
-    android:background="@drawable/gridborder">
+    android:background="@drawable/round_border">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="175dp"
         app:cardCornerRadius="20dp">
 
    <FrameLayout
