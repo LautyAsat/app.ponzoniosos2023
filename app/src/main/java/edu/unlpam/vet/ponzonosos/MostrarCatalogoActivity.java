@@ -13,7 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import edu.unlpam.vet.ponzonosos.adapters.AdaptadorGrid;
 import edu.unlpam.vet.ponzonosos.model.Animal;
@@ -29,6 +31,8 @@ public class MostrarCatalogoActivity extends AppCompatActivity implements View.O
 
     private Button cardArania, cardEscorpion, cardSerpiente;
     private  boolean spiderOn=true,scorpionOn=false,snakeOn=false;
+
+    Set<Integer> tiposSeleccionados = new HashSet<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +73,15 @@ public class MostrarCatalogoActivity extends AppCompatActivity implements View.O
         cardEscorpion.setOnClickListener(this);
         cardSerpiente.setOnClickListener(this);
         //cardTodos.setOnClickListener(this);
+
+        tiposSeleccionados.add(1);
+        tiposSeleccionados.add(2);
+        tiposSeleccionados.add(3);
+
+        spiderOn = true;
+        scorpionOn = true;
+        snakeOn = true;
+
     }
 
     @Override
@@ -88,28 +101,45 @@ public class MostrarCatalogoActivity extends AppCompatActivity implements View.O
         }
 
         if (id == R.id.cv_arania) {
-            tipo = 1;
+            toggleTipo(1);
             spiderOn=!spiderOn;
             actualizarFondo(1);
         } else if (id == R.id.cv_escorpionn) {
-            tipo = 2;
+            toggleTipo(2);
             scorpionOn=!scorpionOn;
             actualizarFondo(2);
 
         } else if (id == R.id.cv_serpientee) {
-            tipo = 3;
+            toggleTipo(3);
             snakeOn=!snakeOn;
             actualizarFondo(3);
 
         } else if (spiderOn && scorpionOn && snakeOn) {
-            tipo = 0;
+            toggleTipo(0);
         }
 
         actualizarGrid();
     }
 
+    private void toggleTipo(int tipo) {
+        if (tiposSeleccionados.contains(tipo)) {
+            tiposSeleccionados.remove(tipo);
+        } else {
+            tiposSeleccionados.add(tipo);
+        }
+    }
+
     private void actualizarFondo(int option){
         switch (option){
+            case 1:
+                if(spiderOn){
+                    cardArania.setBackground(ContextCompat.getDrawable(this, R.drawable.colour_spider));
+
+                }
+                else{
+                    cardArania.setBackground(ContextCompat.getDrawable(this, R.drawable.whiteblack_spider));
+                }
+                break;
             case 2:
                 if(scorpionOn){
                     cardEscorpion.setBackground(ContextCompat.getDrawable(this, R.drawable.colour_scorpion));
@@ -124,28 +154,26 @@ public class MostrarCatalogoActivity extends AppCompatActivity implements View.O
 
                 }
                 else{
-                    cardSerpiente.setBackground(ContextCompat.getDrawable(this, R.drawable.whiteblack_scorpion));
+                    cardSerpiente.setBackground(ContextCompat.getDrawable(this, R.drawable.whiteblack_snake));
                 }
                 break;
 
             default:
-                if(spiderOn){
-                    cardArania.setBackground(ContextCompat.getDrawable(this, R.drawable.colour_spider));
+                actualizarFondo(1);
+                actualizarFondo(2);
+                actualizarFondo(3);
 
-                }
-                else{
-                    cardArania.setBackground(ContextCompat.getDrawable(this, R.drawable.whiteblack_spider));
-                }
 
                 break;
         }
     }
     private void actualizarGrid() {
-        if (tipo == 0) {
-            animals = animalDao.queryBuilder().list(); // Todos
+        if (tiposSeleccionados.isEmpty()) {
+            animals = animalDao.queryBuilder().list(); // mostrar todos
         } else {
+            // construir el IN (...)
             animals = animalDao.queryBuilder()
-                    .where(AnimalDao.Properties.Tipo.eq(tipo))
+                    .where(AnimalDao.Properties.Tipo.in(tiposSeleccionados.toArray()))
                     .list();
         }
 //        Necesitás este metodo en tu adaptador
