@@ -2,9 +2,13 @@ package edu.unlpam.vet.ponzonosos
 
 import android.os.Bundle
 import android.util.TypedValue
+import android.view.View
+import android.widget.ImageButton
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import com.bumptech.glide.Glide
 import edu.unlpam.vet.ponzonosos.adapters.MostrarCatalogoAdapter
 import edu.unlpam.vet.ponzonosos.databinding.ActivityMostrarCatalogoPruebaBinding
 import edu.unlpam.vet.ponzonosos.model.Animal
@@ -12,9 +16,17 @@ import edu.unlpam.vet.ponzonosos.model.AnimalDao
 
 class MostrarCatalogoPruebaActivity : AppCompatActivity() {
 
+    class ToggleState(var value: Boolean, val type : Int)
+
     private lateinit var binding: ActivityMostrarCatalogoPruebaBinding
     private lateinit var animalDao: AnimalDao
-    private lateinit var animals : List<Animal>
+    private lateinit var animals : MutableList<Animal>
+
+    private var spiderState = ToggleState(true, 1)
+    private var scorpionState = ToggleState(true, 2)
+    private var snakeState = ToggleState(true, 3)
+
+    private var listOfAnimalsTypes = mutableSetOf<Int>(1, 2, 3)
 
     private lateinit var adapter: MostrarCatalogoAdapter
 
@@ -37,10 +49,19 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         // 2 - Escorpiones/Alacranes
         // 3 - Serpientes
 
-        val tipo = 1
-        animals = animalDao.queryBuilder().where(AnimalDao.Properties.Tipo.eq(tipo.toString())).list();
+        //val tipo = 1
+        //animals = animalDao.queryBuilder().where(AnimalDao.Properties.Tipo.eq(tipo.toString())).list()
+
+
+        // Lista mezclada para que salga como tenga que salir
+        animals = getAnimals(listOfAnimalsTypes)
 
         initUI()
+
+        // Listener de estado para los botones ponzoñosos
+        toggleImage(spiderState, binding.ivArania, R.drawable.colour_spider, R.drawable.whiteblack_spider)
+        toggleImage(scorpionState, binding.ivEscorpion, R.drawable.colour_scorpion, R.drawable.whiteblack_scorpion)
+        toggleImage(snakeState, binding.ivSerpiente, R.drawable.colour_snake, R.drawable.whiteblack_snake)
     }
 
     private fun initUI(){
@@ -86,11 +107,49 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
 
     }
 
-    fun pxToDp(px: Float): Float {
-        return px / this.resources.displayMetrics.density
-    }
-
     fun dpToPx(dp: Float): Float {
         return dp * resources.displayMetrics.density
+    }
+
+    private fun toggleImage(
+        state : ToggleState,
+        imageView: ImageButton,
+        image1: Int,
+        image2: Int
+    ) {
+        imageView.setOnClickListener {
+            state.value = !state.value
+
+            // Se modifica la lista de tiposActivos
+            if(state.value) listOfAnimalsTypes.add(state.type)
+            else listOfAnimalsTypes.remove(state.type)
+
+            // Cambia la lista de animales activos
+            changeAnimalsState()
+
+            // Toggle image
+            Glide.with(this)
+                .load(if (state.value) image1 else image2)
+                .into(imageView)
+
+
+        }
+    }
+
+    private fun changeAnimalsState(){
+        animals.clear()
+        animals.addAll(getAnimals(listOfAnimalsTypes))
+
+        // Notificamos al adapter que la lista cambio
+        adapter.notifyDataSetChanged()
+    }
+
+    private fun getAnimals(types : MutableSet<Int>) : MutableList<Animal>{
+        val animals = animalDao.queryBuilder()
+            .where(AnimalDao.Properties.Tipo.`in`(types))
+            .list()
+            .shuffled()
+
+        return animals.toMutableList()
     }
 }
