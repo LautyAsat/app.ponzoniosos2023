@@ -64,7 +64,11 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
 
         initUI()
 
-        // Listener de estado para los botones ponzoñosos
+        // Listeners para botones caution
+        binding.btnPrecaution.setOnClickListener { navigateToPrecaution() }
+        binding.btnAccident.setOnClickListener { navigateToAccident() }
+
+        // Listeners de estado para los botones ponzoñosos
         toggleTypeStateHandler(spiderState, binding.ivArania, R.drawable.colour_spider, R.drawable.whiteblack_spider)
         toggleTypeStateHandler(scorpionState, binding.ivEscorpion, R.drawable.colour_scorpion, R.drawable.whiteblack_scorpion)
         toggleTypeStateHandler(snakeState, binding.ivSerpiente, R.drawable.colour_snake, R.drawable.whiteblack_snake)
@@ -95,13 +99,6 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         binding.rvCatalogo.adapter = adapter
     }
 
-    private fun navigateToDetail(animalId: Long ){
-        val intent = Intent(this, InfoAnimal::class.java)
-
-        intent.putExtra("obj", animalId)
-
-        startActivity(intent)
-    }
 
     private fun dinamicPadding(){
 
@@ -179,5 +176,23 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
             .shuffled()
 
         return animals.toMutableList()
+    }
+
+    private fun navigateToDetail(animalId: Long ){
+        val intent = Intent(this, InfoAnimal::class.java)
+
+        intent.putExtra("obj", animalId)
+
+        startActivity(intent)
+    }
+
+    private fun navigateToPrecaution(){
+        val intent = Intent(this, WhatToDoActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun navigateToAccident(){
+        val intent = Intent(this, PreventionMeasuresActivity::class.java)
+        startActivity(intent)
     }
 }
