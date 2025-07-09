@@ -2,6 +2,8 @@ package edu.unlpam.vet.ponzonosos;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.cardview.widget.CardView;
@@ -18,7 +20,6 @@ import com.bumptech.glide.request.RequestOptions;
 
 import edu.unlpam.vet.ponzonosos.model.Imagen;
 import edu.unlpam.vet.ponzonosos.model.ImagenDao;
-import edu.unlpam.vet.ponzonosos.util.LoadImage;
 
 import java.io.File;
 import java.util.List;
@@ -90,17 +91,13 @@ public class MostrarCatalogo extends AppCompatActivity implements View.OnClickLi
                     .load(new File(path))  // o una URL si estás descargando desde Internet
                     .into(new com.bumptech.glide.request.target.CustomTarget<Bitmap>() {
                         @Override
-                        public void onResourceReady(Bitmap resource, com.bumptech.glide.request.transition.Transition<? super Bitmap> transition) {
-                            if (resource != null) {
-                                image.saveImageToInternalStorage(
-                                        getApplicationContext(),
-                                        image.getImg(),
-                                        resource
-                                );
-                                Log.d(TAG, "Imagen guardada: " + image.getImg());
-                            } else {
-                                Log.e(TAG, "Bitmap descargado es null");
-                            }
+                        public void onResourceReady(@NonNull Bitmap resource, com.bumptech.glide.request.transition.Transition<? super Bitmap> transition) {
+                            image.saveImageToInternalStorage(
+                                    getApplicationContext(),
+                                    image.getImg(),
+                                    resource
+                            );
+                            Log.d(TAG, "Imagen guardada: " + image.getImg());
                         }
 
                         @Override

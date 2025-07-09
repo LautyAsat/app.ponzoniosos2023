@@ -8,6 +8,7 @@
         android:id="@+id/iv_photo"
         android:adjustViewBounds="true"
         android:layout_height="200dp"
+        android:contentDescription="@string/imagen"
         android:scaleType="centerCrop"
         android:layout_margin="2dp"
         android:layout_width="match_parent"/>

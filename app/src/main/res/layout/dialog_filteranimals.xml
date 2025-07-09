@@ -30,7 +30,7 @@
 
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
@@ -39,59 +39,62 @@
                 android:weightSum="3">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="90dp"
+                    android:layout_width="100dp"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="2dp"
-                    android:clickable="true"
-                    android:focusable="true"
+                    android:layout_marginEnd="8dp"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="4dp">
 
                     <ImageButton
+                        android:id="@+id/btn_peligrosidad_alta"
                         android:layout_width="match_parent"
-                        android:layout_height="29dp"
+                        android:layout_height="48dp"
                         android:background="@android:color/transparent"
-                        android:contentDescription="@string/background"
+                        android:contentDescription="@string/alta"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/red_texture" />
+                        android:src="@drawable/red_texture"
+                        android:clickable="true"
+                        android:focusable="true"/>
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp">
+
+                    <ImageButton
+                        android:id="@+id/btn_peligrosidad_media"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="@string/media"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/yellow_texture"
+                        android:clickable="true"
+                        android:focusable="true"/>
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="90dp"
+                    android:layout_width="100dp"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="2dp"
-                    android:layout_marginStart="2dp"
-                    android:clickable="true"
-                    android:focusable="true"
+                    android:layout_marginStart="8dp"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="4dp">
 
                     <ImageButton
+                        android:id="@+id/btn_peligrosidad_baja"
                         android:layout_width="match_parent"
-                        android:layout_height="29dp"
+                        android:layout_height="48dp"
                         android:background="@android:color/transparent"
-                        android:contentDescription="@string/background"
+                        android:contentDescription="@string/baja"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/yellow_texture" />
+                        android:src="@drawable/green_texture"
+                        android:clickable="true"
+                        android:focusable="true"/>
                 </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="90dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="2dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp">
-
-                    <ImageButton
-                        android:layout_width="match_parent"
-                        android:layout_height="29dp"
-                        android:background="@android:color/transparent"
-                        android:contentDescription="@string/background"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/green_texture" />
-                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
 
@@ -107,7 +110,7 @@
             <LinearLayout
                 style="?android:attr/buttonBarStyle"
                 android:layout_width="match_parent"
-                android:layout_height="44dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="16dp"
                 android:gravity="center"
@@ -118,42 +121,46 @@
                 <Button
                     style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="0dp"
-                    android:layout_height="35dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="4dp"
                     android:layout_marginEnd="4dp"
                     android:layout_weight="1"
                     android:background="@drawable/gridborder"
                     android:textColor="#000000"
-                    android:text="@string/grande" />
+                    android:text="@string/grande"
+                    android:textSize="16sp"/>
 
                 <Button
                     style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="0dp"
-                    android:layout_height="35dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="4dp"
                     android:layout_marginEnd="4dp"
                     android:layout_weight="1"
                     android:background="@drawable/gridborder"
                     android:textColor="#000000"
-                    android:text="@string/mediano" />
+                    android:text="@string/mediano"
+                    android:textSize="16sp"/>
 
                 <Button
                     style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="0dp"
-                    android:layout_height="35dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="4dp"
                     android:layout_marginEnd="4dp"
                     android:layout_weight="1"
                     android:background="@drawable/gridborder"
                     android:textColor="#000000"
-                    android:text="@string/peque_o" />
+                    android:text="@string/peque_o"
+                    android:textSize="16sp"/>
+
             </LinearLayout>
 
 
             <Button
                 android:id="@+id/apply_filter"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/blue_texture"
                 android:text="@string/aplicar"
@@ -163,7 +170,7 @@
             <Button
                 android:id="@+id/cancel_filter"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/blue_texture"
                 android:text="@string/cancelar"

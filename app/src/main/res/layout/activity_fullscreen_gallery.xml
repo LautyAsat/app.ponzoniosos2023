@@ -20,5 +20,6 @@
         android:clipToPadding="false"
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
-        android:overScrollMode="never" />
+        android:overScrollMode="never"
+        android:contentDescription="@string/carrusel_de_fotos"/>
 </LinearLayout>
