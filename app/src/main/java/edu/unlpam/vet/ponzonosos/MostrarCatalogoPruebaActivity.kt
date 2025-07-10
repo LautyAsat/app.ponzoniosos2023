@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.TypedValue
+import android.view.View
 import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -36,6 +37,8 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
     private var listOfAnimalsTypes = mutableSetOf<Int>(1, 2, 3)
 
     private var searchQuery: String = ""
+
+    private var isFilterVisible: Boolean = false
 
     private lateinit var adapter: MostrarCatalogoAdapter
 
@@ -97,6 +100,13 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
             }
 
         })
+
+        // Listener del boton filtro para mostrar o ocultar los filtros
+        binding.cvFilter.setOnClickListener {
+            isFilterVisible = !isFilterVisible
+            binding.iFilter.root.visibility = if (isFilterVisible) View.VISIBLE else View.GONE
+        }
+
     }
 
     private fun initUI(){
