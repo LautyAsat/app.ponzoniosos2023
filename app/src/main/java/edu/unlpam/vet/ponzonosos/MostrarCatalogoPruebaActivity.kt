@@ -14,6 +14,7 @@ import edu.unlpam.vet.ponzonosos.databinding.ActivityMostrarCatalogoPruebaBindin
 import edu.unlpam.vet.ponzonosos.model.Animal
 import edu.unlpam.vet.ponzonosos.model.AnimalDao
 import androidx.core.view.WindowInsetsCompat
+import edu.unlpam.vet.ponzonosos.util.Edge
 
 class MostrarCatalogoPruebaActivity : AppCompatActivity() {
 
@@ -37,7 +38,14 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(binding.root)
 
-        setDinamicEdgeAppBar()
+        // Padding dinamico para el header edgeToEdge
+        Edge.applyDynamicEdgeAppBar(
+            this,
+            getWindow().getDecorView(),
+            binding.iHeader.root,
+            binding.iHeader.llHeader,
+            60f
+        )
 
             /* ---- */
         dinamicPadding() // Se centra dinamicamente según el tamaño de pantalla el padding del recyclingView
@@ -69,24 +77,6 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         toggleTypeStateHandler(spiderState, binding.ivArania, R.drawable.colour_spider, R.drawable.whiteblack_spider)
         toggleTypeStateHandler(scorpionState, binding.ivEscorpion, R.drawable.colour_scorpion, R.drawable.whiteblack_scorpion)
         toggleTypeStateHandler(snakeState, binding.ivSerpiente, R.drawable.colour_snake, R.drawable.whiteblack_snake)
-    }
-
-    private fun setDinamicEdgeAppBar() {
-        ViewCompat.setOnApplyWindowInsetsListener(window.decorView) { view, insets ->
-            val statusBarHeight = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
-
-            val layoutParams = binding.iHeader.root.layoutParams
-            layoutParams.height = (dpToPx(60f) + statusBarHeight).toInt() //Seteamos los nuevos pxs
-            binding.iHeader.root.layoutParams = layoutParams
-
-            binding.iHeader.llHeader.setPadding(
-                binding.iHeader.llHeader.paddingLeft,
-                statusBarHeight,  // nuevo padding top (en px)
-                binding.iHeader.llHeader.paddingRight,
-                binding.iHeader.llHeader.paddingBottom
-            )
-            insets
-        }
     }
 
     private fun initUI(){
