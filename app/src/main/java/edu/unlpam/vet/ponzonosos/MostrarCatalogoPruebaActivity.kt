@@ -2,6 +2,8 @@ package edu.unlpam.vet.ponzonosos
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.TypedValue
 import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
@@ -15,6 +17,9 @@ import edu.unlpam.vet.ponzonosos.model.Animal
 import edu.unlpam.vet.ponzonosos.model.AnimalDao
 import androidx.core.view.WindowInsetsCompat
 import edu.unlpam.vet.ponzonosos.util.Edge
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MostrarCatalogoPruebaActivity : AppCompatActivity() {
 
@@ -29,6 +34,8 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
     private var snakeState = ToggleState(true, 3)
 
     private var listOfAnimalsTypes = mutableSetOf<Int>(1, 2, 3)
+
+    private var searchQuery: String = ""
 
     private lateinit var adapter: MostrarCatalogoAdapter
 
@@ -77,6 +84,19 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         toggleTypeStateHandler(spiderState, binding.ivArania, R.drawable.colour_spider, R.drawable.whiteblack_spider)
         toggleTypeStateHandler(scorpionState, binding.ivEscorpion, R.drawable.colour_scorpion, R.drawable.whiteblack_scorpion)
         toggleTypeStateHandler(snakeState, binding.ivSerpiente, R.drawable.colour_snake, R.drawable.whiteblack_snake)
+
+        // Listener para searcher
+        binding.etSearch.addTextChangedListener(object: TextWatcher{
+
+            override fun beforeTextChanged( s: CharSequence?, start: Int, count: Int, after: Int){}
+            override fun onTextChanged( s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+            override fun afterTextChanged(s: Editable?) {
+                searchQuery = s.toString()
+                filterAnimalsByQuery(searchQuery)
+            }
+
+        })
     }
 
     private fun initUI(){
@@ -148,9 +168,21 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         }
     }
 
+    private fun filterAnimalsByQuery(query: String){
+        val filteredList = getAnimals(listOfAnimalsTypes).filter {
+            it.nombre.contains(searchQuery, ignoreCase = true)
+        }
+
+        adapter.updateData(filteredList)
+    }
+
     private fun changeAnimalsState(){
         animals.clear()
         animals.addAll(getAnimals(listOfAnimalsTypes))
+
+        if(searchQuery.isNotEmpty()){
+            filterAnimalsByQuery(searchQuery)
+        }
 
         // Notificamos al adapter que la lista cambio
         adapter.notifyDataSetChanged()
@@ -160,7 +192,7 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         val animals = animalDao.queryBuilder()
             .where(AnimalDao.Properties.Tipo.`in`(types))
             .list()
-            .shuffled()
+            .sortedBy { it.nombre.lowercase() }
 
         return animals.toMutableList()
     }
