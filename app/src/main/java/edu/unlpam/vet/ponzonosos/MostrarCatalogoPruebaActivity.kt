@@ -192,7 +192,7 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         val animals = animalDao.queryBuilder()
             .where(AnimalDao.Properties.Tipo.`in`(types))
             .list()
-            .shuffled()
+            .sortedBy { it.nombre.lowercase() }
 
         return animals.toMutableList()
     }
