@@ -187,12 +187,12 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
     }
 
     private fun navigateToPrecaution(){
-        val intent = Intent(this, WhatToDoActivity::class.java)
+        val intent = Intent(this, PreventionMeasuresActivity::class.java)
         startActivity(intent)
     }
 
     private fun navigateToAccident(){
-        val intent = Intent(this, PreventionMeasuresActivity::class.java)
+        val intent = Intent(this, WhatToDoActivity::class.java)
         startActivity(intent)
     }
 }
