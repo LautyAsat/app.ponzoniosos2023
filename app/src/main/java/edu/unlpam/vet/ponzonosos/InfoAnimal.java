@@ -27,16 +27,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import edu.unlpam.vet.ponzonosos.databinding.ActivityMostrarCatalogoPruebaBinding;
 import edu.unlpam.vet.ponzonosos.model.Imagen;
 import edu.unlpam.vet.ponzonosos.model.Animal;
 
-public class InfoAnimal extends AppCompatActivity {
+import android.view.Window;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
 
+public class InfoAnimal extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.info_animal);
+
+
+        // Enable EdgeToEdge
+        Window window = getWindow();
+        ViewCompat.setOnApplyWindowInsetsListener(window.getDecorView(), (v, insets) -> insets);
+        WindowCompat.setDecorFitsSystemWindows(window, false);
+
 
 
         Long idAnimal = (Long) Objects.requireNonNull(getIntent().getExtras()).get("obj");
