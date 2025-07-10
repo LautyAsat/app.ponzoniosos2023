@@ -8,9 +8,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Build;
+import android.view.Window;
+import android.view.WindowManager;
 import android.util.Log;
 import android.view.View;
+
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
@@ -32,6 +39,8 @@ import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+//import java.util.*;
+//import java.awt.Color;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     @Override //metodo main
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+                    setContentView(R.layout.activity_main);
         Log.d("rmdebug", "MainActivity - onCreate");
         showActionDialog();
         toImport = new ArrayList<>();
@@ -64,13 +73,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showActionDialog() {
+
         @SuppressLint("InflateParams")
 
         View view = getLayoutInflater().inflate(R.layout.dialog_action, null);
 
         Animation rotation = AnimationUtils.loadAnimation(this, R.anim.rotate);
 
-        dialog = new Dialog(this, android.R.style.Theme_NoTitleBar_Fullscreen);
+        dialog = new Dialog(this,R.style.CustomToolbarStyle);
 
         TextView actionName = view.findViewById(R.id.action_name);
 
@@ -82,7 +92,25 @@ public class MainActivity extends AppCompatActivity {
 
         dialog.show();
 
+        Window window = dialog.getWindow();
+
+        if (window != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
+            window.setStatusBarColor(ContextCompat.getColor(this, R.color.mi_color_loading));
+
+            window.setNavigationBarColor(Color.TRANSPARENT);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            }
+
+        }
         //logo.startAnimation(rotation);
+        animateTextTyping(actionName, "Iniciando...");
 
         ObjectAnimator animator = ObjectAnimator.ofFloat(logo, "rotation", 0f, 360f);
         animator.setDuration(1000);
@@ -91,6 +119,21 @@ public class MainActivity extends AppCompatActivity {
         animator.start();
 
     }
+
+    private void animateTextTyping(final TextView textView, final String text) {
+        final int length = text.length();
+
+        ValueAnimator animator = ValueAnimator.ofInt(0, length);
+        animator.setDuration(2000);
+        animator.setRepeatCount(ValueAnimator.INFINITE);
+        animator.addUpdateListener(animation -> {
+            int currentLength = (int) animation.getAnimatedValue();
+            textView.setText(text.substring(0, currentLength));
+        });
+
+        animator.start();
+    }
+
 
     private void removeActionDialog(){
         if (dialog != null){

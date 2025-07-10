@@ -9,4 +9,5 @@
     <color name="white">#FFFFFF</color>
     <color name="web_link">#1F3EF1</color>
     <color name="green_light">#99B87A</color>
+    <color name="mi_color_loading">#FFFFFF</color>
 </resources>

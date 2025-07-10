@@ -33,5 +33,10 @@
         <item name="android:layout_marginStart">8dp</item>
     </style>
 
+    <style name="CustomDialogTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+
     
 </resources>
