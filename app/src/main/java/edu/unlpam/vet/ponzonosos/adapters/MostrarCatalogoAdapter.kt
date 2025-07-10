@@ -8,7 +8,7 @@ import edu.unlpam.vet.ponzonosos.model.Animal
 import edu.unlpam.vet.ponzonosos.R
 
 class MostrarCatalogoAdapter(
-    val animals: List<Animal>,
+    val animals: MutableList<Animal>,
     val onSelectItem: (Long) -> Unit
 ) : RecyclerView.Adapter<MostrarCatalogoViewHolder>() {
 
@@ -21,6 +21,12 @@ class MostrarCatalogoAdapter(
 
     override fun onBindViewHolder(holder: MostrarCatalogoViewHolder, position: Int) {
         holder.render(animals[position], onSelectItem)
+    }
+
+    fun updateData(newList: List<Animal>) {
+        animals.clear()
+        animals.addAll(newList)
+        notifyDataSetChanged()
     }
 
     override fun getItemCount() = animals.size
