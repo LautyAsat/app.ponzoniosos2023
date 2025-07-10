@@ -8,7 +8,7 @@
     android:orientation="vertical"
     tools:context="edu.unlpam.vet.ponzonosos.WhatToDoActivity">
 
-    <include layout="@layout/app_bar" />
+    <include android:id="@+id/iHeader" layout="@layout/app_bar" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -20,70 +20,7 @@
             android:orientation="vertical"
             android:padding="10dp">
 
-            <!-- CARD 1: Medidas Generales -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <!-- Encabezado con imagen -->
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/green_texture"
-                            android:contentDescription="@string/background"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:padding="16dp"
-                            android:text="@string/medidas_generales"
-                            android:textColor="@android:color/white"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-                    </FrameLayout>
-
-                    <!-- Lista de medidas -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp">
-
-                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/retirar_anillos_pulseras_calzado_y_todo_aquel_elemento_que_est_comprimiendo_la_circulaci_n"
-                            android:drawablePadding="8dp"
-                            app:drawableStartCompat="@drawable/ic_check_item_list_green" />
-                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/evitar_el_roce_de_la_zona_lo_que_podr_a_favorecer_la_expansi_n_del_veneno"
-                            android:drawablePadding="8dp"
-                            app:drawableStartCompat="@drawable/ic_check_item_list_green" />
-                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/colocar_compresas_fr_as_en_la_zona_afectada_nunca_hielo_directo"
-                            android:drawablePadding="8dp"
-                            app:drawableStartCompat="@drawable/ic_check_item_list_green" />
-                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/mantener_la_zona_en_reposo_y_elevarla_si_es_posible"
-                            android:drawablePadding="8dp"
-                            app:drawableStartCompat="@drawable/ic_check_item_list_green" />
-                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/trasladarse_r_pidamente_al_centro_de_salud_m_s_cercano"
-                            android:drawablePadding="8dp"
-                            app:drawableStartCompat="@drawable/ic_check_item_list_green" />
-
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- CARD 2: Qué NO hacer -->
+            <!-- CARD 1: Qué NO hacer -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -141,6 +78,69 @@
                         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/no_colocar_ninguna_sustancia_alcohol_vinagre_etc"
                             android:drawablePadding="8dp"
                             app:drawableStartCompat="@drawable/ic_not_check_item_list_green" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- CARD 2: Medidas Generales -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Encabezado con imagen -->
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/green_texture"
+                            android:contentDescription="@string/background"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:padding="16dp"
+                            android:text="@string/medidas_generales"
+                            android:textColor="@android:color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </FrameLayout>
+
+                    <!-- Lista de medidas -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/retirar_anillos_pulseras_calzado_y_todo_aquel_elemento_que_est_comprimiendo_la_circulaci_n"
+                            android:drawablePadding="8dp"
+                            app:drawableStartCompat="@drawable/ic_check_item_list_green" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/evitar_el_roce_de_la_zona_lo_que_podr_a_favorecer_la_expansi_n_del_veneno"
+                            android:drawablePadding="8dp"
+                            app:drawableStartCompat="@drawable/ic_check_item_list_green" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/colocar_compresas_fr_as_en_la_zona_afectada_nunca_hielo_directo"
+                            android:drawablePadding="8dp"
+                            app:drawableStartCompat="@drawable/ic_check_item_list_green" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/mantener_la_zona_en_reposo_y_elevarla_si_es_posible"
+                            android:drawablePadding="8dp"
+                            app:drawableStartCompat="@drawable/ic_check_item_list_green" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/trasladarse_r_pidamente_al_centro_de_salud_m_s_cercano"
+                            android:drawablePadding="8dp"
+                            app:drawableStartCompat="@drawable/ic_check_item_list_green" />
 
                     </LinearLayout>
                 </LinearLayout>

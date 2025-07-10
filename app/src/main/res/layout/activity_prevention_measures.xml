@@ -9,7 +9,7 @@
     tools:context="edu.unlpam.vet.ponzonosos.PreventionMeasuresActivity">
 
     <!-- AppBar -->
-    <include layout="@layout/app_bar" />
+    <include android:id="@+id/iHeader" layout="@layout/app_bar" />
 
 
     <ScrollView

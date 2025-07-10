@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'org.jetbrains.kotlin.android'
 
 android {
     compileSdk 35
@@ -18,6 +19,14 @@ android {
         }
     }
     namespace "edu.unlpam.vet.ponzonosos"
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    viewBinding{
+        enabled = true
+    }
+
 }
 
 greendao {
@@ -25,11 +34,24 @@ greendao {
     targetGenDir "src/main/java/"
 }
 
+// NUEVO BLOQUE: Declara la dependencia para asegurar que GreenDAO se ejecute primero
+tasks.whenTaskAdded { task ->
+    if (task.name == 'compileDebugKotlin' || task.name == 'compileReleaseKotlin') {
+        task.dependsOn 'greendao'
+    }
+    // Si usas código Java junto con Kotlin, también podrías necesitar:
+    // if (task.name == 'compileDebugJavaWithJavac' || task.name == 'compileReleaseJavaWithJavac') {
+    //     task.dependsOn 'greendao'
+    // }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.7.1'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
+    implementation 'androidx.activity:activity:1.10.1'
+    implementation 'androidx.core:core-ktx:1.16.0'
     testImplementation 'junit:junit:4.13.2'
     //androidTestImplementation 'androidx.test:runner:1.1.0'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'

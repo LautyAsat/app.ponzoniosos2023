@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startAplication() {
-        Intent mIntent = new Intent(this, MostrarCatalogoActivity.class);
+        Intent mIntent = new Intent(this, MostrarCatalogoPruebaActivity.class);
         startActivity(mIntent);
         finish();
         removeActionDialog();
@@ -155,9 +155,9 @@ public class MainActivity extends AppCompatActivity {
                 case "imagen":
                     importImagen();
                     break;
-                    default:
-                        importEntities();
-                        break;
+                default:
+                    importEntities();
+                    break;
             }
         }else {
             startAplication();
