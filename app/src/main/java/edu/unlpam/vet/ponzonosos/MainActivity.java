@@ -1,5 +1,7 @@
 package edu.unlpam.vet.ponzonosos;
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
@@ -9,6 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -59,13 +65,31 @@ public class MainActivity extends AppCompatActivity {
 
     private void showActionDialog() {
         @SuppressLint("InflateParams")
+
         View view = getLayoutInflater().inflate(R.layout.dialog_action, null);
-        dialog = new Dialog(this,
-                android.R.style.Theme_NoTitleBar_Fullscreen);
+
+        Animation rotation = AnimationUtils.loadAnimation(this, R.anim.rotate);
+
+        dialog = new Dialog(this, android.R.style.Theme_NoTitleBar_Fullscreen);
+
         TextView actionName = view.findViewById(R.id.action_name);
+
+        ImageView logo = view.findViewById(R.id.loading_icon);
+
         actionName.setText(R.string.iniciando);
+
         dialog.setContentView(view);
+
         dialog.show();
+
+        //logo.startAnimation(rotation);
+
+        ObjectAnimator animator = ObjectAnimator.ofFloat(logo, "rotation", 0f, 360f);
+        animator.setDuration(1000);
+        animator.setRepeatCount(ValueAnimator.INFINITE);
+        animator.setInterpolator(new LinearInterpolator());
+        animator.start();
+
     }
 
     private void removeActionDialog(){

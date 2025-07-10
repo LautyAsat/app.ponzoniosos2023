@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#20ffffff"
+    android:background="@color/white"
     android:gravity="center_horizontal|center_vertical">
 
     <LinearLayout
@@ -11,16 +11,19 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_horizontal">
-        <ProgressBar
+
+        <ImageView
+            android:id="@+id/loading_icon"
             android:layout_width="80dp"
-            android:layout_height="80dp" />
+            android:layout_height="80dp"
+            android:src = "@drawable/logoapp"/>
 
         <TextView
             android:id="@+id/action_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_name"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/green_light"
             android:textSize="18sp" />
 
     </LinearLayout>
