@@ -107,6 +107,8 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
             binding.iFilter.root.visibility = if (isFilterVisible) View.VISIBLE else View.GONE
         }
 
+        v
+
     }
 
     private fun initUI(){
