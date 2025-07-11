@@ -119,15 +119,11 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
             popup.setOnMenuItemClickListener { item ->
                 when (item.itemId) {
                     R.id.about -> {
-                        val mIntent = Intent(this, AboutActivity::class.java)
-                        startActivity(mIntent)
-                        finish()
+                        navigateToAbout()
                         true
                     }
                     R.id.contact -> {
-                        val mIntent = Intent(this, ContactUsActivity::class.java)
-                        startActivity(mIntent)
-                        finish()
+                        navigateToContact()
                         true
                     }
                     else -> false
@@ -247,6 +243,16 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
 
     private fun navigateToPrecaution(){
         val intent = Intent(this, PreventionMeasuresActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun navigateToAbout(){
+        val intent = Intent(this, AboutActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun navigateToContact(){
+        val intent = Intent(this, ContactUsActivity::class.java)
         startActivity(intent)
     }
 
