@@ -1,4 +1,4 @@
-<androidx.appcompat.widget.Toolbar
+<androidx.appcompat.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/appbar"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -19,7 +19,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/logoapp"
-            android:contentDescription="@string/logo_app"/>
+            android:contentDescription="@string/logo_app" />
 
         <TextView
             android:layout_marginStart="8dp"
@@ -30,7 +30,22 @@
             android:textStyle="bold"
             android:textColor="@android:color/white"
             android:textSize="18sp"
-            android:gravity="center_vertical"/>
+            android:gravity="center_vertical" />
+
+        <!-- Botón de menú manual (3 puntitos) -->
+        <ImageButton
+            android:id="@+id/btnMenu"
+            android:layout_width="128dp"
+            android:layout_marginStart="100dp"
+            android:layout_height="30dp"
+            android:layout_weight="0.4"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Menú"
+            android:scaleType="center"
+            android:src="@drawable/baseline_more_vert_24"
+            app:tint="@android:color/white" />
     </LinearLayout>
+
+
 
 </androidx.appcompat.widget.Toolbar>
