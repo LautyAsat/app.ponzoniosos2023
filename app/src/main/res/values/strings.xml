@@ -106,4 +106,6 @@
     <string name="telefono">Icono telefono</string>
     <string name="carrusel_de_fotos">Carrusel de Fotos</string>
     <string name="logo_app">Logo app</string>
+    <string name= "about">Sobre nosotros</string>
+    <string name= "contact">Contactanos</string>
 </resources>
