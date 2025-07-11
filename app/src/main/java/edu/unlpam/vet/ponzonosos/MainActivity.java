@@ -56,14 +56,14 @@ public class MainActivity extends AppCompatActivity {
     @Override //metodo main
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-                    setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
         Log.d("rmdebug", "MainActivity - onCreate");
         showActionDialog();
         toImport = new ArrayList<>();
         instance = this;
-        mDaoSession = new DaoMaster(
-                new DaoMaster.DevOpenHelper(this, "ponzonosos.db")
-                        .getWritableDb()).newSession();
+
+        mDaoSession = new DaoMaster(new DaoMaster.DevOpenHelper(this, "ponzonosos.db").getWritableDb()).newSession();
+
         if(shouldUpdate()){
             Log.d(TAG, "onCreate: I should update data base");
             updateDataBase();
