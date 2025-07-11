@@ -1,6 +1,5 @@
 package edu.unlpam.vet.ponzonosos.holder
 
-import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide

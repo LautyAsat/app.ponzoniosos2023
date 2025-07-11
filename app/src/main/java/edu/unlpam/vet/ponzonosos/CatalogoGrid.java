@@ -35,6 +35,7 @@ public class CatalogoGrid extends AppCompatActivity {
     private GridView gridView;
     private int tipo = 0;
 
+    private boolean AltaOn,MediaOn,BajaOn,GrandeOn,MedianoOn,PequeñoOn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("rmdebug", "CatalogoGrid - onCreate");
@@ -128,6 +129,11 @@ public class CatalogoGrid extends AppCompatActivity {
         dialog = builder.create();
         dialog.show();
     }
+
+    private void toggleButton(Button button, boolean state) {
+        button.setBackgroundResource(state ? R.drawable.selected_button : R.drawable.gridborder);
+    }
+
 
     private void applyFilter(String name, Long aggressiveness) {
         removeFilterDialog();
