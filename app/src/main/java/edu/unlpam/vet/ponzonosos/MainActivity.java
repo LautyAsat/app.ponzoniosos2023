@@ -32,6 +32,7 @@ import edu.unlpam.vet.ponzonosos.model.DaoMaster;
 import edu.unlpam.vet.ponzonosos.model.DaoSession;
 import edu.unlpam.vet.ponzonosos.model.Imagen;
 
+import org.greenrobot.greendao.database.Database;
 import org.json.JSONArray;
 import org.json.JSONException;
 
@@ -56,14 +57,16 @@ public class MainActivity extends AppCompatActivity {
     @Override //metodo main
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-                    setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
         Log.d("rmdebug", "MainActivity - onCreate");
         showActionDialog();
         toImport = new ArrayList<>();
         instance = this;
-        mDaoSession = new DaoMaster(
-                new DaoMaster.DevOpenHelper(this, "ponzonosos.db")
-                        .getWritableDb()).newSession();
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(instance, "ponzonosos.db");
+        Database db = helper.getWritableDb();
+        mDaoSession = new DaoMaster(db).newSession();
+// Podés guardar helper si querés cerrarlo más tarde manualmente.
+
         if(shouldUpdate()){
             Log.d(TAG, "onCreate: I should update data base");
             updateDataBase();
@@ -135,17 +138,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void removeActionDialog(){
-        if (dialog != null){
-            dialog.dismiss();
-        }
+    private void removeActionDialog() {
+        runOnUiThread(() -> {
+            if (dialog != null && dialog.isShowing()) {
+                dialog.dismiss();
+            }
+        });
     }
 
+
     private void startAplication() {
+        removeActionDialog();
         Intent mIntent = new Intent(this, MostrarCatalogoPruebaActivity.class);
         startActivity(mIntent);
         finish();
-        removeActionDialog();
     }
 
     private boolean shouldUpdate() {
