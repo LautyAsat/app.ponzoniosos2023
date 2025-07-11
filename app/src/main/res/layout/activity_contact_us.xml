@@ -53,9 +53,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:text="@string/contacto_identificaci_n_ejemplares"
-                            android:textColor="@android:color/white"
-                            android:textStyle="bold"
-                            android:textSize="16sp" />
+                            style="@style/text_card" />
                     </LinearLayout>
                 </FrameLayout>
 

@@ -53,9 +53,8 @@
                             android:layout_gravity="center"
                             android:padding="16dp"
                             android:text="@string/qu_no_hacer"
-                            android:textColor="@android:color/white"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
+                            style="@style/text_card"
+                            />
                     </FrameLayout>
 
                     <!-- Lista -->
@@ -116,9 +115,8 @@
                             android:layout_gravity="center"
                             android:padding="16dp"
                             android:text="@string/medidas_generales"
-                            android:textColor="@android:color/white"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
+                            style="@style/text_card"
+                            />
                     </FrameLayout>
 
                     <!-- Lista de medidas -->
@@ -180,9 +178,8 @@
                             android:layout_gravity="center"
                             android:padding="16dp"
                             android:text="@string/d_nde_encontrar_ant_dotos"
-                            android:textColor="@android:color/white"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
+                            style="@style/text_card"
+                            />
                     </FrameLayout>
 
                     <!-- Lista de lugares -->

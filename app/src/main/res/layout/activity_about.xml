@@ -35,7 +35,8 @@
                         android:text="@string/ponzo_osos_de_la_pampa"
                         android:textColor="@android:color/white"
                         android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:fontFamily="@font/poppins_bold"/>
 
 <!--                    <TextView-->
 <!--                        android:layout_marginTop="40dp"-->
