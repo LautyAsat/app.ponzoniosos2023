@@ -67,12 +67,9 @@
                         android:id="@+id/btn_peligrosidad_alta"
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
-                        android:background="@android:color/transparent"
                         android:contentDescription="@string/alta"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/red_texture"
-                        android:clickable="true"
-                        android:focusable="true"/>
+                        android:background="@drawable/red_texture" />
                 </androidx.cardview.widget.CardView>
 
 
@@ -86,12 +83,9 @@
                         android:id="@+id/btn_peligrosidad_media"
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
-                        android:background="@android:color/transparent"
                         android:contentDescription="@string/media"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/yellow_texture"
-                        android:clickable="true"
-                        android:focusable="true"/>
+                        android:background="@drawable/yellow_texture" />
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
@@ -105,12 +99,9 @@
                         android:id="@+id/btn_peligrosidad_baja"
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
-                        android:background="@android:color/transparent"
                         android:contentDescription="@string/baja"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/green_texture"
-                        android:clickable="true"
-                        android:focusable="true"/>
+                        android:background="@drawable/green_texture" />
                 </androidx.cardview.widget.CardView>
 
             </LinearLayout>
@@ -138,6 +129,7 @@
 
                 <Button
                     style="?android:attr/buttonBarButtonStyle"
+                    android:id="@+id/btn_grande"
                     android:layout_width="0dp"
                     android:layout_height="36dp"
                     android:layout_marginStart="4dp"
@@ -150,6 +142,7 @@
 
                 <Button
                     style="?android:attr/buttonBarButtonStyle"
+                    android:id="@+id/btn_mediano"
                     android:layout_width="0dp"
                     android:layout_height="36dp"
                     android:layout_marginStart="4dp"
@@ -162,6 +155,7 @@
 
                 <Button
                     style="?android:attr/buttonBarButtonStyle"
+                    android:id="@+id/btn_pequeno"
                     android:layout_width="0dp"
                     android:layout_height="36dp"
                     android:layout_marginStart="4dp"

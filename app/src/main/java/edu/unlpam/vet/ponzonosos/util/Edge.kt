@@ -2,7 +2,6 @@ package edu.unlpam.vet.ponzonosos.util
 
 import android.content.Context
 import android.view.View
-import androidx.core.view.OnApplyWindowInsetsListener
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
