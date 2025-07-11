@@ -5,19 +5,22 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.TypedValue
-import android.view.Menu
 import android.view.View
 import android.widget.ImageButton
-import android.widget.PopupMenu
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
 import edu.unlpam.vet.ponzonosos.adapters.MostrarCatalogoAdapter
 import edu.unlpam.vet.ponzonosos.databinding.ActivityMostrarCatalogoPruebaBinding
 import edu.unlpam.vet.ponzonosos.model.Animal
 import edu.unlpam.vet.ponzonosos.model.AnimalDao
+import androidx.core.view.WindowInsetsCompat
 import edu.unlpam.vet.ponzonosos.util.Edge
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MostrarCatalogoPruebaActivity : AppCompatActivity() {
 
@@ -40,15 +43,10 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
     private lateinit var adapter: MostrarCatalogoAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         binding = ActivityMostrarCatalogoPruebaBinding.inflate(layoutInflater)
         enableEdgeToEdge()
-
         setContentView(binding.root)
-        setSupportActionBar(binding.iHeader.appbar)
-        //supportActionBar?.setDisplayShowTitleEnabled(false)
-
 
         // Padding dinamico para el header edgeToEdge
         Edge.applyDynamicEdgeAppBar(
@@ -59,8 +57,7 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
             60f
         )
 
-
-        /* ---- */
+            /* ---- */
         dinamicPadding() // Se centra dinamicamente según el tamaño de pantalla el padding del recyclingView
         /* ---- */
 
@@ -87,30 +84,15 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         binding.btnAccident.setOnClickListener { navigateToAccident() }
 
         // Listeners de estado para los botones ponzoñosos
-        toggleTypeStateHandler(
-            spiderState,
-            binding.ivArania,
-            R.drawable.colour_spider,
-            R.drawable.whiteblack_spider
-        )
-        toggleTypeStateHandler(
-            scorpionState,
-            binding.ivEscorpion,
-            R.drawable.colour_scorpion,
-            R.drawable.whiteblack_scorpion
-        )
-        toggleTypeStateHandler(
-            snakeState,
-            binding.ivSerpiente,
-            R.drawable.colour_snake,
-            R.drawable.whiteblack_snake
-        )
+        toggleTypeStateHandler(spiderState, binding.ivArania, R.drawable.colour_spider, R.drawable.whiteblack_spider)
+        toggleTypeStateHandler(scorpionState, binding.ivEscorpion, R.drawable.colour_scorpion, R.drawable.whiteblack_scorpion)
+        toggleTypeStateHandler(snakeState, binding.ivSerpiente, R.drawable.colour_snake, R.drawable.whiteblack_snake)
 
         // Listener para searcher
-        binding.etSearch.addTextChangedListener(object : TextWatcher {
+        binding.etSearch.addTextChangedListener(object: TextWatcher{
 
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun beforeTextChanged( s: CharSequence?, start: Int, count: Int, after: Int){}
+            override fun onTextChanged( s: CharSequence?, start: Int, before: Int, count: Int) {}
 
             override fun afterTextChanged(s: Editable?) {
                 searchQuery = s.toString()
@@ -120,58 +102,11 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         })
 
         // Listener del boton filtro para mostrar o ocultar los filtros
-
         binding.cvFilter.setOnClickListener {
             isFilterVisible = !isFilterVisible
             binding.iFilter.root.visibility = if (isFilterVisible) View.VISIBLE else View.GONE
-
         }
 
-        val btnMenu: ImageButton = findViewById(R.id.btnMenu)
-
-
-        btnMenu.setOnClickListener {
-            val popup = PopupMenu(this, it)
-            popup.menuInflater.inflate(R.menu.menu_show_catalog, popup.menu)
-
-            popup.setOnMenuItemClickListener { item ->
-                when (item.itemId) {
-                    R.id.about -> {
-                        val mIntent = Intent(this, AboutActivity::class.java)
-                        startActivity(mIntent)
-                        finish()
-                        true
-                    }
-                    R.id.contact -> {
-                        val mIntent = Intent(this, ContactUsActivity::class.java)
-                        startActivity(mIntent)
-                        finish()
-                        true
-                    }
-                    else -> false
-                }
-            }
-            popup.show()
-        }
-
-
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-
-        menuInflater.inflate(R.menu.menu_show_catalog, menu)
-
-        return true
-    }
-
-
-    private fun getAnimalsByFilter(types : MutableSet<Int>) : MutableList<Animal>{
-        val animals = animalDao.queryBuilder()
-            .where(AnimalDao.Properties.Agresividad.`in`(types))
-            .list()
-            .sortedBy { it.nombre.lowercase() }
-
-        return animals.toMutableList()
     }
 
     private fun initUI(){

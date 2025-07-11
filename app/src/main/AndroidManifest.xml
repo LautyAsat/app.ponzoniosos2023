@@ -23,11 +23,10 @@
         <activity android:name=".PreventionMeasuresActivity" />
         <activity android:name=".WhatToDoActivity" />
         <activity android:name=".AboutActivity" />
-        <activity android:name=".MostrarCatalogoActivity" />
         <activity android:name=".InfoAnimal" />
         <activity android:name=".Galeria" />
         <activity android:name=".SpacePhotoActivity" />
-        <activity android:name=".CatalogoGrid" />
+
         <activity
             android:name=".FullscreenGalleryActivity"
             android:exported="false" />
