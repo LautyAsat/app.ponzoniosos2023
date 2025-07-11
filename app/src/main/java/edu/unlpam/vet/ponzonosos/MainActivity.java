@@ -12,7 +12,6 @@ import androidx.core.content.ContextCompat;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Build;
 import android.view.Window;
 import android.view.WindowManager;
 import android.util.Log;
@@ -48,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "RMD-MainActivity";
     private static final String IP = "170.210.45.164:8080";
     public static final String DIR_IMAGES = "http://"+MainActivity.IP+"/images/";
+    public static final String STRING = "Iniciando...";
     private static MainActivity instance;
     private DaoSession mDaoSession;
     private List<String> toImport;
@@ -62,10 +62,10 @@ public class MainActivity extends AppCompatActivity {
         showActionDialog();
         toImport = new ArrayList<>();
         instance = this;
+
         DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(instance, "ponzonosos.db");
         Database db = helper.getWritableDb();
         mDaoSession = new DaoMaster(db).newSession();
-// Podés guardar helper si querés cerrarlo más tarde manualmente.
 
         if(shouldUpdate()){
             Log.d(TAG, "onCreate: I should update data base");
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
         Window window = dialog.getWindow();
 
-        if (window != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (window != null) {
 
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
@@ -107,13 +107,11 @@ public class MainActivity extends AppCompatActivity {
 
             window.setNavigationBarColor(Color.TRANSPARENT);
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-            }
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
         }
         //logo.startAnimation(rotation);
-        animateTextTyping(actionName, "Iniciando...");
+        animateTextTyping(actionName);
 
         ObjectAnimator animator = ObjectAnimator.ofFloat(logo, "rotation", 0f, 360f);
         animator.setDuration(1000);
@@ -123,15 +121,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void animateTextTyping(final TextView textView, final String text) {
-        final int length = text.length();
+    private void animateTextTyping(final TextView textView) {
+        final int length = "Iniciando...".length();
 
         ValueAnimator animator = ValueAnimator.ofInt(0, length);
         animator.setDuration(2000);
         animator.setRepeatCount(ValueAnimator.INFINITE);
         animator.addUpdateListener(animation -> {
             int currentLength = (int) animation.getAnimatedValue();
-            textView.setText(text.substring(0, currentLength));
+            textView.setText(STRING.substring(0, currentLength));
         });
 
         animator.start();
