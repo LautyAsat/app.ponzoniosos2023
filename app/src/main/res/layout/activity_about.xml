@@ -26,32 +26,15 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_marginBottom="0dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/banner"
                         android:elevation="4dp"
                         android:gravity="center"
                         android:text="@string/ponzo_osos_de_la_pampa"
                         android:textColor="@android:color/white"
-                        android:textSize="20sp"
+                        android:textSize="24sp"
                         android:textStyle="bold"
                         android:fontFamily="@font/poppins_bold"/>
-
-<!--                    <TextView-->
-<!--                        android:layout_marginTop="40dp"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:gravity="center_horizontal"-->
-<!--                        android:text="Sobre la app"-->
-<!--                        android:textStyle="bold" />-->
-
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="Ponzoñosos de La Pampa"-->
-<!--                        android:gravity="center_horizontal"-->
-<!--                        android:textSize="20sp"/>-->
 
                     <ImageView
                         android:id="@+id/app_logo"
@@ -61,7 +44,8 @@
                         android:adjustViewBounds="true"
                         android:contentDescription="@string/background"
                         android:src="@drawable/ic_launcher_background"
-                        android:layout_gravity="center_horizontal"/>
+                        android:layout_gravity="center_horizontal"
+                        />
 
                     <TextView
                         android:layout_marginTop="20dp"
@@ -70,7 +54,8 @@
                         android:layout_marginRight="20dp"
                         android:layout_marginLeft="20dp"
                         android:text="@string/esta_aplicaci_n_es_parte_del_proyecto_reconocimiento_y_prevenci_n_de_accidentes_por_animales_ponzo_osos_en_la_regi_n_norte_de_la_provincia_de_la_pampa"
-                        android:gravity="center_horizontal"/>
+                        android:gravity="center_horizontal"
+                        android:fontFamily="@font/font_text"/>
 
                     <TextView
                         android:id="@+id/web_link"
@@ -84,7 +69,9 @@
                         android:layout_marginRight="40dp"
                         android:textSize="12sp"
                         android:layout_marginBottom="10dp"
-                        android:textColor="@color/web_link"/>
+                        android:textColor="@color/web_link"
+                        android:fontFamily="@font/font_text"
+                        />
 
                     <TextView
                         android:layout_marginTop="5dp"
@@ -95,7 +82,8 @@
                         android:layout_marginLeft="40dp"
                         android:layout_marginRight="40dp"
                         android:textSize="12sp"
-                        android:layout_marginBottom="10dp" />
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/font_text"/>
 
                     <View
                         android:layout_width="match_parent"
@@ -115,7 +103,8 @@
                         android:gravity="center_horizontal"
                         android:layout_marginLeft="40dp"
                         android:layout_marginRight="40dp"
-                        android:textSize="12sp"/>
+                        android:textSize="12sp"
+                        android:fontFamily="@font/font_text"/>
 
                     <TextView
                         android:layout_width="match_parent"
@@ -125,7 +114,8 @@
                         android:layout_marginLeft="40dp"
                         android:layout_marginRight="40dp"
                         android:textSize="12sp"
-                        android:layout_marginBottom="10dp"/>
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/font_text"/>
 
 
                     <ImageView

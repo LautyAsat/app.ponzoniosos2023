@@ -38,7 +38,7 @@
                     <!-- Encabezado rojo -->
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="60dp">
+                        android:layout_height="50dp">
 
                         <ImageView
                             android:layout_width="match_parent"
@@ -51,7 +51,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:padding="16dp"
+                            android:padding="12dp"
                             android:text="@string/qu_no_hacer"
                             style="@style/text_card"
                             />
@@ -100,7 +100,7 @@
                     <!-- Encabezado con imagen -->
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="60dp">
+                        android:layout_height="50dp">
 
                         <ImageView
                             android:layout_width="match_parent"
@@ -113,7 +113,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:padding="16dp"
+                            android:padding="12dp"
                             android:text="@string/medidas_generales"
                             style="@style/text_card"
                             />
@@ -163,7 +163,7 @@
                     <!-- Encabezado -->
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="60dp">
+                        android:layout_height="50dp">
 
                         <ImageView
                             android:layout_width="match_parent"
@@ -176,7 +176,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:padding="16dp"
+                            android:padding="12dp"
                             android:text="@string/d_nde_encontrar_ant_dotos"
                             style="@style/text_card"
                             />
