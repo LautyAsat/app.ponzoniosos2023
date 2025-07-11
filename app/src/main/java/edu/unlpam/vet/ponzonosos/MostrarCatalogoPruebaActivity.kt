@@ -38,12 +38,12 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
 
 
     private enum class Buttons(var state: Boolean) {
-        isPeligrosidadAltaOn(false),
-        isPeligrosidadMediaOn(false),
-        isPeligrosidadBajaOn(false),
-        isTamanoGrandeoOn(false),
-        isTamanoMedianoOn(false),
-        isTamanoPequenoOn(false);
+        IsPeligrosidadAltaOn(false),
+        IsPeligrosidadMediaOn(false),
+        IsPeligrosidadBajaOn(false),
+        IsTamanoGrandeoOn(false),
+        IsTamanoMedianoOn(false),
+        IsTamanoPequenoOn(false);
 
         fun toggle() {
             state=!state
@@ -64,7 +64,7 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         // Padding dinamico para el header edgeToEdge
         Edge.applyDynamicEdgeAppBar(
             this,
-            getWindow().getDecorView(),
+            window.decorView,
             binding.iHeader.root,
             binding.iHeader.llHeader,
             60f
@@ -75,7 +75,7 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         /* ---- */
 
         //traemos los animalitos
-        animalDao = MainActivity.getInstance().getDaoSession().getAnimalDao()
+        animalDao = MainActivity.getInstance().daoSession.animalDao
 
         /* Tabla de tipos */
         // 0 - Default (nada)
@@ -109,7 +109,7 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
 
             override fun afterTextChanged(s: Editable?) {
                 searchQuery = s.toString()
-                filterAnimalsByQuery(searchQuery)
+                filterAnimalsByQuery()
             }
 
         })
@@ -152,11 +152,13 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         }
 
 
-        binding.iFilter.applyFilter.setOnClickListener(){
-            filterAnimals()
+        binding.iFilter.applyFilter.setOnClickListener{
+            changeAnimalsState()
+            binding.iFilter.root.visibility = View.GONE
+            isFilterVisible = false
 
         }
-        binding.iFilter.cancelFilter.setOnClickListener(){
+        binding.iFilter.cancelFilter.setOnClickListener{
             cancelNewFilterOptions()
         }
 
@@ -174,7 +176,7 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
 
         // 1. Obtener las dimensiones de la pantalla
         val displayMetrics = resources.displayMetrics
-        val screenWidthPx = displayMetrics.widthPixels - dpToPx(50f).toInt() // Ancho de la pantalla en píxeles
+        val screenWidthPx = displayMetrics.widthPixels - dpToPx().toInt() // Ancho de la pantalla en píxeles
 
         // 2. Definir el ancho de tus ítems y el espaciado deseado (en dp)
         val itemWidthDp = 170f // Ancho de tu item_animal.xml
@@ -202,8 +204,8 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
 
     }
 
-    fun dpToPx(dp: Float): Float {
-        return dp * resources.displayMetrics.density
+    private fun dpToPx(): Float {
+        return 50f * resources.displayMetrics.density
     }
 
     private fun toggleTypeStateHandler(
@@ -231,7 +233,7 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         }
     }
 
-    private fun filterAnimalsByQuery(query: String){
+    private fun filterAnimalsByQuery(){
         val filteredList = getAnimals(listOfAnimalsTypes).filter {
             it.nombre.contains(searchQuery, ignoreCase = true)
         }
@@ -273,94 +275,47 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         }
 
         // 4. Actualizar la lista en el adaptador
-        animals.clear()
-        animals.addAll(filteredFinal)
-        adapter.notifyDataSetChanged()
+        adapter.updateData(filteredFinal)
     }
 
     private fun filterByOptions(listaBase: List<Animal>): List<Animal> {
         val peligrosidadSeleccionada = when {
-            Buttons.isPeligrosidadAltaOn.state -> 1
-            Buttons.isPeligrosidadMediaOn.state -> 2
-            Buttons.isPeligrosidadBajaOn.state -> 3
+            Buttons.IsPeligrosidadAltaOn.state -> 1
+            Buttons.IsPeligrosidadMediaOn.state -> 2
+            Buttons.IsPeligrosidadBajaOn.state -> 3
             else -> null
         }
 
         val tamanoSeleccionado = when {
-            Buttons.isTamanoGrandeoOn.state -> "grande"
-            Buttons.isTamanoMedianoOn.state -> "mediano"
-            Buttons.isTamanoPequenoOn.state -> "pequeño"
+            Buttons.IsTamanoGrandeoOn.state -> 1
+            Buttons.IsTamanoMedianoOn.state -> 2
+            Buttons.IsTamanoPequenoOn.state -> 3
             else -> null
         }
 
 
         return listaBase.filter { animal ->
             val coincidePeligrosidad = peligrosidadSeleccionada?.let { animal.agresividad == it } ?: true
-            val valorAnimal = animal.tamaño.trim().lowercase()
-            val coincideTamano = tamanoSeleccionado?.let {
-                valorAnimal.contains(it)
-            } ?: true
-
-
-            coincidePeligrosidad && coincideTamano
-        }
-    }
-
-
-    private fun filterAnimals() {
-        var peligrosidadSeleccionada: Int? = null
-        var tamanoSeleccionado: Int? = null
-
-        // Detectar la peligrosidad seleccionada
-        peligrosidadSeleccionada = when {
-            Buttons.isPeligrosidadAltaOn.state -> 1
-            Buttons.isPeligrosidadMediaOn.state -> 2
-            Buttons.isPeligrosidadBajaOn.state -> 3
-            else -> null
-        }
-
-        // Detectar el tamaño seleccionado
-        tamanoSeleccionado = when {
-            Buttons.isTamanoGrandeoOn.state -> 3
-            Buttons.isTamanoMedianoOn.state -> 2
-            Buttons.isTamanoPequenoOn.state -> 1
-            else -> null
-        }
-
-        // Obtener animales según los tipos activos (araña, escorpión, serpiente)
-        val listaBase = getAnimals(listOfAnimalsTypes)
-
-        // Filtrar por peligrosidad y tamaño
-        val animalesFiltrados = listaBase.filter { animal ->
-            val coincidePeligrosidad = peligrosidadSeleccionada?.let { animal.agresividad == it } ?: true
             val coincideTamano = tamanoSeleccionado?.let { filtroTamano ->
                 val minTam = extraerTamanioMinimo(animal.tamaño)
                 when (filtroTamano) {
-                    1 -> minTam != null && minTam <= 3
+                    3 -> minTam != null && minTam <= 3
                     2 -> minTam != null && minTam > 3 && minTam <= 7
-                    3 -> minTam != null && minTam > 7
+                    1 -> minTam != null && minTam > 7
                     else -> true
                 }
             } ?: true
 
 
-
             coincidePeligrosidad && coincideTamano
         }
-
-        // Actualizar el adapter con la lista filtrada
-        adapter.updateData(animalesFiltrados)
-
-        // Ocultar el panel de filtro si querés
-        isFilterVisible = false
-        binding.iFilter.root.visibility = View.GONE
     }
 
 
     private fun cancelNewFilterOptions(){
             // Restaurar estados guardados
-            originalStates.forEach { (Button, state) ->
-                Button.state = state
+            originalStates.forEach { (button, state) ->
+                button.state = state
             }
 
             // Actualizar visualmente los botones
@@ -377,19 +332,19 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
 
     when(option){
         2 ->{
-            Buttons.isPeligrosidadMediaOn.toggle()
-            Buttons.isPeligrosidadAltaOn.state=false
-            Buttons.isPeligrosidadBajaOn.state=false
+            Buttons.IsPeligrosidadMediaOn.toggle()
+            Buttons.IsPeligrosidadAltaOn.state=false
+            Buttons.IsPeligrosidadBajaOn.state=false
         }
         3->{
-            Buttons.isPeligrosidadBajaOn.toggle()
-            Buttons.isPeligrosidadMediaOn.state=false
-            Buttons.isPeligrosidadAltaOn.state=false
+            Buttons.IsPeligrosidadBajaOn.toggle()
+            Buttons.IsPeligrosidadMediaOn.state=false
+            Buttons.IsPeligrosidadAltaOn.state=false
         }
         else -> {
-            Buttons.isPeligrosidadAltaOn.toggle()
-            Buttons.isPeligrosidadMediaOn.state=false
-            Buttons.isPeligrosidadBajaOn.state=false
+            Buttons.IsPeligrosidadAltaOn.toggle()
+            Buttons.IsPeligrosidadMediaOn.state=false
+            Buttons.IsPeligrosidadBajaOn.state=false
         }
     }
         updatePeligrosidadBackgrounds()
@@ -398,21 +353,21 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
     private fun selectOnlyTamano(option: Int) {
         when(option) {
             2 -> {
-                Buttons.isTamanoMedianoOn.toggle()
-                Buttons.isTamanoGrandeoOn.state = false
-                Buttons.isTamanoPequenoOn.state = false
+                Buttons.IsTamanoMedianoOn.toggle()
+                Buttons.IsTamanoGrandeoOn.state = false
+                Buttons.IsTamanoPequenoOn.state = false
             }
 
             3 -> {
-                Buttons.isTamanoPequenoOn.toggle()
-                Buttons.isTamanoGrandeoOn.state = false
-                Buttons.isTamanoMedianoOn.state = false
+                Buttons.IsTamanoPequenoOn.toggle()
+                Buttons.IsTamanoGrandeoOn.state = false
+                Buttons.IsTamanoMedianoOn.state = false
             }
 
             else -> {
-                Buttons.isTamanoGrandeoOn.toggle()
-                Buttons.isTamanoMedianoOn.state = false
-                Buttons.isTamanoPequenoOn.state = false
+                Buttons.IsTamanoGrandeoOn.toggle()
+                Buttons.IsTamanoMedianoOn.state = false
+                Buttons.IsTamanoPequenoOn.state = false
             }
         }
         updateTamanoBackgrounds()
@@ -425,13 +380,13 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
 
 
         binding.iFilter.btnPeligrosidadAlta.setBackgroundResource(
-            if (Buttons.isPeligrosidadAltaOn.state) R.drawable.red_button else R.drawable.red_texture
+            if (Buttons.IsPeligrosidadAltaOn.state) R.drawable.red_button else R.drawable.red_texture
         )
         binding.iFilter.btnPeligrosidadMedia.setBackgroundResource(
-            if (Buttons.isPeligrosidadMediaOn.state) R.drawable.yellow_button else R.drawable.yellow_texture
+            if (Buttons.IsPeligrosidadMediaOn.state) R.drawable.yellow_button else R.drawable.yellow_texture
         )
         binding.iFilter.btnPeligrosidadBaja.setBackgroundResource(
-            if (Buttons.isPeligrosidadBajaOn.state) R.drawable.green_button else R.drawable.green_texture
+            if (Buttons.IsPeligrosidadBajaOn.state) R.drawable.green_button else R.drawable.green_texture
         )
     }
 
@@ -441,13 +396,13 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         val notSelected = R.drawable.gridborder
 
         binding.iFilter.btnGrande.setBackgroundResource(
-            if (Buttons.isTamanoGrandeoOn.state) selected else notSelected
+            if (Buttons.IsTamanoGrandeoOn.state) selected else notSelected
         )
         binding.iFilter.btnMediano.setBackgroundResource(
-            if (Buttons.isTamanoMedianoOn.state) selected else notSelected
+            if (Buttons.IsTamanoMedianoOn.state) selected else notSelected
         )
         binding.iFilter.btnPequeno.setBackgroundResource(
-            if (Buttons.isTamanoPequenoOn.state) selected else notSelected
+            if (Buttons.IsTamanoPequenoOn.state) selected else notSelected
         )
     }
 
