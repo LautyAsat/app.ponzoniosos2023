@@ -7,6 +7,7 @@ import android.text.TextWatcher
 import android.util.TypedValue
 import android.view.View
 import android.widget.ImageButton
+import android.widget.PopupMenu
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -107,7 +108,34 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
             binding.iFilter.root.visibility = if (isFilterVisible) View.VISIBLE else View.GONE
         }
 
-        v
+
+        val btnMenu: ImageButton = findViewById(R.id.btnMenu)
+
+
+        btnMenu.setOnClickListener {
+            val popup = PopupMenu(this, it)
+            popup.menuInflater.inflate(R.menu.menu_show_catalog, popup.menu)
+
+            popup.setOnMenuItemClickListener { item ->
+                when (item.itemId) {
+                    R.id.about -> {
+                        val mIntent = Intent(this, AboutActivity::class.java)
+                        startActivity(mIntent)
+                        finish()
+                        true
+                    }
+                    R.id.contact -> {
+                        val mIntent = Intent(this, ContactUsActivity::class.java)
+                        startActivity(mIntent)
+                        finish()
+                        true
+                    }
+                    else -> false
+                }
+            }
+            popup.show()
+        }
+
 
     }
 
