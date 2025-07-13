@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="-13dp"
     android:paddingBottom="20dp"
+    android:layout_marginHorizontal="16dp"
     android:clipChildren="false"
     android:clipToPadding="false"
     >
@@ -21,6 +22,7 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cvPopup"
         android:layout_marginHorizontal="6dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

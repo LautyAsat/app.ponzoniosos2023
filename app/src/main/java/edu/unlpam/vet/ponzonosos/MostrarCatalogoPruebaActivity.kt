@@ -1,13 +1,23 @@
 package edu.unlpam.vet.ponzonosos
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.TypedValue
+import android.view.Gravity
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import android.view.animation.DecelerateInterpolator
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.PopupMenu
+import android.widget.PopupWindow
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -17,6 +27,7 @@ import edu.unlpam.vet.ponzonosos.databinding.ActivityMostrarCatalogoPruebaBindin
 import edu.unlpam.vet.ponzonosos.model.Animal
 import edu.unlpam.vet.ponzonosos.model.AnimalDao
 import edu.unlpam.vet.ponzonosos.util.Edge
+import edu.unlpam.vet.ponzonosos.util.Measures
 
 
 class MostrarCatalogoPruebaActivity : AppCompatActivity() {
@@ -118,49 +129,12 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         // Listener del boton filtro para mostrar o ocultar los filtros
         binding.cvFilter.setOnClickListener {
             isFilterVisible = !isFilterVisible
-            binding.iFilter.root.visibility = if (isFilterVisible) View.VISIBLE else View.GONE
+
+            showFilterPopup(it)
 
             if (isFilterVisible) {
-                // Guardar estado actual
                 originalStates = Buttons.entries.associateWith { it.state }.toMutableMap()
             }
-        }
-
-
-        // Listener de los botones del filtro  - Peligrosidad
-        binding.iFilter.btnPeligrosidadAlta.setOnClickListener {
-            selectOnlyPeligrosidad(1)
-        }
-
-        binding.iFilter.btnPeligrosidadMedia.setOnClickListener {
-            selectOnlyPeligrosidad(2)
-        }
-
-        binding.iFilter.btnPeligrosidadBaja.setOnClickListener {
-            selectOnlyPeligrosidad(3)
-        }
-
-        binding.iFilter.btnGrande.setOnClickListener {
-            selectOnlyTamano(1)
-        }
-
-        binding.iFilter.btnMediano.setOnClickListener {
-            selectOnlyTamano(2)
-        }
-
-        binding.iFilter.btnPequeno.setOnClickListener {
-            selectOnlyTamano(3)
-        }
-
-
-        binding.iFilter.applyFilter.setOnClickListener{
-            changeAnimalsState()
-            binding.iFilter.root.visibility = View.GONE
-            isFilterVisible = false
-
-        }
-        binding.iFilter.cancelFilter.setOnClickListener{
-            cancelNewFilterOptions()
         }
 
         val btnMenu: ImageButton = findViewById(R.id.btnMenu)
@@ -333,15 +307,15 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
     }
 
 
-    private fun cancelNewFilterOptions(){
+    private fun cancelNewFilterOptions(view: View){
         // Restaurar estados guardados
         originalStates.forEach { (button, state) ->
             button.state = state
         }
 
         // Actualizar visualmente los botones
-        updatePeligrosidadBackgrounds()
-        updateTamanoBackgrounds()
+        updatePeligrosidadBackgrounds(view)
+        updateTamanoBackgrounds(view)
 
         // Ocultar el panel de filtro si querés
         isFilterVisible = false
@@ -349,7 +323,7 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
 
     }
 
-    private fun selectOnlyPeligrosidad(option: Int) {
+    private fun selectOnlyPeligrosidad(option: Int, view : View) {
 
         when(option){
             2 ->{
@@ -368,10 +342,10 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
                 Buttons.IsPeligrosidadBajaOn.state=false
             }
         }
-        updatePeligrosidadBackgrounds()
+        updatePeligrosidadBackgrounds(view)
     }
 
-    private fun selectOnlyTamano(option: Int) {
+    private fun selectOnlyTamano(option: Int, view: View) {
         when(option) {
             2 -> {
                 Buttons.IsTamanoMedianoOn.toggle()
@@ -391,38 +365,33 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
                 Buttons.IsTamanoPequenoOn.state = false
             }
         }
-        updateTamanoBackgrounds()
+        updateTamanoBackgrounds(view)
     }
 
-
-
-
-    private fun updatePeligrosidadBackgrounds() {
-
-
-        binding.iFilter.btnPeligrosidadAlta.setBackgroundResource(
+    private fun updatePeligrosidadBackgrounds(root: View) {
+        root.findViewById<ImageButton>(R.id.btn_peligrosidad_alta).setBackgroundResource(
             if (Buttons.IsPeligrosidadAltaOn.state) R.drawable.red_button else R.drawable.red_texture
         )
-        binding.iFilter.btnPeligrosidadMedia.setBackgroundResource(
+        root.findViewById<ImageButton>(R.id.btn_peligrosidad_media).setBackgroundResource(
             if (Buttons.IsPeligrosidadMediaOn.state) R.drawable.yellow_button else R.drawable.yellow_texture
         )
-        binding.iFilter.btnPeligrosidadBaja.setBackgroundResource(
+        root.findViewById<ImageButton>(R.id.btn_peligrosidad_baja).setBackgroundResource(
             if (Buttons.IsPeligrosidadBajaOn.state) R.drawable.green_button else R.drawable.green_texture
         )
     }
 
-    private fun updateTamanoBackgrounds() {
+    private fun updateTamanoBackgrounds(root: View) {
 
         val selected = R.drawable.selected_button
         val notSelected = R.drawable.gridborder
 
-        binding.iFilter.btnGrande.setBackgroundResource(
+        root.findViewById<Button>(R.id.btn_grande).setBackgroundResource(
             if (Buttons.IsTamanoGrandeoOn.state) selected else notSelected
         )
-        binding.iFilter.btnMediano.setBackgroundResource(
+        root.findViewById<Button>(R.id.btn_mediano).setBackgroundResource(
             if (Buttons.IsTamanoMedianoOn.state) selected else notSelected
         )
-        binding.iFilter.btnPequeno.setBackgroundResource(
+        root.findViewById<Button>(R.id.btn_pequeno).setBackgroundResource(
             if (Buttons.IsTamanoPequenoOn.state) selected else notSelected
         )
     }
@@ -466,4 +435,81 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         val intent = Intent(this, ContactUsActivity::class.java)
         startActivity(intent)
     }
+
+
+    fun showFilterPopup(anchor: View) {
+        val inflater = LayoutInflater.from(anchor.context)
+        val popupView = inflater.inflate(R.layout.dialog_filteranimals, null)
+
+        val displayMetrics = anchor.context.resources.displayMetrics
+        val screenWidth = displayMetrics.widthPixels
+        val popupWidth = (screenWidth - (Measures.dpToPx(this, 16f) * 2)).toInt()
+
+        val popupWindow = PopupWindow(
+            popupView,
+            popupWidth,
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            true
+        )
+
+        popupWindow.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        updatePeligrosidadBackgrounds(popupView)
+        updateTamanoBackgrounds(popupView)
+
+
+        // Listeners elementos internos del popup
+        popupView.findViewById<View>(R.id.btn_peligrosidad_alta).setOnClickListener {
+            selectOnlyPeligrosidad(1, popupView)
+        }
+
+        popupView.findViewById<View>(R.id.btn_peligrosidad_media).setOnClickListener {
+            selectOnlyPeligrosidad(2, popupView)
+        }
+
+        popupView.findViewById<View>(R.id.btn_peligrosidad_baja).setOnClickListener {
+            selectOnlyPeligrosidad(3, popupView)
+        }
+
+        popupView.findViewById<View>(R.id.btn_grande).setOnClickListener {
+            selectOnlyTamano(1, popupView)
+        }
+
+        popupView.findViewById<View>(R.id.btn_mediano).setOnClickListener {
+            selectOnlyTamano(2, popupView)
+        }
+
+        popupView.findViewById<View>(R.id.btn_pequeno).setOnClickListener {
+            selectOnlyTamano(3, popupView)
+        }
+
+        popupView.findViewById<View>(R.id.apply_filter).setOnClickListener{
+            changeAnimalsState()
+
+            popupWindow.dismiss()
+            isFilterVisible = false
+
+        }
+
+        popupView.findViewById<View>(R.id.cancel_filter).setOnClickListener{
+            popupWindow.dismiss()
+            cancelNewFilterOptions(popupView)
+        }
+
+
+        // Animación
+        popupView.findViewById<View>(R.id.cvPopup).apply {
+            scaleX = 0.8f
+            scaleY = 0.8f
+            alpha = 0f
+            animate().scaleX(1f).scaleY(1f).alpha(1f)
+                .setDuration(300)
+                .setInterpolator(DecelerateInterpolator())
+                .start()
+        }
+
+
+        popupWindow.showAtLocation(anchor.rootView, Gravity.CENTER, 0, anchor.height)
+    }
+
 }
