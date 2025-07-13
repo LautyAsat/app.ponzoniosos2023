@@ -4,6 +4,7 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.Rect
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.text.Editable
@@ -141,6 +142,8 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
 
         })
 
+        detectFocusSearcher()
+
         // Listener del boton filtro para mostrar o ocultar los filtros
         binding.cvFilter.setOnClickListener {
             isFilterVisible = !isFilterVisible
@@ -174,6 +177,7 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
             }
             popup.show()
         }
+
     }
 
     private fun initUI() {
@@ -212,9 +216,6 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
 
         // 6. Aplicar el padding al RecyclerView
         if (horizontalPaddingPx > 0) {
-            // rvCatalogo es tu instancia de RecyclerView. Asumo que usas binding o findViewById.
-            // Si usas binding, sería binding.rvCatalogo.
-            // Si es findViewById, sería rvCatalogo.
             binding.rvCatalogo.setPadding(
                 horizontalPaddingPx,
                 binding.rvCatalogo.paddingTop,
@@ -539,4 +540,26 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         popupWindow.showAtLocation(anchor.rootView, Gravity.CENTER, 0, anchor.height)
     }
 
+    private fun detectFocusSearcher(){
+        val rootView = findViewById<View>(android.R.id.content)
+
+        var isKeyboardVisible = false
+
+        rootView.viewTreeObserver.addOnGlobalLayoutListener {
+            val rect = Rect()
+            rootView.getWindowVisibleDisplayFrame(rect)
+            val screenHeight = rootView.rootView.height
+            val keypadHeight = screenHeight - rect.bottom
+
+            val keyboardNowVisible = keypadHeight > screenHeight * 0.15
+
+            if (keyboardNowVisible != isKeyboardVisible) {
+                isKeyboardVisible = keyboardNowVisible
+
+                if (!isKeyboardVisible) {
+                    binding.etSearch.clearFocus()
+                }
+            }
+        }
+    }
 }
