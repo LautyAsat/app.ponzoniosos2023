@@ -32,11 +32,11 @@ import edu.unlpam.vet.ponzonosos.util.Measures
 
 class MostrarCatalogoPruebaActivity : AppCompatActivity() {
 
-    class ToggleState(var value: Boolean, val type : Int)
+    class ToggleState(var value: Boolean, val type: Int)
 
     private lateinit var binding: ActivityMostrarCatalogoPruebaBinding
     private lateinit var animalDao: AnimalDao
-    private lateinit var animals : MutableList<Animal>
+    private lateinit var animals: MutableList<Animal>
 
     private var spiderState = ToggleState(true, 1)
     private var scorpionState = ToggleState(true, 2)
@@ -58,7 +58,7 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         IsTamanoPequenoOn(false);
 
         fun toggle() {
-            state=!state
+            state = !state
         }
     }
 
@@ -109,15 +109,30 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         binding.btnAccident.setOnClickListener { navigateToAccident() }
 
         // Listeners de estado para los botones ponzoñosos
-        toggleTypeStateHandler(spiderState, binding.ivArania, R.drawable.colour_spider, R.drawable.whiteblack_spider)
-        toggleTypeStateHandler(scorpionState, binding.ivEscorpion, R.drawable.colour_scorpion, R.drawable.whiteblack_scorpion)
-        toggleTypeStateHandler(snakeState, binding.ivSerpiente, R.drawable.colour_snake, R.drawable.whiteblack_snake)
+        toggleTypeStateHandler(
+            spiderState,
+            binding.ivArania,
+            R.drawable.colour_spider,
+            R.drawable.whiteblack_spider
+        )
+        toggleTypeStateHandler(
+            scorpionState,
+            binding.ivEscorpion,
+            R.drawable.colour_scorpion,
+            R.drawable.whiteblack_scorpion
+        )
+        toggleTypeStateHandler(
+            snakeState,
+            binding.ivSerpiente,
+            R.drawable.colour_snake,
+            R.drawable.whiteblack_snake
+        )
 
         // Listener para searcher
-        binding.etSearch.addTextChangedListener(object: TextWatcher{
+        binding.etSearch.addTextChangedListener(object : TextWatcher {
 
-            override fun beforeTextChanged( s: CharSequence?, start: Int, count: Int, after: Int){}
-            override fun onTextChanged( s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 
             override fun afterTextChanged(s: Editable?) {
                 searchQuery = s.toString()
@@ -148,10 +163,12 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
                         navigateToAbout()
                         true
                     }
+
                     R.id.contact -> {
                         navigateToContact()
                         true
                     }
+
                     else -> false
                 }
             }
@@ -159,27 +176,32 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         }
     }
 
-    private fun initUI(){
-        adapter = MostrarCatalogoAdapter(animals){ navigateToDetail(it) }
+    private fun initUI() {
+        adapter = MostrarCatalogoAdapter(animals) { navigateToDetail(it) }
 
         binding.rvCatalogo.layoutManager = GridLayoutManager(this, 2)
         binding.rvCatalogo.adapter = adapter
     }
 
 
-    private fun dinamicPadding(){
+    private fun dinamicPadding() {
 
         // 1. Obtener las dimensiones de la pantalla
         val displayMetrics = resources.displayMetrics
-        val screenWidthPx = displayMetrics.widthPixels - dpToPx().toInt() // Ancho de la pantalla en píxeles
+        val screenWidthPx =
+            displayMetrics.widthPixels - dpToPx().toInt() // Ancho de la pantalla en píxeles
 
         // 2. Definir el ancho de tus ítems y el espaciado deseado (en dp)
         val itemWidthDp = 170f // Ancho de tu item_animal.xml
         val itemSpacingDp = 8f // Espacio que deseas entre los ítems (el marginEnd del item)
 
         // 3. Convertir DP a Píxeles
-        val itemWidthPx = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, itemWidthDp, displayMetrics).toInt()
-        val itemSpacingPx = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, itemSpacingDp, displayMetrics).toInt()
+        val itemWidthPx =
+            TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, itemWidthDp, displayMetrics)
+                .toInt()
+        val itemSpacingPx =
+            TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, itemSpacingDp, displayMetrics)
+                .toInt()
 
         // 4. Calcular el ancho total que ocuparán los dos ítems y el espaciado entre ellos.
         // Esto es (ancho_item1 + margen_derecho_item1) + (ancho_item2)
@@ -193,7 +215,12 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
             // rvCatalogo es tu instancia de RecyclerView. Asumo que usas binding o findViewById.
             // Si usas binding, sería binding.rvCatalogo.
             // Si es findViewById, sería rvCatalogo.
-            binding.rvCatalogo.setPadding(horizontalPaddingPx, binding.rvCatalogo.paddingTop, horizontalPaddingPx, binding.rvCatalogo.paddingBottom)
+            binding.rvCatalogo.setPadding(
+                horizontalPaddingPx,
+                binding.rvCatalogo.paddingTop,
+                horizontalPaddingPx,
+                binding.rvCatalogo.paddingBottom
+            )
             binding.rvCatalogo.clipToPadding = false
         }
 
@@ -204,7 +231,7 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
     }
 
     private fun toggleTypeStateHandler(
-        state : ToggleState,
+        state: ToggleState,
         imageView: ImageButton,
         image1: Int,
         image2: Int
@@ -213,7 +240,7 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
             state.value = !state.value
 
             // Se modifica la lista de tiposActivos
-            if(state.value) listOfAnimalsTypes.add(state.type)
+            if (state.value) listOfAnimalsTypes.add(state.type)
             else listOfAnimalsTypes.remove(state.type)
 
             // Cambia la lista de animales activos
@@ -228,13 +255,14 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         }
     }
 
-    private fun filterAnimalsByQuery(){
+    private fun filterAnimalsByQuery() {
         val filteredList = getAnimals(listOfAnimalsTypes).filter {
             it.nombre.contains(searchQuery, ignoreCase = true)
         }
 
         adapter.updateData(filteredList)
     }
+
     //funcion para truncar texto del tamaño
     private fun extraerTamanioMinimo(texto: String?): Double? {
         if (texto.isNullOrBlank()) return null
@@ -251,7 +279,6 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
 
         return encontrado?.value?.toDoubleOrNull()
     }
-
 
     private fun changeAnimalsState() {
         // 1. Obtener la lista base según los tipos (1, 2, 3)
