@@ -17,8 +17,10 @@ import android.view.ViewGroup
 import android.view.animation.DecelerateInterpolator
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.PopupWindow
+import android.widget.ScrollView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -177,6 +179,17 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
             }
             popup.show()
         }
+
+        /*
+        //scroll para el fondo
+        val scrollView = findViewById<ScrollView>(R.id.scrollfondo)
+        val fondoMovil = findViewById<ImageView>(R.id.fondo_movil)
+
+        scrollView.viewTreeObserver.addOnScrollChangedListener {
+            val scrollY = scrollView.scrollY.toFloat()
+            fondoMovil.translationY = -scrollY / 2f  // movelo para que el fondo haga efecto parallax
+        }*/
+
 
     }
 
