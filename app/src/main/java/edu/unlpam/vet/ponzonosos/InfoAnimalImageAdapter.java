@@ -58,7 +58,7 @@ public class InfoAnimalImageAdapter extends RecyclerView.Adapter<InfoAnimalImage
     }
 
     static class ImageViewHolder extends RecyclerView.ViewHolder {
-        PhotoView imageView;
+        ImageView imageView;
 
         ImageViewHolder(View view) {
             super(view);
