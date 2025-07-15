@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.github.chrisbanes.photoview.PhotoView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +58,7 @@ public class InfoAnimalImageAdapter extends RecyclerView.Adapter<InfoAnimalImage
     }
 
     static class ImageViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageView;
+        PhotoView imageView;
 
         ImageViewHolder(View view) {
             super(view);
