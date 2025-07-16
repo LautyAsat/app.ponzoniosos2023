@@ -8,6 +8,8 @@ import androidx.core.content.ContextCompat;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -30,6 +32,7 @@ import java.util.Objects;
 import edu.unlpam.vet.ponzonosos.databinding.ActivityMostrarCatalogoPruebaBinding;
 import edu.unlpam.vet.ponzonosos.model.Imagen;
 import edu.unlpam.vet.ponzonosos.model.Animal;
+import edu.unlpam.vet.ponzonosos.util.Measures;
 
 import android.view.Window;
 import androidx.core.view.ViewCompat;
@@ -69,7 +72,7 @@ public class InfoAnimal extends AppCompatActivity {
         InfoAnimalImageAdapter adapter = new InfoAnimalImageAdapter(this, rutas);
         viewPager.setAdapter(adapter);
 
-// Conectar TabLayout con ViewPager2
+        // Conectar TabLayout con ViewPager2
         new TabLayoutMediator(tabLayout, viewPager,
                 (tab, position) -> tab.setCustomView(getCustomTab(this, position == 0))
         ).attach();
@@ -99,33 +102,16 @@ public class InfoAnimal extends AppCompatActivity {
             }
         });
 
+        LinearLayout containerBlockInformation = findViewById(R.id.info_container);
 
-        // Vincular vistas
-
+        // Rellenamos información básica del animal
         TextView tvNombreComun = findViewById(R.id.tv_nombre_comun);
         TextView tvNombreCientifico = findViewById(R.id.tv_nombre_cientifico);
         View tvAgresividad = findViewById(R.id.tv_nivel_riesgo);
-        TextView tvTamano = findViewById(R.id.tv_tamano);
-        TextView tvSintomas = findViewById(R.id.tv_sintomas_picadura);
-        TextView tvAntidoto = findViewById(R.id.tv_antidoto);
-        TextView tvLugarEncuentro = findViewById(R.id.tv_habitat);
-        TextView tvAcciones = findViewById(R.id.tv_acciones_picadura);
-        TextView tvConfusion = findViewById(R.id.tv_confusion);
 
-
-        // Setear textos
         tvNombreComun.setText(animal.getNombre());
         tvNombreCientifico.setText(animal.getNombreC());
-        tvTamano.setText(animal.getTamano());
-        tvSintomas.setText(animal.getEfectoPicadura());
-        tvAntidoto.setText(animal.getAntidoto());
-        tvLugarEncuentro.setText(animal.getLugar_encuentro());
-        tvAcciones.setText(animal.getAccion_picadura());
-        tvConfusion.setText(animal.getConfusion());
-
-
         Drawable fondo;
-        // Nivel de riesgo
         switch (animal.getAgresividad()) {
             case 2:
                 fondo = ContextCompat.getDrawable(this, R.drawable.yellow_texture);
@@ -141,6 +127,14 @@ public class InfoAnimal extends AppCompatActivity {
                 break;
         }
 
+        // Rellenamos información dinamica según la info del animal
+        addContentBlock(this, containerBlockInformation, getText(R.string.s_ntomas_picadura).toString(), animal.getEfectoPicadura());
+        addContentBlock(this, containerBlockInformation, getText(R.string.ant_doto).toString(), animal.getAntidoto());
+        addContentBlock(this, containerBlockInformation, getText(R.string.h_bitat).toString(), animal.getLugar_encuentro());
+        addContentBlock(this, containerBlockInformation, getText(R.string.medidas_frente_a_una_picadura).toString(), animal.getAccion_picadura());
+        addContentBlock(this, containerBlockInformation, getText(R.string.tama_o).toString(), animal.getTamano());
+        addContentBlock(this, containerBlockInformation, getText(R.string.se_puede_confundir).toString(), animal.getConfusion());
+
     }
     private View getCustomTab(Context context, boolean selected) {
         View view = new View(context);
@@ -152,5 +146,117 @@ public class InfoAnimal extends AppCompatActivity {
         view.setBackgroundResource(selected ? R.drawable.tab_selected : R.drawable.tab_unselected);
         return view;
     }
+    private void addContentBlock(
+            Context context,
+            LinearLayout container,
+            String title,
+            String content
+    ) {
+        if (!content.isEmpty()) {
+            // Título
+            TextView tvTitle = new TextView(context);
+            tvTitle.setLayoutParams(
+                    new LinearLayout.LayoutParams(
+                            ViewGroup.LayoutParams.MATCH_PARENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT
+                    )
+            );
+            tvTitle.setText(title);
+            tvTitle.setTextColor(Color.BLACK);
+            tvTitle.setTypeface(tvTitle.getTypeface(), Typeface.BOLD);
+
+            // Contenido
+            TextView tvContent = new TextView(context);
+            tvContent.setLayoutParams(new LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+            ));
+            tvContent.setText(content);
+            tvContent.setPadding(0, 0, 0, (int) Measures.dpToPx(context, 8));
+
+            container.addView(tvTitle);
+            container.addView(tvContent);
+        }
+    }
 
 }
+
+/*
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/s_ntomas_picadura"
+                        android:textStyle="bold"
+                        android:textColor="#000"/>
+                    <TextView
+                        android:id="@+id/tv_sintomas_picadura"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fuerte_dolor_local_inflamaci_n_y_enrojecimiento"
+                        android:paddingBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ant_doto"
+                        android:textStyle="bold"
+                        android:textColor="#000"/>
+                    <TextView
+                        android:id="@+id/tv_antidoto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no"
+                        android:paddingBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/h_bitat"
+                        android:textStyle="bold"
+                        android:textColor="#000"/>
+                    <TextView
+                        android:id="@+id/tv_habitat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hogar_jardines_parques_y_zonas_rurales"
+                        android:paddingBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/medidas_frente_a_una_picadura"
+                        android:textStyle="bold"
+                        android:textColor="#000"/>
+                    <TextView
+                        android:id="@+id/tv_acciones_picadura"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lavar_con_agua_y_jab_n_y_colocar_compresas_fr_as"
+                        android:paddingBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tama_o"
+                        android:textStyle="bold"
+                        android:textColor="#000"/>
+                    <TextView
+                        android:id="@+id/tv_tamano"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/de_0_5_a_7_cm"
+                        android:paddingBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/se_puede_confundir"
+                        android:textStyle="bold"
+                        android:textColor="#000"/>
+                    <TextView
+                        android:id="@+id/tv_confusion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/polybetes_sp_ara_n_de_monte"
+                        android:paddingBottom="8dp" />
+                        */

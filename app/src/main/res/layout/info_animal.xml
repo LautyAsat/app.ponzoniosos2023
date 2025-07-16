@@ -140,84 +140,16 @@
                         </LinearLayout>
                     </LinearLayout>
 
-                    <!-- Bloques de información -->
-                    <TextView
+                    <!-- Bloques de información Dinamicos-->
+                    <LinearLayout
+                        android:id="@+id/info_container"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/s_ntomas_picadura"
-                        android:textStyle="bold"
-                        android:textColor="#000"/>
-                    <TextView
-                        android:id="@+id/tv_sintomas_picadura"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/fuerte_dolor_local_inflamaci_n_y_enrojecimiento"
-                        android:paddingBottom="8dp" />
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/ant_doto"
-                        android:textStyle="bold"
-                        android:textColor="#000"/>
-                    <TextView
-                        android:id="@+id/tv_antidoto"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/no"
-                        android:paddingBottom="8dp" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/h_bitat"
-                        android:textStyle="bold"
-                        android:textColor="#000"/>
-                    <TextView
-                        android:id="@+id/tv_habitat"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/hogar_jardines_parques_y_zonas_rurales"
-                        android:paddingBottom="8dp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/medidas_frente_a_una_picadura"
-                        android:textStyle="bold"
-                        android:textColor="#000"/>
-                    <TextView
-                        android:id="@+id/tv_acciones_picadura"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/lavar_con_agua_y_jab_n_y_colocar_compresas_fr_as"
-                        android:paddingBottom="8dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/tama_o"
-                        android:textStyle="bold"
-                        android:textColor="#000"/>
-                    <TextView
-                        android:id="@+id/tv_tamano"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/de_0_5_a_7_cm"
-                        android:paddingBottom="8dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/se_puede_confundir"
-                        android:textStyle="bold"
-                        android:textColor="#000"/>
-                    <TextView
-                        android:id="@+id/tv_confusion"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/polybetes_sp_ara_n_de_monte"
-                        android:paddingBottom="8dp" />
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
