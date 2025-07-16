@@ -55,12 +55,18 @@
                             />
                         <TextView
                             android:id="@id/tvDanger"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:gravity="center_vertical"
                             android:text="¿Qué hacer frente a un accidente?"
                             style="@style/tv_caution"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/ivDanger"
-                            />
+                            app:layout_constraintEnd_toEndOf="parent" />
+
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -89,9 +95,14 @@
                             android:id="@id/tvPrecaution"
                             android:text="Medidas de prevención"
                             style="@style/tv_caution"
+                            android:gravity="center_vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/ivPrecaution"
+                            android:maxLines="1"
+                            android:ellipsize="end"
                             />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
@@ -117,8 +128,11 @@
                         <EditText
                             android:id="@+id/etSearch"
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            android:layout_height="wrap_content"
+                            android:minHeight="50dp"
                             android:padding="12dp"
+                            android:maxLines="2"
+                            android:ellipsize="end"
                             android:background="@drawable/edittext_no_outline"
                             android:hint="Buscar ponzoñoso..."
                             android:textColor="@android:color/black"
@@ -130,8 +144,10 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:id="@+id/cvFilter"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="wrap_content"
+                        android:minHeight="50dp"
+                        android:minWidth="50dp"
+                        android:layout_height="wrap_content"
                         app:cardCornerRadius="4dp"
                         android:layout_margin="6dp"
                         app:cardElevation="3dp"    app:cardMaxElevation="3dp"> <LinearLayout

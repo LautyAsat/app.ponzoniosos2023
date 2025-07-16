@@ -56,6 +56,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:padding="12dp"
+                                android:textSize="22dp"
                                 android:text="@string/qu_no_hacer"
                                 style="@style/text_card"
                                 />
@@ -118,6 +119,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:padding="12dp"
+                                android:textSize="22dp"
+
                                 android:text="@string/medidas_generales"
                                 style="@style/text_card"
                                 />
@@ -181,6 +184,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:padding="12dp"
+                                android:textSize="22dp"
+
                                 android:text="@string/d_nde_encontrar_ant_dotos"
                                 style="@style/text_card"
                                 />

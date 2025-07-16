@@ -41,13 +41,16 @@
 
                         <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            android:layout_height="wrap_content"
+                            android:minHeight="50dp"
                             android:background="@drawable/banner"
                             android:elevation="4dp"
                             android:gravity="center"
                             android:text="@string/ponzo_osos_de_la_pampa"
                             android:textColor="@android:color/white"
-                            android:textSize="24sp"
+                            android:textSize="22dp"
+                            android:maxLines="2"
+                            android:ellipsize="end"
                             android:textStyle="bold"
                             android:fontFamily="@font/poppins_bold"/>
 
