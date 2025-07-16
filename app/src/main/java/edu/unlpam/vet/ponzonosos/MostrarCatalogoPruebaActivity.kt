@@ -2,6 +2,7 @@ package edu.unlpam.vet.ponzonosos
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Rect
@@ -9,6 +10,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -114,18 +116,21 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
         // Listeners de estado para los botones ponzoñosos
         toggleTypeStateHandler(
             spiderState,
+            binding.ivArania.context,
             binding.ivArania,
             R.drawable.colour_spider,
             R.drawable.whiteblack_spider
         )
         toggleTypeStateHandler(
             scorpionState,
+            binding.ivEscorpion.context,
             binding.ivEscorpion,
             R.drawable.colour_scorpion,
             R.drawable.whiteblack_scorpion
         )
         toggleTypeStateHandler(
             snakeState,
+            binding.ivSerpiente.context,
             binding.ivSerpiente,
             R.drawable.colour_snake,
             R.drawable.whiteblack_snake
@@ -246,6 +251,7 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
 
     private fun toggleTypeStateHandler(
         state: ToggleState,
+        imageContext: Context,
         imageView: ImageButton,
         image1: Int,
         image2: Int
@@ -260,11 +266,14 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
             // Cambia la lista de animales activos
             changeAnimalsState()
 
-            // Toggle image
-            Glide.with(this)
-                .load(if (state.value) image1 else image2)
-                .into(imageView)
+            Log.i("ponzolau", "Me paso de $image1 a $image2")
 
+            // Toggle image
+            Glide.with(imageContext)
+                .load(if (state.value) image1 else image2)
+                .diskCacheStrategy(com.bumptech.glide.load.engine.DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
+                .into(imageView)
 
         }
     }
