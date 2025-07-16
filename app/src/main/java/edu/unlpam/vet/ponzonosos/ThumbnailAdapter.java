@@ -1,5 +1,6 @@
 package edu.unlpam.vet.ponzonosos;
 
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
+
+import edu.unlpam.vet.ponzonosos.util.Measures;
 
 public class ThumbnailAdapter extends RecyclerView.Adapter<ThumbnailAdapter.ViewHolder> {
 
@@ -43,8 +46,24 @@ public class ThumbnailAdapter extends RecyclerView.Adapter<ThumbnailAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Glide.with(holder.itemView.getContext()).load(images.get(position)).into(holder.thumb);
 
-        holder.thumb.setBackgroundResource(position == selectedPosition ?
-                R.drawable.thumb_border_selected : R.drawable.thumb_border_unselected);
+        ViewGroup.LayoutParams params = holder.itemView.getLayoutParams();
+
+        // Dependiendo si el item es el seleccionado el thumbnail tiene un tamaño diferente
+
+        if(position == selectedPosition){
+
+            params.height = (int) Measures.dpToPx(holder.itemView.getContext(), 85);
+            params.width = (int) Measures.dpToPx(holder.itemView.getContext(), 85);
+
+        }
+        else{
+
+            params.height = (int) Measures.dpToPx(holder.itemView.getContext(), 72);
+            params.width = (int) Measures.dpToPx(holder.itemView.getContext(), 72);
+
+        }
+        holder.itemView.setLayoutParams(params);
+
 
         holder.itemView.setOnClickListener(v -> onThumbnailClick.accept(position));
     }
