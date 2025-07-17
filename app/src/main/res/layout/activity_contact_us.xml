@@ -120,11 +120,15 @@
 
                             <!-- Instagram -->
                             <LinearLayout
+                                android:id="@+id/llInstagram"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
                                 android:layout_marginTop="5dp"
-                                android:gravity="center_vertical">
+                                android:gravity="center_vertical"
+                                android:focusable="true"
+                                android:clickable="true"
+                                >
 
                                 <ImageView
                                     android:layout_width="24dp"
@@ -137,16 +141,19 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="8dp"
                                     android:text="@string/ponzonosos_lp"
-                                    android:textColor="#000000" />
+                                    android:textColor="#0a66c2" />
                             </LinearLayout>
 
                             <!-- WhatsApp -->
                             <LinearLayout
+                                android:id="@+id/llWhatsApp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
                                 android:layout_marginTop="5dp"
-                                android:gravity="center_vertical">
+                                android:gravity="center_vertical"
+                                android:clickable="true"
+                                android:focusable="true">
 
                                 <ImageView
                                     android:layout_width="24dp"
@@ -159,16 +166,20 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="8dp"
                                     android:text="@string/_2302_467189"
-                                    android:textColor="#000000" />
+                                    android:textColor="#0a66c2" />
                             </LinearLayout>
 
                             <!-- Email -->
                             <LinearLayout
+                                android:id="@+id/llEmail"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
                                 android:layout_marginTop="5dp"
-                                android:gravity="center_vertical">
+                                android:gravity="center_vertical"
+                                android:clickable="true"
+                                android:focusable="true"
+                                >
 
                                 <ImageView
                                     android:layout_width="24dp"
@@ -181,7 +192,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="8dp"
                                     android:text="@string/mariabruni_live_com_ar"
-                                    android:textColor="#000000" />
+                                    android:textColor="#0a66c2" />
                             </LinearLayout>
 
                         </LinearLayout>
