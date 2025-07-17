@@ -69,7 +69,10 @@
                         android:text="@string/viuda_negra"
                         android:textStyle="bold"
                         android:textColor="#FFFFFF"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:layout_marginHorizontal="6dp"
+                        android:textAlignment="center"
+                        />
                 </LinearLayout>
 
                 <!-- Contenido -->
