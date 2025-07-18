@@ -27,7 +27,7 @@ public class FullscreenAdapter extends RecyclerView.Adapter<FullscreenAdapter.Vi
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         PhotoView iv = new PhotoView(context);
         iv.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        iv.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        iv.setScaleType(PhotoView.ScaleType.CENTER_INSIDE);
         iv.setAdjustViewBounds(true);
         return new ViewHolder(iv);
     }

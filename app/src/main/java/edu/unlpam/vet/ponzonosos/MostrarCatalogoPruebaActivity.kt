@@ -13,10 +13,13 @@ import android.text.TextWatcher
 import android.util.Log
 import android.util.TypedValue
 import android.view.Gravity
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.DecelerateInterpolator
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -136,7 +139,22 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
             R.drawable.whiteblack_snake
         )
 
-        // Listener para searcher
+        // Listeners para searcher
+
+        binding.etSearch.setOnEditorActionListener { _, actionId, event ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH ||
+                (event != null && event.keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN)) {
+
+                // Ocultar el teclado
+                val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(binding.etSearch.windowToken, 0)
+
+                true
+            } else {
+                false
+            }
+        }
+
         binding.etSearch.addTextChangedListener(object : TextWatcher {
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -184,17 +202,6 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
             }
             popup.show()
         }
-
-        /*
-        //scroll para el fondo
-        val scrollView = findViewById<ScrollView>(R.id.scrollfondo)
-        val fondoMovil = findViewById<ImageView>(R.id.fondo_movil)
-
-        scrollView.viewTreeObserver.addOnScrollChangedListener {
-            val scrollY = scrollView.scrollY.toFloat()
-            fondoMovil.translationY = -scrollY / 2f  // movelo para que el fondo haga efecto parallax
-        }*/
-
 
     }
 
@@ -265,8 +272,6 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
 
             // Cambia la lista de animales activos
             changeAnimalsState()
-
-            Log.i("ponzolau", "Me paso de $image1 a $image2")
 
             // Toggle image
             Glide.with(imageContext)
