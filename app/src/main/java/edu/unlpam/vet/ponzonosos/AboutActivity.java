@@ -70,7 +70,7 @@ public class AboutActivity extends AppCompatActivity {
                 .apply(options)
                 .into(appLogo);
         Glide.with(getApplicationContext())
-                .load(R.drawable.logo_vet_2)
+                .load(R.drawable.unlpam_logo)
                 .apply(options)
                 .into(vetLogo);
         tvWebLink.setOnClickListener(new View.OnClickListener() {
