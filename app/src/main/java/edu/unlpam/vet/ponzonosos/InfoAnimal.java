@@ -134,6 +134,7 @@ public class InfoAnimal extends AppCompatActivity {
         addContentBlock(this, containerBlockInformation, getText(R.string.medidas_frente_a_una_picadura).toString(), animal.getAccion_picadura());
         addContentBlock(this, containerBlockInformation, getText(R.string.tama_o).toString(), animal.getTamano());
         addContentBlock(this, containerBlockInformation, getText(R.string.se_puede_confundir).toString(), animal.getConfusion());
+        addContentBlock(this, containerBlockInformation, getText(R.string.observaciones).toString(), animal.getDescripcion());
 
     }
     private View getCustomTab(Context context, boolean selected) {
