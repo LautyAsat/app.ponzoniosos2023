@@ -36,6 +36,7 @@ import edu.unlpam.vet.ponzonosos.model.Animal
 import edu.unlpam.vet.ponzonosos.model.AnimalDao
 import edu.unlpam.vet.ponzonosos.util.Edge
 import edu.unlpam.vet.ponzonosos.util.Measures
+import kotlin.math.min
 
 
 class MostrarCatalogoPruebaActivity : AppCompatActivity() {
@@ -301,9 +302,9 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
             .replace("-", " ")
             .lowercase()
 
-        // Busca el primer número en el texto
+        // Busca el último número en el texto
         val regex = Regex("""\d+(\.\d+)?""")
-        val encontrado = regex.find(limpio)
+        val encontrado = regex.findAll(limpio).lastOrNull()
 
         return encontrado?.value?.toDoubleOrNull()
     }
@@ -355,7 +356,6 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
                     else -> true
                 }
             } ?: true
-
 
             coincidePeligrosidad && coincideTamano
         }
