@@ -13,7 +13,7 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="350dp"
             android:layout_marginBottom="8dp">
 
 
@@ -25,17 +25,18 @@
                 android:clipChildren="false" />
 
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabLayout_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginBottom="12dp"
-                android:background="@android:color/transparent"
-                app:tabIndicatorColor="@android:color/transparent"
-                app:tabIndicatorHeight="0dp"
-                app:tabSelectedTextColor="@android:color/transparent"
-                app:tabTextColor="@android:color/transparent"/>
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="20dp"
+                    android:background="@android:color/transparent"
+                    app:tabIndicatorColor="@android:color/transparent"
+                    app:tabIndicatorHeight="0dp"
+                    app:tabSelectedTextColor="@android:color/transparent"
+                    app:tabTextColor="@android:color/transparent"/>
+
         </FrameLayout>
 
 
@@ -43,7 +44,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-20dp"
+            android:layout_marginTop="-30dp"
             android:layout_marginBottom="24dp"
             android:layout_marginHorizontal="12dp"
             android:backgroundTint="@android:color/white"
