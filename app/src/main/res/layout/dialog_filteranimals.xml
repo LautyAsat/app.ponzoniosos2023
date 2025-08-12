@@ -68,7 +68,7 @@
                     <ImageButton
                         android:id="@+id/btn_peligrosidad_alta"
                         android:layout_width="match_parent"
-                        android:layout_height="20dp"
+                        android:layout_height="25dp"
                         android:contentDescription="@string/alta"
                         android:scaleType="centerCrop"
                         android:background="@drawable/red_texture" />
@@ -84,7 +84,7 @@
                     <ImageButton
                         android:id="@+id/btn_peligrosidad_media"
                         android:layout_width="match_parent"
-                        android:layout_height="20dp"
+                        android:layout_height="25dp"
                         android:contentDescription="@string/media"
                         android:scaleType="centerCrop"
                         android:background="@drawable/yellow_texture" />
@@ -100,7 +100,7 @@
                     <ImageButton
                         android:id="@+id/btn_peligrosidad_baja"
                         android:layout_width="match_parent"
-                        android:layout_height="20dp"
+                        android:layout_height="25dp"
                         android:contentDescription="@string/baja"
                         android:scaleType="centerCrop"
                         android:background="@drawable/green_texture" />
