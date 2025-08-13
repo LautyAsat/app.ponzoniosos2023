@@ -3,18 +3,14 @@ package edu.unlpam.vet.ponzonosos;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import edu.unlpam.vet.ponzonosos.model.Imagen;
-
-import java.util.List;
 
 public class SpacePhoto implements Parcelable {
 
-    private String mUrl;
+    private final String mUrl;
     private String mTitle;
 
-    public SpacePhoto(String url, String title) {
+    public SpacePhoto(String url) {
         mUrl = url;
-        mTitle = title;
     }
 
     protected SpacePhoto(Parcel in) {
@@ -38,25 +34,6 @@ public class SpacePhoto implements Parcelable {
         return mUrl;
     }
 
-    public void setUrl(String url) {
-        mUrl = url;
-    }
-
-    public String getTitle() {
-        return mTitle;
-    }
-
-    public void setTitle(String title) {
-        mTitle = title;
-    }
-
-    public static  SpacePhoto[] getSpacePhotos(List<Imagen> img) {
-        SpacePhoto[] spacePhoto = new SpacePhoto[img.size()];
-        for(int i = 0; i < img.size(); i++){
-            spacePhoto[i] = new SpacePhoto(img.get(i).getImg(),"Default");
-        }
-        return spacePhoto;
-    }
 
     @Override
     public int describeContents() {

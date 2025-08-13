@@ -1,0 +1,15 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="72dp"
+    android:layout_height="72dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp">
+
+    <ImageView
+        android:id="@+id/iv_thumb"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/imagen"
+        android:scaleType="centerCrop"
+        android:background="@drawable/thumb_border_unselected" />
+</androidx.cardview.widget.CardView>

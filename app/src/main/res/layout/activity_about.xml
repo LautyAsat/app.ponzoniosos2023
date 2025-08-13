@@ -1,140 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.unlpam.vet.ponzonosos.AboutActivity">
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <include
-            android:id="@+id/app_bar"
-            layout="@layout/app_bar" />
-
-        <TextView
-            android:layout_marginTop="40dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="Sobre la app"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ponzoñosos de La Pampa"
-            android:gravity="center_horizontal"
-            android:textSize="20sp"/>
-
-        <ImageView
-            android:id="@+id/app_logo"
-            android:layout_marginTop="20dp"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:src="@drawable/ic_launcher_background"
-            android:layout_gravity="center_horizontal"/>
-
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:text="Esta aplicación es parte del proyecto 'Reconocimiento y prevención de accidentes por animales ponzoñosos en la región norte de la provincia de La Pampa'"
-            android:gravity="center_horizontal"/>
-
-        <TextView
-            android:id="@+id/web_link"
-            android:layout_marginTop="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autoLink="web"
-            android:text="Resolución Nº 316/2017 del Consejo Directivo"
-            android:gravity="center_horizontal"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:textSize="12sp"
-            android:layout_marginBottom="10dp"
-            android:textColor="@color/web_link"/>
-
-        <TextView
-            android:layout_marginTop="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Las fotografías incluidas en la aplicación forman parte de registros propios de los integrantes del proyecto y de consultas enviadas por la comunidad."
-            android:gravity="center_horizontal"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:textSize="12sp"
-            android:layout_marginBottom="10dp" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorPrimary"
-            android:layout_marginLeft="40dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Año de inicio y finalización del proyecto"
-            android:gravity="center_horizontal"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:textSize="12sp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Octubre 2017 a Octubre 2019"
-            android:gravity="center_horizontal"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:textSize="12sp"
-            android:layout_marginBottom="10dp"/>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/backgroundscreen">
 
         <LinearLayout
-            android:layout_marginTop="30dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_marginTop="10dp"
+            <include
+                android:id="@+id/iHeader"
+                layout="@layout/app_bar" />
+
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Facultad de Ciencias Veterinarias UNLPam"
-                android:gravity="center_horizontal"
-                android:textSize="16sp"
-                android:textColor="@color/white"/>
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_margin="16dp">
 
-            <ImageView
-                android:id="@+id/vet_logo"
-                android:layout_marginTop="20dp"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:src="@drawable/ic_launcher_background"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="10dp"/>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="6dp">
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/blue_texture"
+                                    android:contentDescription="@string/background" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal"
+                                    android:paddingHorizontal="12dp"
+                                    android:gravity="center_vertical">
+
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="8dp"
+
+                                        style="@style/text_card"
+                                        android:text="@string/ponzo_osos_de_la_pampa"
+                                        android:textSize="24sp"
+                                        android:textAlignment="center"
+                                        />
+                                </LinearLayout>
+                            </FrameLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center_horizontal">
+
+                                <ImageView
+                                    android:id="@+id/app_logo"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_width="200dp"
+                                    android:layout_height="wrap_content"
+                                    android:adjustViewBounds="true"
+                                    android:contentDescription="@string/background"
+                                    android:src = "@drawable/logoapp"
+                                    android:layout_gravity="center_horizontal"
+                                    />
+
+                                <TextView
+                                    android:layout_marginTop="20dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="20dp"
+                                    android:layout_marginLeft="20dp"
+                                    android:text="@string/esta_aplicaci_n_es_parte_del_proyecto_reconocimiento_y_prevenci_n_de_accidentes_por_animales_ponzo_osos_en_la_regi_n_norte_de_la_provincia_de_la_pampa"
+                                    android:gravity="center_horizontal"
+                                    android:fontFamily="@font/font_text"/>
+
+                                <TextView
+                                    android:id="@+id/web_link"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:autoLink="web"
+                                    android:text="@string/resoluci_n_n_316_2017_del_consejo_directivo"
+                                    android:gravity="center_horizontal"
+                                    android:layout_marginLeft="40dp"
+                                    android:layout_marginRight="40dp"
+                                    android:textSize="12sp"
+                                    android:layout_marginBottom="10dp"
+                                    android:textColor="@color/web_link"
+                                    android:fontFamily="@font/font_text"
+                                    />
+
+                                <TextView
+                                    android:layout_marginTop="5dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/las_fotograf_as_incluidas_en_la_aplicaci_n_forman_parte_de_registros_propios_de_los_integrantes_del_proyecto_y_de_consultas_enviadas_por_la_comunidad"
+                                    android:gravity="center_horizontal"
+                                    android:layout_marginLeft="40dp"
+                                    android:layout_marginRight="40dp"
+                                    android:textSize="12sp"
+                                    android:layout_marginBottom="10dp"
+                                    android:fontFamily="@font/font_text"/>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/colorPrimary"
+                                    android:layout_marginLeft="40dp"
+                                    android:layout_marginStart="40dp"
+                                    android:layout_marginRight="40dp"
+                                    android:layout_marginEnd="40dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:layout_marginTop="10dp"/>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/a_o_de_inicio_y_finalizaci_n_del_proyecto"
+                                    android:gravity="center_horizontal"
+                                    android:layout_marginLeft="40dp"
+                                    android:layout_marginRight="40dp"
+                                    android:textSize="12sp"
+                                    android:fontFamily="@font/font_text"/>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/octubre_2017_a_octubre_2019"
+                                    android:gravity="center_horizontal"
+                                    android:layout_marginLeft="40dp"
+                                    android:layout_marginRight="40dp"
+                                    android:textSize="12sp"
+                                    android:layout_marginBottom="10dp"
+                                    android:fontFamily="@font/font_text"/>
+
+
+                                <ImageView
+                                    android:id="@+id/vet_logo"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_width="220dp"
+                                    android:layout_height="wrap_content"
+                                    android:adjustViewBounds="true"
+                                    android:contentDescription="@string/background"
+                                    android:src="@drawable/unlpam_logo"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginBottom="20dp"/>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="En colaboración con"
+                                        android:layout_gravity="center"
+                                        android:gravity="center_horizontal"
+                                        android:textSize="12sp"
+                                        android:layout_marginRight="8dp"
+                                        android:fontFamily="@font/font_text"
+                                        android:textColor="#999797"/>
+
+                                    <ImageView
+                                        android:id="@+id/ing_logo"
+                                        android:layout_width="100dp"
+                                        android:layout_height="wrap_content"
+                                        android:adjustViewBounds="true"
+                                        android:contentDescription="@string/background"
+                                        android:src="@drawable/logo_ing"
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_marginBottom="10dp"/>
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+            </ScrollView>
         </LinearLayout>
-
-
-
-    </LinearLayout>
-
-
-
-</ScrollView>
+</FrameLayout>

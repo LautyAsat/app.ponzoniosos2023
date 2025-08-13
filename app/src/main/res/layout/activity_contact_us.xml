@@ -1,131 +1,231 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.unlpam.vet.ponzonosos.WhatToDoActivity"
-    android:orientation="vertical">
+    android:background="@drawable/backgroundscreen">
 
-    <include layout="@layout/app_bar"/>
-
-    <ScrollView
+    <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="edu.unlpam.vet.ponzonosos.WhatToDoActivity">
 
-        <LinearLayout
+        <!-- App bar -->
+        <include android:id="@+id/iHeader" layout="@layout/app_bar" />
+
+        <!-- Scroll principal -->
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="15dp"
-            android:paddingStart="15dp"
-            android:paddingRight="15dp"
-            android:paddingEnd="15dp"
-            android:layout_marginBottom="15dp"
-            android:orientation="vertical">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_margin="16dp">
 
-            <TextView
-                android:layout_marginTop="20dp"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Contacto para identificación de ejemplares"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:gravity="center"/>
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp">
 
-            <TextView
-                android:layout_marginTop="25dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Facultad de Ciencias Veterinarias"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:textSize="16sp"/>
-
-            <TextView
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Universidad Nacional de La Pampa"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:textSize="16sp"/>
-
-            <TextView
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Calle 5 esq. 116, General Pico, La Pampa"
-                android:gravity="center"
-                android:textSize="14sp"/>
-
-            <LinearLayout
-                android:layout_marginTop="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="(02302) 42 1607 int 6201"
-                    android:drawablePadding="10dp"
-                    android:drawableStart="@drawable/icons8_phone_16"
-                    android:drawableLeft="@drawable/icons8_phone_16" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="mariabruni@live.com.ar"
-                    android:drawablePadding="10dp"
-                    android:drawableLeft="@drawable/icons8_envelope_16"
-                    android:drawableStart="@drawable/icons8_envelope_16"/>
-
-                <TextView
-                    android:layout_marginTop="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="WHATSAPP 2302 467189"
-                    android:drawablePadding="10dp"
-                    android:drawableLeft="@drawable/icons8_whatsapp_16"
-                    android:drawableStart="@drawable/icons8_whatsapp_16"/>
-
-                <TextView
-                    android:layout_marginTop="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ponzonosos.lp"
-                    android:drawablePadding="10dp"
-                    android:drawableLeft="@drawable/icons8_instagram_16"
-                    android:drawableStart="@drawable/icons8_instagram_16"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="321dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="40dp"
-                android:layout_marginRight="30dp"
-                android:baselineAligned="false"
-                android:orientation="vertical">
-
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center"
-                    android:text="@string/datos_asistencia"
-                    android:textSize="13sp" />
+                    android:orientation="vertical">
 
-            </LinearLayout>
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
 
-        </LinearLayout>
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/blue_texture"
+                            android:contentDescription="@string/background" />
 
-    </ScrollView>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="12dp"
+                            android:gravity="center_vertical">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+
+                                android:text="@string/contacto_identificaci_n_ejemplares"
+                                style="@style/text_card" />
+                        </LinearLayout>
+                    </FrameLayout>
+
+                    <!-- Contenido -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:gravity="center_horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/facultad_de_ciencias_veterinarias_unlpam"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:gravity="center"
+                            android:textColor="#000000"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/calle_5_esq_116_general_pico_la_pampa"
+                            android:textSize="14sp"
+                            android:gravity="center" />
+
+                        <!-- Lista de contactos -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:orientation="vertical">
+
+                            <!-- Teléfono -->
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="5dp"
+                                android:gravity="center_vertical">
+
+                                <ImageView
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:src="@drawable/icons8_phone_16"
+                                    android:contentDescription="@string/telefono" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:text="@string/_02302_42_1607_int_6201"
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <!-- Instagram -->
+                            <LinearLayout
+                                android:id="@+id/llInstagram"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="5dp"
+                                android:gravity="center_vertical"
+                                android:focusable="true"
+                                android:clickable="true"
+                                >
+
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/icons8_instagram_16"
+                                    android:contentDescription="@string/instagram" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:text="@string/ponzonosos_lp"
+                                    android:textColor="#0a66c2" />
+                            </LinearLayout>
+
+                            <!-- WhatsApp -->
+                            <LinearLayout
+                                android:id="@+id/llWhatsApp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="5dp"
+                                android:gravity="center_vertical"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/icons8_whatsapp_16"
+                                    android:contentDescription="@string/whatsapp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:text="@string/_2302_467189"
+                                    android:textColor="#0a66c2" />
+                            </LinearLayout>
+
+                            <!-- Email -->
+                            <LinearLayout
+                                android:id="@+id/llEmail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="5dp"
+                                android:gravity="center_vertical"
+                                android:clickable="true"
+                                android:focusable="true"
+                                >
+
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/icons8_envelope_16"
+                                    android:contentDescription="@string/correo" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:text="@string/mariabruni_live_com_ar"
+                                    android:textColor="#0a66c2" />
+                            </LinearLayout>
+
+                        </LinearLayout>
 
 
 
-</LinearLayout>
+                        <!-- Línea adicional -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="24dp"
+                                android:text="@string/datos_asistencia"
+                                android:textSize="13sp"
+                                android:gravity="center" />
+
+                            <TextView
+                                android:id="@+id/tvToxicPhone"
+                                android:layout_width="match_parent"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:layout_height="wrap_content"
+                                android:textSize="13sp"
+                                android:text="@string/_0_800_333_0160"
+                                android:textColor="#0a66c2" />
+                                />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </ScrollView>
+    </LinearLayout>
+</FrameLayout>

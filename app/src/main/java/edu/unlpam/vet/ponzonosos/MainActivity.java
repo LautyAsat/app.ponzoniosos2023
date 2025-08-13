@@ -1,58 +1,72 @@
 package edu.unlpam.vet.ponzonosos;
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 import android.util.Log;
 import android.view.View;
+
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import edu.unlpam.vet.ponzonosos.R;
 
 import edu.unlpam.vet.ponzonosos.model.Animal;
 import edu.unlpam.vet.ponzonosos.model.DaoMaster;
 import edu.unlpam.vet.ponzonosos.model.DaoSession;
 import edu.unlpam.vet.ponzonosos.model.Imagen;
 
+import org.greenrobot.greendao.database.Database;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
+
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+//import java.util.*;
+//import java.awt.Color;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "RMD-MainActivity";
     private static final String IP = "170.210.45.164:8080";
     public static final String DIR_IMAGES = "http://"+MainActivity.IP+"/images/";
+    public static final String STRING = "Iniciando...";
     private static MainActivity instance;
     private DaoSession mDaoSession;
     private List<String> toImport;
     private SharedPreferences mPrefs;
     private Dialog dialog;
 
-    @Override
+    @Override //metodo main
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("rmdebug", "MainActivity - onCreate");
         setContentView(R.layout.activity_main);
-        showActionDialog("Iniciando");
+        Log.d("rmdebug", "MainActivity - onCreate");
+        showActionDialog();
         toImport = new ArrayList<>();
         instance = this;
-        mDaoSession = new DaoMaster(
-                new DaoMaster.DevOpenHelper(this, "ponzonosos.db")
-                        .getWritableDb()).newSession();
-        //if(shouldUpdate()){
+
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(instance, "ponzonosos.db");
+        Database db = helper.getWritableDb();
+        mDaoSession = new DaoMaster(db).newSession();
+
         if(shouldUpdate()){
             Log.d(TAG, "onCreate: I should update data base");
             updateDataBase();
@@ -61,28 +75,81 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void showActionDialog(String action) {
+    private void showActionDialog() {
+
         @SuppressLint("InflateParams")
+
         View view = getLayoutInflater().inflate(R.layout.dialog_action, null);
-        dialog = new Dialog(this,
-                android.R.style.Theme_NoTitleBar_Fullscreen);
+
+        Animation rotation = AnimationUtils.loadAnimation(this, R.anim.rotate);
+
+        dialog = new Dialog(this,R.style.CustomToolbarStyle);
+
         TextView actionName = view.findViewById(R.id.action_name);
-        actionName.setText(action);
+
+        ImageView logo = view.findViewById(R.id.loading_icon);
+
+        actionName.setText(R.string.iniciando);
+
         dialog.setContentView(view);
+
         dialog.show();
+
+        Window window = dialog.getWindow();
+
+        if (window != null) {
+
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
+            window.setStatusBarColor(ContextCompat.getColor(this, R.color.mi_color_loading));
+
+            window.setNavigationBarColor(Color.TRANSPARENT);
+
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+
+        }
+        //logo.startAnimation(rotation);
+        animateTextTyping(actionName);
+
+        ObjectAnimator animator = ObjectAnimator.ofFloat(logo, "rotation", 0f, 360f);
+        animator.setDuration(1000);
+        animator.setRepeatCount(ValueAnimator.INFINITE);
+        animator.setInterpolator(new LinearInterpolator());
+        animator.start();
+
     }
 
-    private void removeActionDialog(){
-        if (dialog != null){
-            dialog.dismiss();
-        }
+    private void animateTextTyping(final TextView textView) {
+        final int length = "Iniciando...".length();
+
+        ValueAnimator animator = ValueAnimator.ofInt(0, length);
+        animator.setDuration(2000);
+        animator.setRepeatCount(ValueAnimator.INFINITE);
+        animator.addUpdateListener(animation -> {
+            int currentLength = (int) animation.getAnimatedValue();
+            textView.setText(STRING.substring(0, currentLength));
+        });
+
+        animator.start();
     }
+
+
+    private void removeActionDialog() {
+        runOnUiThread(() -> {
+            if (dialog != null && dialog.isShowing()) {
+                dialog.dismiss();
+            }
+        });
+    }
+
 
     private void startAplication() {
-        Intent mIntent = new Intent(this, MostrarCatalogo.class);
+        removeActionDialog();
+        Intent mIntent = new Intent(this, MostrarCatalogoPruebaActivity.class);
         startActivity(mIntent);
         finish();
-        removeActionDialog();
     }
 
     private boolean shouldUpdate() {
@@ -135,9 +202,9 @@ public class MainActivity extends AppCompatActivity {
                 case "imagen":
                     importImagen();
                     break;
-                    default:
-                        importEntities();
-                        break;
+                default:
+                    importEntities();
+                    break;
             }
         }else {
             startAplication();
@@ -149,30 +216,24 @@ public class MainActivity extends AppCompatActivity {
         String url = "http://"+MainActivity.IP+"/app/obtener_animales.php";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
                 url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            if (response.getString("state").equals("1")) {
-                                JSONArray responseJSONArray = response.getJSONArray("animals");
-                                Animal animal = new Animal();
-                                animal.abmAnimales(responseJSONArray);
-                            }else {
-                                Log.e(TAG, "onResponse: Error on response, state: " +
-                                        response.getString("state"));
-                            }
-                        } catch (JSONException e) {
-                            Log.e(TAG, "onResponse: Something went wrong!", e);
+                response -> {
+                    try {
+                        if (response.getString("state").equals("1")) {
+                            JSONArray responseJSONArray = response.getJSONArray("animals");
+                            Animal animal = new Animal();
+                            animal.abmAnimales(responseJSONArray);
+                        }else {
+                            Log.e(TAG, "onResponse: Error on response, state: " +
+                                    response.getString("state"));
                         }
-                        importEntities();
+                    } catch (JSONException e) {
+                        Log.e(TAG, "onResponse: Something went wrong!", e);
                     }
+                    importEntities();
                 },
-                new Response.ErrorListener(){
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.d(TAG, "onErrorResponse: Error on response: " + error.toString());
-                        importEntities();
-                    }
+                error -> {
+                    Log.d(TAG, "onErrorResponse: Error on response: " + error.toString());
+                    importEntities();
                 });
         MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
     }
@@ -182,30 +243,24 @@ public class MainActivity extends AppCompatActivity {
         String url = "http://"+MainActivity.IP+"/app/obtener_imagenes.php";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
                 url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            if (response.getString("state").equals("1")) {
-                                JSONArray responseJSONArray = response.getJSONArray("images");
-                                Imagen img = new Imagen();
-                                img.abmImagenes(responseJSONArray, getApplicationContext());
-                            }else{
-                                Log.e(TAG, "onResponse: Error on response, state: " +
-                                        response.getString("state"));
-                            }
-                        } catch (JSONException e) {
-                            Log.e(TAG, "onResponse: Something went wrong!", e);
+                response -> {
+                    try {
+                        if (response.getString("state").equals("1")) {
+                            JSONArray responseJSONArray = response.getJSONArray("images");
+                            Imagen img = new Imagen();
+                            img.abmImagenes(responseJSONArray, getApplicationContext());
+                        }else{
+                            Log.e(TAG, "onResponse: Error on response, state: " +
+                                    response.getString("state"));
                         }
-                        importEntities();
+                    } catch (JSONException e) {
+                        Log.e(TAG, "onResponse: Something went wrong!", e);
                     }
+                    importEntities();
                 },
-                new Response.ErrorListener(){
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.d(TAG, "onErrorResponse: Error on response: " + error.toString());
-                        importEntities();
-                    }
+                error -> {
+                    Log.d(TAG, "onErrorResponse: Error on response: " + error.toString());
+                    importEntities();
                 });
         MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
     }

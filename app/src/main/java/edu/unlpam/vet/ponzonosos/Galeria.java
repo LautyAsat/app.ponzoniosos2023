@@ -1,110 +1,88 @@
 package edu.unlpam.vet.ponzonosos;
 
+
 import android.content.Context;
-import android.content.Intent;
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import androidx.recyclerview.widget.GridLayoutManager;;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.Toolbar;
-import android.view.LayoutInflater;
+
+import androidx.viewpager2.widget.ViewPager2;
+
+
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.Toast;
+
+import android.widget.LinearLayout;
+
 
 import edu.unlpam.vet.ponzonosos.model.Animal;
+import edu.unlpam.vet.ponzonosos.model.Imagen;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
+
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class Galeria extends AppCompatActivity {
+
+    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.galeria);
-        Toolbar myToolbar = findViewById(R.id.app_bar);
-        setSupportActionBar(myToolbar);
-        Long idAnimal = (Long) getIntent().getExtras().get("img");
+
+        ViewPager2 viewPager = findViewById(R.id.viewPager);
+        tabLayout = findViewById(R.id.tabLayout);
+
+        Long idAnimal = (Long) Objects.requireNonNull(getIntent().getExtras()).get("img");
         Animal animal = Animal.getAnimal(idAnimal);
-        if (animal != null) {
-            RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
-            RecyclerView recyclerView = findViewById(R.id.rv_images);
-            recyclerView.setHasFixedSize(true);
-            recyclerView.setLayoutManager(layoutManager);
-            ImageGalleryAdapter adapter = new ImageGalleryAdapter(this, SpacePhoto.getSpacePhotos(animal.getImages()));
-            recyclerView.setAdapter(adapter);
-        }else {
-            Toast.makeText(getApplicationContext(),
-                    "No existe un animal con el id " + idAnimal,
-                    Toast.LENGTH_LONG).show();
-        }
-    }
+        List<SpacePhoto> photos = new ArrayList<>();
 
-
-    private class ImageGalleryAdapter extends RecyclerView.Adapter<ImageGalleryAdapter.MyViewHolder>  {
-
-        @NonNull
-        @Override
-        public ImageGalleryAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-            Context context = parent.getContext();
-            LayoutInflater inflater = LayoutInflater.from(context);
-            View photoView = inflater.inflate(R.layout.elemento_galeria, parent, false);
-            return new ImageGalleryAdapter.MyViewHolder(photoView);
+        assert animal != null;
+        for (Imagen img : animal.getImages()) {
+            photos.add(new SpacePhoto(getFilesDir() + "/" + img.getImg()));
         }
 
-        @Override
-        public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        GaleriaPagerAdapter adapter = new GaleriaPagerAdapter(this, photos);
+        viewPager.setAdapter(adapter);
 
-            SpacePhoto spacePhoto = mSpacePhotos[position];
-            ImageView imageView = holder.mPhotoImageView;
-            RequestOptions options = new RequestOptions()
-                    .placeholder(R.drawable.default_image);
-            Glide.with(mContext)
-            .load(mContext.getFilesDir()+"/"+spacePhoto.getUrl())
-            .apply(options)
-            .into(imageView);
+        // Conectar TabLayout con ViewPager2
+        new TabLayoutMediator(tabLayout, viewPager,
+                (tab, position) -> tab.setCustomView(getCustomTab(this, position == 0))
+        ).attach();
 
-        }
-
-        @Override
-        public int getItemCount() {
-            return (mSpacePhotos.length);
-        }
-
-        public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-
-            public ImageView mPhotoImageView;
-
-            public MyViewHolder(View itemView) {
-
-                super(itemView);
-                mPhotoImageView = (ImageView) itemView.findViewById(R.id.iv_photo);
-                itemView.setOnClickListener(this);
-            }
-
+        // Actualizar el estilo del punto seleccionado
+        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
-            public void onClick(View view) {
+            public void onPageSelected(int position) {
+                for (int i = 0; i < tabLayout.getTabCount(); i++) {
+                    View customView = Objects.requireNonNull(tabLayout.getTabAt(i)).getCustomView();
+                    if (customView != null) {
+                        customView.animate()
+                                .scaleX(i == position ? 1.5f : 1.0f)
+                                .setDuration(200)
+                                .start();
 
-                int position = getAdapterPosition();
-                if(position != RecyclerView.NO_POSITION) {
-                    SpacePhoto spacePhoto = mSpacePhotos[position];
-                    Intent intent = new Intent(mContext, SpacePhotoActivity.class);
-                    intent.putExtra(SpacePhotoActivity.EXTRA_SPACE_PHOTO, spacePhoto);
-                    startActivity(intent);
+                        customView.setBackgroundResource(i == position ? R.drawable.tab_selected : R.drawable.tab_unselected);
+                        customView.requestLayout();
+                    }
                 }
             }
-        }
+        });
 
-        private SpacePhoto[] mSpacePhotos;
-        private Context mContext;
+    }
 
-        public ImageGalleryAdapter(Context context, SpacePhoto[] spacePhotos) {
-            mContext = context;
-            mSpacePhotos = spacePhotos;
-        }
+    private View getCustomTab(Context context, boolean selected) {
+        View view = new View(context);
+        int ancho = selected ? 30 : 14;
+        int alto = 14;
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ancho, alto);
+        params.setMargins(8, 8, 8, 8);
+        view.setLayoutParams(params);
+        view.setBackgroundResource(selected ? R.drawable.tab_selected : R.drawable.tab_unselected);
+        return view;
     }
 }

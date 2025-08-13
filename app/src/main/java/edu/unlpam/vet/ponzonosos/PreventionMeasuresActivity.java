@@ -1,28 +1,81 @@
 package edu.unlpam.vet.ponzonosos;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import androidx.appcompat.widget.Toolbar;
-import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Window;
+import android.widget.ImageButton;
+import android.widget.PopupMenu;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+
 import com.bumptech.glide.request.RequestOptions;
-import edu.unlpam.vet.ponzonosos.R;
+
+import edu.unlpam.vet.ponzonosos.databinding.ActivityPreventionMeasuresBinding;
+import edu.unlpam.vet.ponzonosos.databinding.ActivityWhatToDoBinding;
+import edu.unlpam.vet.ponzonosos.util.Edge;
 
 public class PreventionMeasuresActivity extends AppCompatActivity {
+
+
+    private ActivityPreventionMeasuresBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_prevention_measures);
+
+        binding = ActivityPreventionMeasuresBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
         Toolbar myToolbar = findViewById(R.id.app_bar);
         setSupportActionBar(myToolbar);
-        ImageView imageView = findViewById(R.id.main_image);
         RequestOptions options = new RequestOptions()
                 .placeholder(R.drawable.default_image);
-        Glide.with(getApplicationContext())
-                .load(R.drawable.prevention_measures)
-                .apply(options)
-                .into(imageView);
+
+
+        //Enable EdgeToEdge
+        Window window = getWindow();
+        ViewCompat.setOnApplyWindowInsetsListener(window.getDecorView(), (v, insets) -> insets);
+        WindowCompat.setDecorFitsSystemWindows(window, false);
+
+        Edge.applyDynamicEdgeAppBar(
+                this,
+                getWindow().getDecorView(),
+                binding.iHeader.getRoot(),
+                binding.iHeader.llHeader,
+                60f
+        );
+
+        // manejo de boton de more
+        ImageButton btnMenu = findViewById(R.id.btnMenu);
+        btnMenu.setOnClickListener(view -> {
+            PopupMenu popup = new PopupMenu(this, view);
+            popup.getMenuInflater().inflate(R.menu.menu_show_catalog, popup.getMenu());
+
+            popup.setOnMenuItemClickListener(item -> {
+                if (item.getItemId() == R.id.about){
+                    navigateToAbout();
+                    return true;
+                } else if (item.getItemId() == R.id.contact) {
+                    navigateToContact();
+                    return true;
+                }
+                return false;
+            });
+            popup.show();
+        });
+    }
+
+    private void  navigateToAbout(){
+        Intent intent = new Intent(this, AboutActivity.class);
+        startActivity(intent);
+    }
+
+    private void navigateToContact(){
+        Intent intent = new Intent(this, ContactUsActivity.class);
+        startActivity(intent);
     }
 }

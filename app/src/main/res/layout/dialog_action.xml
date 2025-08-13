@@ -3,25 +3,31 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#20ffffff"
-    android:gravity="center_horizontal|center_vertical">
+    android:background="@color/white"
+    android:gravity="center_horizontal|center_vertical"
+    android:fitsSystemWindows="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center_horizontal">
-        <ProgressBar
-            android:layout_width="80dp"
-            android:layout_height="80dp" />
+        android:gravity="center_horizontal"
+        android:fitsSystemWindows="true">
+
+        <ImageView
+            android:id="@+id/loading_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src = "@drawable/logoapp"/>
 
         <TextView
             android:id="@+id/action_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_name"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp" />
+            android:textColor="@color/green_light"
+            android:textSize="22sp"
+            android:textFontWeight="500"/>
 
     </LinearLayout>
 

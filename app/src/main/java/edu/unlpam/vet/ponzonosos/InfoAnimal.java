@@ -1,149 +1,183 @@
 package edu.unlpam.vet.ponzonosos;
 
-import android.content.Context;
-import android.content.Intent;
 
-import androidx.viewpager.widget.ViewPager;
+import android.animation.ValueAnimator;
+import android.content.Context;
+
+import androidx.core.content.ContextCompat;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager2.widget.ViewPager2;
+
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
+
+import android.view.ViewGroup;
+
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
+
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+import edu.unlpam.vet.ponzonosos.databinding.ActivityMostrarCatalogoPruebaBinding;
 import edu.unlpam.vet.ponzonosos.model.Imagen;
 import edu.unlpam.vet.ponzonosos.model.Animal;
+import edu.unlpam.vet.ponzonosos.util.Measures;
 
-public class InfoAnimal extends AppCompatActivity{
+import android.view.Window;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
 
-    private ViewPager galeria;
-    private TextView nombre;
-    private TextView nombreC;
-    private TextView agresividad;
-    private Context context;
-    private TextView tamaño;
-    private Button verFotos;
-    private ImageView principalImg;
-    private TextView efectoPicadura;
-    private TextView antidoto;
-    private TextView lugar_encuentro;
-    private TextView accion_picadura;
-    private TextView confusion;
-    private TextView descripcion;
+public class InfoAnimal extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.info_animal);
-        context = this;
-        //final Animal animal = (Animal) getIntent().getSerializableExtra("obj");
-        Long idAnimal = (Long) getIntent().getExtras().get("obj");
-        Log.d("rmdebug", "id animal: " + idAnimal);
+
+
+        // Enable EdgeToEdge
+        Window window = getWindow();
+        ViewCompat.setOnApplyWindowInsetsListener(window.getDecorView(), (v, insets) -> insets);
+        WindowCompat.setDecorFitsSystemWindows(window, false);
+
+
+
+        Long idAnimal = (Long) Objects.requireNonNull(getIntent().getExtras()).get("obj");
         final Animal animal = Animal.getAnimal(idAnimal);
-        if (animal != null) {
-            Log.d("rmdebug", animal.getNombre());
-            LinearLayout ll_confusion = findViewById(R.id.ll_confusion);
-            View viewConfusion = getLayoutInflater().inflate(R.layout.info_animal_confusion, null);
-            LinearLayout ll_lugarEncuentro = findViewById(R.id.ll_lugar_encuentro);
-            View viewLugarEncuentro = getLayoutInflater().inflate(R.layout.info_animal_lugar_encuentro, null);
-            LinearLayout ll_tamaño = findViewById(R.id.ll_tamaño);
-            View viewTamaño = getLayoutInflater().inflate(R.layout.info_animal_tamanio, null);
-            LinearLayout ll_picadura = findViewById(R.id.ll_picadura);
-            View viewPicadura = getLayoutInflater().inflate(R.layout.info_animal_picadura, null);
-            LinearLayout ll_antidoto = findViewById(R.id.ll_antidoto);
-            View viewAntidoto = getLayoutInflater().inflate(R.layout.info_animal_antidoto, null);
-            LinearLayout ll_accion_picadura = findViewById(R.id.ll_acciones_picadura);
-            View viewAccionPicadura = getLayoutInflater().inflate(R.layout.info_animal_accion_picadura,null);
-            LinearLayout ll_descripcion = findViewById(R.id.ll_descripcion);
-            View viewDescripcion = getLayoutInflater().inflate(R.layout.info_animal_descripcion,null);
 
-            principalImg = findViewById(R.id.iv_img_principal);
-            Imagen img = animal.getPrincipalImage();
-            if (img != null){
-                Glide.with(getApplicationContext())
-                        .load(getFilesDir()+"/"+img.getImg())
-                        .into(principalImg);
-            }
-            nombre = findViewById(R.id.tv_nombre);
-            nombreC = findViewById(R.id.tv_nombreC);
-            agresividad = findViewById(R.id.tv_nivelRiesgo);
-            tamaño = viewTamaño.findViewById(R.id.tv_tamaño);
-            efectoPicadura = viewPicadura.findViewById(R.id.tv_picadura);
-            antidoto = viewAntidoto.findViewById(R.id.tv_antidoto);
-            accion_picadura = viewAccionPicadura.findViewById(R.id.tv_accionesPicadura);
-            confusion = viewConfusion.findViewById(R.id.tv_confusion);
-            lugar_encuentro = viewLugarEncuentro.findViewById(R.id.tv_lugarEncuentro);
-            descripcion = viewDescripcion.findViewById(R.id.tv_descripcion);
-            verFotos = findViewById(R.id.btn_ver_fotos);
-            verFotos.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (!animal.getImages().isEmpty()) {
-                        Intent intent = new Intent(getApplicationContext(), Galeria.class);
-                        intent.putExtra("img", animal.getId());
-                        startActivity(intent);
-                    }else {
-                        Toast.makeText(context, "No hay imágenes cargadas",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-
-            nombre.setText(animal.getNombre());
-            nombreC.setText(animal.getNombreC());
-            switch (animal.getAgresividad()) {
-                case 1:
-                    agresividad.setText("Alto");
-                    break;
-                case 2:
-                    agresividad.setText("Medio");
-                    break;
-                case 3:
-                    agresividad.setText("Bajo");
-                    break;
-                default:
-                    agresividad.setText("No especificado");
-                    break;
-            }
-            tamaño.setText(animal.getTamaño());
-            if (!animal.getTamaño().equals("")) {
-                ll_tamaño.addView(viewTamaño);
-            }
-            efectoPicadura.setText(animal.getEfectoPicadura());
-            if (!animal.getEfectoPicadura().equals("")){
-                ll_picadura.addView(viewPicadura);
-            }
-            antidoto.setText(animal.getAntidoto());
-            if (!animal.getAntidoto().equals("")){
-                ll_antidoto.addView(viewAntidoto);
-            }
-            lugar_encuentro.setText(animal.getLugar_encuentro());
-            if (!animal.getLugar_encuentro().equals("")) {
-                ll_lugarEncuentro.addView(viewLugarEncuentro);
-            }
-            accion_picadura.setText(animal.getAccion_picadura());
-            if (!animal.getAccion_picadura().equals("")){
-                ll_accion_picadura.addView(viewAccionPicadura);
-            }
-            confusion.setText(animal.getConfusion());
-            if (!animal.getConfusion().equals("")) {
-                ll_confusion.addView(viewConfusion);
-            }
-            descripcion.setText(animal.getDescripcion());
-            if (!animal.getDescripcion().equals("")) {
-                ll_descripcion.addView(viewDescripcion);
-            }
-        }else {
-            Toast.makeText(getApplicationContext(),
-                    "No existe un animal con el id " + idAnimal,
-                    Toast.LENGTH_SHORT).show();
+        if (animal == null) {
+            Toast.makeText(getApplicationContext(), "No existe un animal con el id " + idAnimal, Toast.LENGTH_SHORT).show();
+            return;
         }
 
+        ViewPager2 viewPager = findViewById(R.id.viewPager_info);
+        TabLayout tabLayout = findViewById(R.id.tabLayout_info);
+
+        List<String> rutas = new ArrayList<>();
+        for (Imagen img : animal.getImages()) {
+            rutas.add(getFilesDir() + "/" + img.getImg());
+        }
+
+        InfoAnimalImageAdapter adapter = new InfoAnimalImageAdapter(this, rutas);
+        viewPager.setAdapter(adapter);
+
+        // Conectar TabLayout con ViewPager2
+        new TabLayoutMediator(tabLayout, viewPager,
+                (tab, position) -> tab.setCustomView(getCustomTab(this, position == 0))
+        ).attach();
+
+
+        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                for (int i = 0; i < tabLayout.getTabCount(); i++) {
+                    View customView = Objects.requireNonNull(tabLayout.getTabAt(i)).getCustomView();
+                    if (customView != null) {
+                        int width = (i == position) ? 30 : 14;
+                        final ViewGroup.LayoutParams layoutParams = customView.getLayoutParams();
+                        ValueAnimator animator = ValueAnimator.ofInt(layoutParams.width, width);
+                        animator.setDuration(200);
+                        animator.addUpdateListener(animation -> {
+                            layoutParams.width = (int) animation.getAnimatedValue();
+                            customView.setLayoutParams(layoutParams);
+                        });
+                        animator.start();
+
+
+                        customView.setBackgroundResource(i == position ? R.drawable.tab_selected : R.drawable.tab_unselected);
+                        customView.requestLayout();
+                    }
+                }
+            }
+        });
+
+        LinearLayout containerBlockInformation = findViewById(R.id.info_container);
+
+        // Rellenamos información básica del animal
+        TextView tvNombreComun = findViewById(R.id.tv_nombre_comun);
+        TextView tvNombreCientifico = findViewById(R.id.tv_nombre_cientifico);
+        View tvAgresividad = findViewById(R.id.tv_nivel_riesgo);
+
+        tvNombreComun.setText(animal.getNombre());
+        tvNombreCientifico.setText(animal.getNombreC());
+        Drawable fondo;
+        switch (animal.getAgresividad()) {
+            case 2:
+                fondo = ContextCompat.getDrawable(this, R.drawable.yellow_texture);
+                tvAgresividad.setBackground(fondo);
+                break;
+            case 3:
+                fondo = ContextCompat.getDrawable(this, R.drawable.green_texture);
+                tvAgresividad.setBackground(fondo);
+                break;
+            default:
+                fondo = ContextCompat.getDrawable(this, R.drawable.red_texture);
+                tvAgresividad.setBackground(fondo);
+                break;
+        }
+
+        // Rellenamos información dinamica según la info del animal
+        addContentBlock(this, containerBlockInformation, getText(R.string.s_ntomas_picadura).toString(), animal.getEfectoPicadura());
+        addContentBlock(this, containerBlockInformation, getText(R.string.ant_doto).toString(), animal.getAntidoto());
+        addContentBlock(this, containerBlockInformation, getText(R.string.h_bitat).toString(), animal.getLugar_encuentro());
+        addContentBlock(this, containerBlockInformation, getText(R.string.medidas_frente_a_una_picadura).toString(), animal.getAccion_picadura());
+        addContentBlock(this, containerBlockInformation, getText(R.string.tama_o).toString(), animal.getTamano());
+        addContentBlock(this, containerBlockInformation, getText(R.string.se_puede_confundir).toString(), animal.getConfusion());
+        addContentBlock(this, containerBlockInformation, getText(R.string.observaciones).toString(), animal.getDescripcion());
+
     }
+    private View getCustomTab(Context context, boolean selected) {
+        View view = new View(context);
+        int width = selected ? 30 : 14;
+        int height = 14;
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(width, height);
+        params.setMargins(8, 8, 8, 8);
+        view.setLayoutParams(params);
+        view.setBackgroundResource(selected ? R.drawable.tab_selected : R.drawable.tab_unselected);
+        return view;
+    }
+    private void addContentBlock(
+            Context context,
+            LinearLayout container,
+            String title,
+            String content
+    ) {
+        if (!content.isEmpty()) {
+            // Título
+            TextView tvTitle = new TextView(context);
+            tvTitle.setLayoutParams(
+                    new LinearLayout.LayoutParams(
+                            ViewGroup.LayoutParams.MATCH_PARENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT
+                    )
+            );
+            tvTitle.setText(title);
+            tvTitle.setTextColor(Color.BLACK);
+            tvTitle.setTypeface(tvTitle.getTypeface(), Typeface.BOLD);
+
+            // Contenido
+            TextView tvContent = new TextView(context);
+            tvContent.setLayoutParams(new LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+            ));
+            tvContent.setText(content);
+            tvContent.setPadding(0, 0, 0, (int) Measures.dpToPx(context, 8));
+
+            container.addView(tvTitle);
+            container.addView(tvContent);
+        }
+    }
+
 }
