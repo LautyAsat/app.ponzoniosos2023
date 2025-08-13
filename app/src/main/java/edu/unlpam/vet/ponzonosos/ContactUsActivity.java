@@ -14,6 +14,7 @@ import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import edu.unlpam.vet.ponzonosos.databinding.ActivityContactUsBinding;
@@ -122,6 +123,22 @@ public class ContactUsActivity extends AppCompatActivity {
                 startActivity(Intent.createChooser(intent, "Enviar correo con..."));
             } catch (ActivityNotFoundException e) {
                 Toast.makeText(this, "No tenés un cliente de correo configurado", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Evento llamar a Asistencia de toxicológia
+
+        TextView toxicPhone = findViewById(R.id.tvToxicPhone);
+
+        toxicPhone.setOnClickListener(v -> {
+            String phoneNumber = getString(R.string._0_800_333_0160); // tu número
+            Intent intent = new Intent(Intent.ACTION_DIAL);
+            intent.setData(Uri.parse("tel:" + phoneNumber));
+
+            try {
+                startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                Toast.makeText(this, "No se pudo abrir la app de teléfono", Toast.LENGTH_SHORT).show();
             }
         });
     }
