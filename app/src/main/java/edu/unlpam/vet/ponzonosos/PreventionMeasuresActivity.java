@@ -4,13 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import com.bumptech.glide.request.RequestOptions;
 
@@ -43,11 +46,19 @@ public class PreventionMeasuresActivity extends AppCompatActivity {
 
         Edge.applyDynamicEdgeAppBar(
                 this,
-                getWindow().getDecorView(),
+                getWindow(),
                 binding.iHeader.getRoot(),
                 binding.iHeader.llHeader,
                 60f
         );
+
+        View root = binding.getRoot();
+        ViewCompat.setOnApplyWindowInsetsListener(root, (v, insets) -> {
+            int navBarHeight = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom;
+            v.setPadding(v.getPaddingLeft(), v.getPaddingTop(),
+                    v.getPaddingRight(), navBarHeight);
+            return insets;
+        });
 
         // manejo de boton de more
         ImageButton btnMenu = findViewById(R.id.btnMenu);

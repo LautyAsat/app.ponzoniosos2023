@@ -2,6 +2,7 @@ package edu.unlpam.vet.ponzonosos.util
 
 import android.content.Context
 import android.view.View
+import android.view.Window
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -10,12 +11,12 @@ object Edge {
     @JvmStatic
     fun applyDynamicEdgeAppBar(
         context: Context,
-        decorView: View,
+        window: Window,
         rootContainer: View,
         headerContent: View,
         baseHeightDp: Float
     ) {
-        ViewCompat.setOnApplyWindowInsetsListener(decorView) { _, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(window.decorView) { _, insets ->
             val statusBarHeight = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
 
             // Cambia altura del contenedor

@@ -42,9 +42,17 @@ public class WhatToDoActivity extends AppCompatActivity {
         ViewCompat.setOnApplyWindowInsetsListener(window.getDecorView(), (v, insets) -> insets);
         WindowCompat.setDecorFitsSystemWindows(window, false);
 
+        View root = binding.getRoot();
+        ViewCompat.setOnApplyWindowInsetsListener(root, (v, insets) -> {
+            int navBarHeight = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom;
+            v.setPadding(v.getPaddingLeft(), v.getPaddingTop(),
+                    v.getPaddingRight(), navBarHeight);
+            return insets;
+        });
+
         Edge.applyDynamicEdgeAppBar(
                 this,
-                getWindow().getDecorView(),
+                getWindow(),
                 binding.iHeader.getRoot(),
                 binding.iHeader.llHeader,
                 60f

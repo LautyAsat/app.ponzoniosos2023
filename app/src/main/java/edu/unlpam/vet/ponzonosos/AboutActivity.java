@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import android.view.MenuItem;
 import android.view.View;
@@ -48,7 +49,7 @@ public class AboutActivity extends AppCompatActivity {
 
         Edge.applyDynamicEdgeAppBar(
                 this,
-                getWindow().getDecorView(),
+                getWindow(),
                 binding.iHeader.getRoot(),
                 binding.iHeader.llHeader,
                 60f

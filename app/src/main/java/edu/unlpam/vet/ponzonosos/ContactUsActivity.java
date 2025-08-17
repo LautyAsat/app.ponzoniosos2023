@@ -43,7 +43,7 @@ public class ContactUsActivity extends AppCompatActivity {
 
         Edge.applyDynamicEdgeAppBar(
                 this,
-                getWindow().getDecorView(),
+                getWindow(),
                 binding.iHeader.getRoot(),
                 binding.iHeader.llHeader,
                 60f

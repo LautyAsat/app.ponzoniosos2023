@@ -21,13 +21,18 @@ import android.view.animation.DecelerateInterpolator
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.PopupWindow
 import android.widget.ScrollView
+import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
 import edu.unlpam.vet.ponzonosos.adapters.MostrarCatalogoAdapter
@@ -79,13 +84,37 @@ class MostrarCatalogoPruebaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMostrarCatalogoPruebaBinding.inflate(layoutInflater)
-        enableEdgeToEdge()
+
+        enableEdgeToEdge(
+              statusBarStyle = SystemBarStyle.light(
+                Color.WHITE,  // fondo blanco
+                Color.BLACK   // color de íconos (texto/íconos oscuros)
+            ),
+            navigationBarStyle = SystemBarStyle.light(
+                Color.WHITE,  // fondo blanco
+                Color.BLACK   // íconos oscuros en la nav bar
+            )
+        )
+
+        val root = binding.root
+
+        ViewCompat.setOnApplyWindowInsetsListener(root) { v, insets ->
+            val navBarHeight = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
+            v.setPadding(
+                v.paddingLeft,
+                v.paddingTop,
+                v.paddingRight,
+                navBarHeight
+            )
+            insets
+        }
+
         setContentView(binding.root)
 
         // Padding dinamico para el header edgeToEdge
         Edge.applyDynamicEdgeAppBar(
             this,
-            window.decorView,
+            window,
             binding.iHeader.root,
             binding.iHeader.llHeader,
             60f
